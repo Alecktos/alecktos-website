@@ -4,12 +4,15 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <h1 className=" text-4xl" >Malin och Alexanders Bröllop</h1>
+        <p>Välkommen till Malin och Alexanders Bröllop.</p>
+        <p>Nästa steg är att formulär med databas integration på plats</p>
         <Image
           className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/vacation.jpeg"
+          alt="Header image"
+          width={200}
+          height={10}
           priority
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
