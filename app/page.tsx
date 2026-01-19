@@ -7,6 +7,7 @@ export default function Home() {
         <h1 className=" text-4xl" >Malin och Alexanders Bröllop</h1>
         <p>Välkommen till Malin och Alexanders Bröllop.</p>
         <p>Nästa steg är att formulär med databas integration på plats</p>
+        <p>Jag vill även migrera över mina andra appar sidor till denna</p>
         <Image
           className="dark:invert"
           src="/vacation.jpeg"
