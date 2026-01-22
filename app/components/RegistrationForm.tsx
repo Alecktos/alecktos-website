@@ -121,16 +121,15 @@ export default function RegistrationForm() {
 
 			{/* Guest 2 */}
 			<div className="mb-8 p-6 bg-pink-50 rounded-lg">
-				<h3 className="text-xl font-semibold text-gray-800 mb-4">Gäst 2</h3>
+				<h3 className="text-xl font-semibold text-gray-800 mb-4">Gäst 2 <span className="text-sm font-normal text-gray-500">(valfritt)</span></h3>
 				<div className="space-y-4">
 					<div>
 						<label className="block text-sm font-medium text-gray-700 mb-1">
-							Namn *
+							Namn
 						</label>
 						<input
 							type="text"
 							name="guest2Name"
-							required
 							value={formState.guest2.name}
 							onChange={(e) =>
 								handleGuestChange("guest2", "name", e.target.value)
