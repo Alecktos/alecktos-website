@@ -28,6 +28,8 @@ export default function Home() {
           </div>
         </div>
 
+
+
         {/* Registration Form Section */}
         <section className="py-16 px-4 bg-gray-50" id="registration">
           <RegistrationForm />
