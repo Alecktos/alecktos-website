@@ -2,7 +2,6 @@
 
 interface GuestInfo {
 	name: string;
-	email: string;
 	dietaryRestrictions: string;
 }
 
@@ -17,14 +16,12 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	// Extract guest 1 data
 	const guest1: GuestInfo = {
 		name: formData.get("guest1Name") as string,
-		email: formData.get("guest1Email") as string,
 		dietaryRestrictions: formData.get("guest1DietaryRestrictions") as string || "",
 	};
 
 	// Extract guest 2 data
 	const guest2: GuestInfo = {
 		name: formData.get("guest2Name") as string,
-		email: formData.get("guest2Email") as string,
 		dietaryRestrictions: formData.get("guest2DietaryRestrictions") as string || "",
 	};
 

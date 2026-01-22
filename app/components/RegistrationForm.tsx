@@ -6,7 +6,6 @@ import { submitRegistration } from "@/app/actions/registration";
 
 interface GuestInfo {
 	name: string;
-	email: string;
 	dietaryRestrictions: string;
 }
 
@@ -32,8 +31,8 @@ function SubmitButton() {
 
 export default function RegistrationForm() {
 	const [formState, setFormState] = useState<FormState>({
-		guest1: { name: "", email: "", dietaryRestrictions: "" },
-		guest2: { name: "", email: "", dietaryRestrictions: "" },
+		guest1: { name: "", dietaryRestrictions: "" },
+		guest2: { name: "", dietaryRestrictions: "" },
 		needsAccommodation: false,
 		accommodationNotes: "",
 	});
@@ -104,22 +103,6 @@ export default function RegistrationForm() {
 					</div>
 					<div>
 						<label className="block text-sm font-medium text-gray-700 mb-1">
-							E-post *
-						</label>
-						<input
-							type="email"
-							name="guest1Email"
-							required
-							value={formState.guest1.email}
-							onChange={(e) =>
-								handleGuestChange("guest1", "email", e.target.value)
-							}
-							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-							placeholder="namn@exempel.se"
-						/>
-					</div>
-					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
 							Allergier / Specialkost
 						</label>
 						<input
@@ -154,22 +137,6 @@ export default function RegistrationForm() {
 							}
 							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
 							placeholder="Förnamn Efternamn"
-						/>
-					</div>
-					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
-							E-post *
-						</label>
-						<input
-							type="email"
-							name="guest2Email"
-							required
-							value={formState.guest2.email}
-							onChange={(e) =>
-								handleGuestChange("guest2", "email", e.target.value)
-							}
-							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-							placeholder="namn@exempel.se"
 						/>
 					</div>
 					<div>
