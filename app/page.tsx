@@ -9,7 +9,7 @@ export default function Home() {
         {/*<p>Nästa steg är att formulär med databas integration på plats</p>*/}
         {/*<p>Jag vill även migrera över mina andra appar sidor till denna</p>*/}
         <div className="relative w-full text-center">
-          <div className="relative w-fll h-128">
+          <div className="relative w-full h-128">
                 <Image
                 className="my-image object-cover"
                 src="/vacation.jpeg"
@@ -35,7 +35,7 @@ export default function Home() {
           <RegistrationForm />
         </section>
 
-          
+
 
         {/*<div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">*/}
         {/*  <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">*/}
