@@ -1,5 +1,7 @@
 "use server";
 
+import {neon} from "@neondatabase/serverless";
+
 interface GuestInfo {
 	name: string;
 	dietaryRestrictions: string;
@@ -39,6 +41,11 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	console.log("Registration submitted:", registrationData);
 
 	// TODO: Save to database, send confirmation email, etc.
+
+	const sql = neon(`${process.env.DATABASE_URL}`);
+	const comment = "Alex testar lägga till en kommentar";
+	// Insert the comment from the form into the Postgres database
+	await sql`INSERT INTO comments (comment) VALUES (${comment})`;
 
 	// Simulate processing delay
 	await new Promise((resolve) => setTimeout(resolve, 1000));
