@@ -2,11 +2,13 @@
 This is (as of now) a website for wedding invitation and RSVP management.
 
 ## Website Colors
-#828C6A
-#A0AB89
-#F6E5E7
-#EFC0BC
-#E69B97
+| Color | Hex | CSS Variable | Usage |
+|-------|-----|--------------|-------|
+| Sage Dark | `#828C6A` | `sage-dark` | Primary text color, headings, labels |
+| Sage Light | `#A0AB89` | `sage-light` | Header background, accommodation section, input borders, secondary text |
+| Blush Light | `#F6E5E7` | `blush-light` | Page background, form container background, button text |
+| Blush Medium | `#EFC0BC` | `blush-medium` | Guest sections background, button hover states, success message background |
+| Blush Dark | `#E69B97` | `blush-dark` | Primary buttons, focus rings, date overlay text |
 
 ## Misc
 

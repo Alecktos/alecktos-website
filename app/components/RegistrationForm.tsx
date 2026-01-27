@@ -22,7 +22,7 @@ function SubmitButton() {
 		<button
 			type="submit"
 			disabled={pending}
-			className="w-full bg-pink-500 hover:bg-pink-600 disabled:bg-pink-300 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+			className="w-full bg-blush-dark hover:bg-blush-medium disabled:bg-blush-medium text-blush-light font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
 		>
 			{pending ? "Skickar..." : "Skicka anmälan"}
 		</button>
@@ -61,11 +61,11 @@ export default function RegistrationForm() {
 
 	if (submitted) {
 		return (
-			<div className="w-full max-w-2xl mx-auto p-8 bg-pink-50 rounded-lg shadow-lg">
-				<h2 className="text-3xl font-serif text-pink-600 mb-4">
+			<div className="w-full max-w-2xl mx-auto p-8 bg-blush-medium rounded-lg shadow-lg">
+				<h2 className="text-3xl font-serif text-sage-dark mb-4">
 					Tack för din anmälan! 💕
 				</h2>
-				<p className="text-lg text-gray-700">
+				<p className="text-lg text-sage-dark">
 					Vi har mottagit er anmälan och ser fram emot att fira med er!
 				</p>
 			</div>
@@ -75,18 +75,18 @@ export default function RegistrationForm() {
 	return (
 		<form
 			action={handleFormAction}
-			className="w-full max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg"
+			className="w-full max-w-2xl mx-auto p-8 bg-blush-light rounded-lg shadow-lg"
 		>
-			<h2 className="text-3xl font-serif text-pink-600 mb-6 text-center">
+			<h2 className="text-3xl font-serif text-sage-dark mb-6 text-center">
 				Anmälan till bröllopet
 			</h2>
 
 			{/* Guest 1 */}
-			<div className="mb-8 p-6 bg-pink-50 rounded-lg">
-				<h3 className="text-xl font-semibold text-gray-800 mb-4">Gäst 1</h3>
+			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+				<h3 className="text-xl font-semibold text-sage-dark mb-4">Gäst 1</h3>
 				<div className="space-y-4">
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium text-sage-dark mb-1">
 							Namn *
 						</label>
 						<input
@@ -97,12 +97,12 @@ export default function RegistrationForm() {
 							onChange={(e) =>
 								handleGuestChange("guest1", "name", e.target.value)
 							}
-							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent"
 							placeholder="Förnamn Efternamn"
 						/>
 					</div>
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium text-sage-dark mb-1">
 							Allergier / Specialkost
 						</label>
 						<input
@@ -112,7 +112,7 @@ export default function RegistrationForm() {
 							onChange={(e) =>
 								handleGuestChange("guest1", "dietaryRestrictions", e.target.value)
 							}
-							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent"
 							placeholder="T.ex. vegetarian, glutenfri, nötallergi..."
 						/>
 					</div>
@@ -120,11 +120,11 @@ export default function RegistrationForm() {
 			</div>
 
 			{/* Guest 2 */}
-			<div className="mb-8 p-6 bg-pink-50 rounded-lg">
-				<h3 className="text-xl font-semibold text-gray-800 mb-4">Gäst 2 <span className="text-sm font-normal text-gray-500">(valfritt)</span></h3>
+			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+				<h3 className="text-xl font-semibold text-sage-dark mb-4">Gäst 2 <span className="text-sm font-normal text-sage-light">(valfritt)</span></h3>
 				<div className="space-y-4">
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium text-sage-dark mb-1">
 							Namn
 						</label>
 						<input
@@ -134,12 +134,12 @@ export default function RegistrationForm() {
 							onChange={(e) =>
 								handleGuestChange("guest2", "name", e.target.value)
 							}
-							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent"
 							placeholder="Förnamn Efternamn"
 						/>
 					</div>
 					<div>
-						<label className="block text-sm font-medium text-gray-700 mb-1">
+						<label className="block text-sm font-medium text-sage-dark mb-1">
 							Allergier / Specialkost
 						</label>
 						<input
@@ -149,7 +149,7 @@ export default function RegistrationForm() {
 							onChange={(e) =>
 								handleGuestChange("guest2", "dietaryRestrictions", e.target.value)
 							}
-							className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent"
 							placeholder="T.ex. vegetarian, glutenfri, nötallergi..."
 						/>
 					</div>
@@ -157,8 +157,8 @@ export default function RegistrationForm() {
 			</div>
 
 			{/* Accommodation */}
-			<div className="mb-8 p-6 bg-green-50 rounded-lg">
-				<h3 className="text-xl font-semibold text-gray-800 mb-4">Boende</h3>
+			<div className="mb-8 p-6 bg-sage-light rounded-lg">
+				<h3 className="text-xl font-semibold text-sage-dark mb-4">Boende</h3>
 				<div className="space-y-4">
 					<div className="flex items-center">
 						<input
@@ -172,18 +172,18 @@ export default function RegistrationForm() {
 									needsAccommodation: e.target.checked,
 								}))
 							}
-							className="w-5 h-5 text-pink-500 border-gray-300 rounded focus:ring-pink-500"
+							className="w-5 h-5 text-blush-dark border-sage-dark rounded focus:ring-blush-dark"
 						/>
 						<label
 							htmlFor="needsAccommodation"
-							className="ml-3 text-gray-700 font-medium"
+							className="ml-3 text-sage-dark font-medium"
 						>
 							Vi behöver hjälp med boende
 						</label>
 					</div>
 					{formState.needsAccommodation && (
 						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-1">
+							<label className="block text-sm font-medium text-sage-dark mb-1">
 								Eventuella önskemål om boende
 							</label>
 							<textarea
@@ -195,7 +195,7 @@ export default function RegistrationForm() {
 										accommodationNotes: e.target.value,
 									}))
 								}
-								className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+								className="w-full px-4 py-2 border border-sage-dark rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent"
 								rows={3}
 								placeholder="T.ex. antal nätter, speciella behov..."
 							/>
