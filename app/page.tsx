@@ -4,8 +4,8 @@ import RegistrationForm from "./components/RegistrationForm";
 export default function Home() {
   return (
     // <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex min-h-screen w-full flex-col bg-white text-center">
-        <h1 className="text-5xl italic font-serif p-4  bg-green-100" >Malin & Alexander</h1>
+      <main className="flex min-h-screen w-full flex-col bg-off-white text-center">
+        <h1 className="text-5xl italic font-serif p-4 text-sage-darker" >Malin & Alexander</h1>
         {/*<p>Nästa steg är att formulär med databas integration på plats</p>*/}
         {/*<p>Jag vill även migrera över mina andra appar sidor till denna</p>*/}
         <div className="relative w-full text-center">
@@ -18,20 +18,20 @@ export default function Home() {
                 priority
               />
           </div>
-          <div className="w-full absolute bottom-0 left-0 text-center mb-10">
-            <h2 className="text-5xl font-serif font-bold text-background text-pink-500  drop-shadow-lg text-center">
+          <div className="w-full absolute bottom-0 left-0 text-center mb-32">
+			<h2 className="text-8xl font-serif font-bold text-sage-lighter drop-shadow-lg text-center">
               2026-08-16
             </h2>
-             <button className="mt-10 bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded">
-                 Anmäl dig här
-             </button>
+             {/*<button className="mt-10 bg-blush-dark hover:bg-blush-medium text-sage-darker font-bold py-2 px-4 rounded">*/}
+             {/*    Anmäl dig här*/}
+             {/*</button>*/}
           </div>
         </div>
 
 
 
         {/* Registration Form Section */}
-        <section className="py-16 px-4 bg-gray-50" id="registration">
+        <section className="py-16 px-4" id="registration">
           <RegistrationForm />
         </section>
 

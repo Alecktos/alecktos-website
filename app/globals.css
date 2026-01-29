@@ -1,27 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /*--background: #F6E5E7;*/
+  /*--foreground: #4A5240;*/
+
+  /* Wedding color palette */
+  --sage-darker: #4A5240;
+  --sage-dark: #828C6A;
+  --sage-light: #A0AB89;
+  --sage-lighter: #C8D4B5;
+  --off-white: #FFFAF9;
+  --blush-lighter: #FBF0F1;
+  --blush-light: #F6E5E7;
+  --blush-medium: #F5D5D2;
+  --blush-dark: #E69B97;
+  --blush-darker: #D4817C;
+  --error: #C45B52;
 }
 
-/*@theme inline {*/
-/*  --color-background: var(--background);*/
-/*  --color-foreground: var(--foreground);*/
-/*  --font-sans: var(--font-geist-sans);*/
-/*  --font-mono: var(--font-geist-mono);*/
-/*}*/
-
-/*@media (prefers-color-scheme: dark) {*/
-/*  :root {*/
-/*    --background: #0a0a0a;*/
-/*    --foreground: #ededed;*/
-/*  }*/
-/*}*/
+@theme inline {
+  --color-sage-darker: var(--sage-darker);
+  --color-sage-dark: var(--sage-dark);
+  --color-sage-light: var(--sage-light);
+  --color-sage-lighter: var(--sage-lighter);
+  --color-off-white: var(--off-white);
+  --color-blush-lighter: var(--blush-lighter);
+  --color-blush-light: var(--blush-light);
+  --color-blush-medium: var(--blush-medium);
+  --color-blush-dark: var(--blush-dark);
+  --color-blush-darker: var(--blush-darker);
+  --color-error: var(--error);
+}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /*background: var(--background);*/
+  /*color: var(--foreground);*/
   font-family: Arial, Helvetica, sans-serif;
 }
 
