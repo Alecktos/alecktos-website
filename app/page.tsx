@@ -18,7 +18,7 @@ export default function Home() {
                 priority
               />
           </div>
-          <div className="w-full absolute bottom-0 left-0 text-center mb-30">
+          <div className="w-full absolute bottom-0 left-0 text-center mb-32">
 			<h2 className="text-8xl font-serif font-bold text-sage-lighter drop-shadow-lg text-center">
               2026-08-16
             </h2>
