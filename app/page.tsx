@@ -4,7 +4,7 @@ import RegistrationForm from "./components/RegistrationForm";
 export default function Home() {
   return (
     // <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex min-h-screen w-full flex-col bg-bg-off-white text-center">
+      <main className="flex min-h-screen w-full flex-col bg-off-white text-center">
         <h1 className="text-5xl italic font-serif p-4 text-sage-darker" >Malin & Alexander</h1>
         {/*<p>Nästa steg är att formulär med databas integration på plats</p>*/}
         {/*<p>Jag vill även migrera över mina andra appar sidor till denna</p>*/}
