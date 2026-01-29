@@ -48,7 +48,21 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		from: 'Berlind Website <wedding@berlind.me>',
 		to: ['alexander.berlind@proton.me'],
 		subject: 'Ny anmälan',
-		html: `<strong>It works!</strong>`,
+		html: `
+			<h2>Ny anmälan mottagen</h2>
+
+			<h3>Gäst 1</h3>
+			<p><strong>Namn:</strong> ${guest1.name}</p>
+			<p><strong>Allergier/Specialkost:</strong> ${guest1.dietaryRestrictions || 'Inga'}</p>
+
+			<h3>Gäst 2</h3>
+			<p><strong>Namn:</strong> ${guest2.name || 'Ingen andra gäst'}</p>
+			<p><strong>Allergier/Specialkost:</strong> ${guest2.dietaryRestrictions || 'Inga'}</p>
+
+			<h3>Boende</h3>
+			<p><strong>Behöver boende:</strong> ${needsAccommodation ? 'Ja' : 'Nej'}</p>
+			<p><strong>Önskemål om boende:</strong> ${accommodationNotes || 'Inga'}</p>
+		`,
 	});
 
 	if (error) {
