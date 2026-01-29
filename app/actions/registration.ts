@@ -69,7 +69,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		console.error("Error sending email:", error);
 		return {
 			success: false,
-			message: "Ett fel uppstod anmälan.",
+			message: "Ett fel uppstod vid anmälan.",
 		}
 	}
 
