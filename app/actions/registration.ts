@@ -32,13 +32,17 @@ const htmlEscapeMap: { [key: string]: string } = {
 /**
  * Escapes HTML special characters to prevent XSS attacks
  * @param text - The text to escape
- * @returns The escaped text safe for HTML insertion
+ * @returns The escaped text safe for HTML insertion, or empty string if input is null/undefined/whitespace-only
  */
 function escapeHtml(text: string | null | undefined): string {
 	if (text == null) {
 		return '';
 	}
-	return text.replace(/[&<>"'\/]/g, (char) => htmlEscapeMap[char]);
+	const trimmed = text.trim();
+	if (trimmed === '') {
+		return '';
+	}
+	return trimmed.replace(/[&<>"'\/]/g, (char) => htmlEscapeMap[char]);
 }
 
 export async function submitRegistration(formData: FormData): Promise<{ success: boolean; message: string }> {
