@@ -17,6 +17,23 @@ interface RegistrationData {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+/**
+ * Escapes HTML special characters to prevent XSS attacks
+ * @param text - The text to escape
+ * @returns The escaped text safe for HTML insertion
+ */
+function escapeHtml(text: string): string {
+	const htmlEscapeMap: { [key: string]: string } = {
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		"'": '&#x27;',
+		'/': '&#x2F;',
+	};
+	return text.replace(/[&<>"'\/]/g, (char) => htmlEscapeMap[char]);
+}
+
 export async function submitRegistration(formData: FormData): Promise<{ success: boolean; message: string }> {
 	// Extract guest 1 data
 	const guest1: GuestInfo = {
@@ -52,16 +69,16 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			<h2>Ny anmälan mottagen</h2>
 
 			<h3>Gäst 1</h3>
-			<p><strong>Namn:</strong> ${guest1.name}</p>
-			<p><strong>Allergier/Specialkost:</strong> ${guest1.dietaryRestrictions || 'Inga'}</p>
+			<p><strong>Namn:</strong> ${escapeHtml(guest1.name)}</p>
+			<p><strong>Allergier/Specialkost:</strong> ${escapeHtml(guest1.dietaryRestrictions || 'Inga')}</p>
 
 			<h3>Gäst 2</h3>
-			<p><strong>Namn:</strong> ${guest2.name || 'Ingen andra gäst'}</p>
-			<p><strong>Allergier/Specialkost:</strong> ${guest2.dietaryRestrictions || 'Inga'}</p>
+			<p><strong>Namn:</strong> ${escapeHtml(guest2.name || 'Ingen andra gäst')}</p>
+			<p><strong>Allergier/Specialkost:</strong> ${escapeHtml(guest2.dietaryRestrictions || 'Inga')}</p>
 
 			<h3>Boende</h3>
 			<p><strong>Behöver boende:</strong> ${needsAccommodation ? 'Ja' : 'Nej'}</p>
-			<p><strong>Önskemål om boende:</strong> ${accommodationNotes || 'Inga'}</p>
+			<p><strong>Önskemål om boende:</strong> ${escapeHtml(accommodationNotes || 'Inga')}</p>
 		`,
 	});
 
