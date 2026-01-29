@@ -18,8 +18,8 @@ export default function Home() {
                 priority
               />
           </div>
-          <div className="w-full absolute bottom-0 left-0 text-center mb-10">
-			<h2 className="text-5xl font-serif font-bold text-blush-light drop-shadow-lg text-center">
+          <div className="w-full absolute bottom-0 left-0 text-center mb-30">
+			<h2 className="text-8xl font-serif font-bold text-sage-lighter drop-shadow-lg text-center">
               2026-08-16
             </h2>
              {/*<button className="mt-10 bg-blush-dark hover:bg-blush-medium text-sage-darker font-bold py-2 px-4 rounded">*/}
