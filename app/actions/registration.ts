@@ -22,7 +22,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
  * @param text - The text to escape
  * @returns The escaped text safe for HTML insertion
  */
-function escapeHtml(text: string): string {
+function escapeHtml(text: string | null | undefined): string {
+	if (text == null || text === '') {
+		return '';
+	}
 	const htmlEscapeMap: { [key: string]: string } = {
 		'&': '&amp;',
 		'<': '&lt;',
@@ -87,7 +90,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		return {
 			success: false,
 			message: "Ett fel uppstod vid anmälan.",
-		}
+		};
 	}
 
 
