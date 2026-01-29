@@ -2,8 +2,8 @@
 This is (as of now) a website for wedding invitation and RSVP management.
 
 ## Website Colors
-| Color | Hex | CSS Variable | Usage |
-|-------|-----|--------------|-------|
+| Color | Hex | Tailwind Token | Usage |
+|-------|-----|----------------|-------|
 | Sage Darker | `#4A5240` | `sage-darker` | Primary text for better contrast |
 | Sage Dark | `#828C6A` | `sage-dark` | Secondary text, icons |
 | Sage Light | `#A0AB89` | `sage-light` | Header background, accommodation section, input borders |
