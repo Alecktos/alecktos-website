@@ -13,7 +13,7 @@ interface FormState {
 	guest1: GuestInfo;
 	guest2: GuestInfo;
 	needsAccommodation: boolean;
-	accommodationNotes: string;
+	notes: string;
 }
 
 function SubmitButton() {
@@ -34,7 +34,7 @@ export default function RegistrationForm() {
 		guest1: { name: "", dietaryRestrictions: "" },
 		guest2: { name: "", dietaryRestrictions: "" },
 		needsAccommodation: false,
-		accommodationNotes: "",
+		notes: "",
 	});
 	const [submitted, setSubmitted] = useState(false);
 
@@ -156,11 +156,11 @@ export default function RegistrationForm() {
 				</div>
 			</div>
 
-			{/* Accommodation */}
+			{/* Accommodation & Notes */}
 			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
-				<h3 className="text-xl font-semibold text-sage-darker mb-4">Boende</h3>
+				<h3 className="text-xl font-semibold text-sage-darker mb-4">Övrigt</h3>
 				<div className="space-y-4">
-					<div className="flex items-center">
+					<div className="flex items-center justify-center">
 						<input
 							type="checkbox"
 							id="needsAccommodation"
@@ -174,33 +174,32 @@ export default function RegistrationForm() {
 							}
 							className="w-5 h-5 text-blush-dark border-sage-darker rounded focus:ring-blush-dark"
 						/>
-						<label
-							htmlFor="needsAccommodation"
-							className="ml-3 text-sage-darker font-medium"
-						>
-							Vi behöver hjälp med boende
-						</label>
+					<label
+						htmlFor="needsAccommodation"
+						className="ml-3 text-sage-darker font-medium"
+					>
+						Önskar hjälp med boende
+					</label>
+				</div>
+				<hr className="border-sage-light" />
+				<div>
+						{/*<label className="block text-sm font-medium text-sage-darker mb-1">*/}
+						{/*	Frågor, önskemål eller annat ni vill meddela*/}
+						{/*</label>*/}
+						<textarea
+							name="notes"
+							value={formState.notes}
+							onChange={(e) =>
+								setFormState((prev) => ({
+									...prev,
+									notes: e.target.value,
+								}))
+							}
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+							rows={4}
+							placeholder="Frågor, önskemål eller annat ni vill meddela"
+						/>
 					</div>
-					{formState.needsAccommodation && (
-						<div>
-							<label className="block text-sm font-medium text-sage-darker mb-1">
-								Eventuella önskemål om boende
-							</label>
-							<textarea
-								name="accommodationNotes"
-								value={formState.accommodationNotes}
-								onChange={(e) =>
-									setFormState((prev) => ({
-										...prev,
-										accommodationNotes: e.target.value,
-									}))
-								}
-								className="w-full px-4 py-2 border border-sage-darker rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
-								rows={3}
-								placeholder="T.ex. antal nätter, speciella behov..."
-							/>
-						</div>
-					)}
 				</div>
 			</div>
 

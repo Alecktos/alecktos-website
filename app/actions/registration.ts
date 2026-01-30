@@ -13,7 +13,7 @@ interface RegistrationData {
 	guest1: GuestInfo;
 	guest2: GuestInfo;
 	needsAccommodation: boolean;
-	accommodationNotes: string;
+	notes: string;
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -51,8 +51,10 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 			<p><strong>Allergier/Specialkost:</strong> ${registrationData.guest2.dietaryRestrictions || 'Inga'}</p>
 
 			<h3>Boende</h3>
-			<p><strong>Behöver boende:</strong> ${registrationData.needsAccommodation ? 'Ja' : 'Nej'}</p>
-			<p><strong>Önskemål om boende:</strong> ${registrationData.accommodationNotes || 'Inga'}</p>
+			<p><strong>Behöver hjälp med boende:</strong> ${registrationData.needsAccommodation ? 'Ja' : 'Nej'}</p>
+
+			<h3>Meddelande</h3>
+			<p>${registrationData.notes || 'Inget meddelande'}</p>
 		`,
 	});
 }
@@ -72,13 +74,15 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 
 	// Extract accommodation data
 	const needsAccommodation = formData.get("needsAccommodation") === "on";
-	const accommodationNotes = escapeAndTrim(formData.get("accommodationNotes") as string || "");
+
+	// Extract general notes
+	const notes = escapeAndTrim(formData.get("notes") as string || "");
 
 	const registrationData: RegistrationData = {
 		guest1,
 		guest2,
 		needsAccommodation,
-		accommodationNotes,
+		notes,
 	};
 
 	console.log("Registration submitted:", registrationData);
@@ -96,17 +100,14 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 
 	const sql = neon(`${process.env.DATABASE_URL}`);
 
-	await sql`INSERT INTO registrations (guest1_name, guest1_dietary_restrictions, guest2_name, guest2_dietary_restrictions, needs_accommodation) VALUES (
+	await sql`INSERT INTO registrations (guest1_name, guest1_dietary_restrictions, guest2_name, guest2_dietary_restrictions, needs_accommodation, notes) VALUES (
 		${registrationData.guest1.name},
 		${registrationData.guest1.dietaryRestrictions},
 		${registrationData.guest2.name},
 		${registrationData.guest2.dietaryRestrictions},
-		${registrationData.needsAccommodation}
+		${registrationData.needsAccommodation},
+		${registrationData.notes}
 	)`;
-
-
-	// Simulate processing delay
-	// await new Promise((resolve) => setTimeout(resolve, 1000));
 
 	return {
 		success: true,
