@@ -2,6 +2,7 @@
 
 import {neon} from "@neondatabase/serverless";
 import {Resend} from "resend";
+import escapeHtml from "escape-html";
 
 interface GuestInfo {
 	name: string;
@@ -16,6 +17,22 @@ interface RegistrationData {
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+/**
+ * Escapes HTML and trims whitespace to ensure proper fallback behavior
+ * @param text - The text to escape
+ * @returns The escaped text safe for HTML insertion, or empty string if input is null/undefined/whitespace-only
+ */
+function escapeAndTrim(text: string | null | undefined): string {
+	if (text == null) {
+		return '';
+	}
+	const trimmed = text.trim();
+	if (trimmed === '') {
+		return '';
+	}
+	return escapeHtml(trimmed);
+}
 
 export async function submitRegistration(formData: FormData): Promise<{ success: boolean; message: string }> {
 	// Extract guest 1 data
@@ -52,16 +69,16 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			<h2>Ny anmälan mottagen</h2>
 
 			<h3>Gäst 1</h3>
-			<p><strong>Namn:</strong> ${guest1.name}</p>
-			<p><strong>Allergier/Specialkost:</strong> ${guest1.dietaryRestrictions || 'Inga'}</p>
+			<p><strong>Namn:</strong> ${escapeAndTrim(guest1.name)}</p>
+			<p><strong>Allergier/Specialkost:</strong> ${escapeAndTrim(guest1.dietaryRestrictions) || 'Inga'}</p>
 
 			<h3>Gäst 2</h3>
-			<p><strong>Namn:</strong> ${guest2.name || 'Ingen andra gäst'}</p>
-			<p><strong>Allergier/Specialkost:</strong> ${guest2.dietaryRestrictions || 'Inga'}</p>
+			<p><strong>Namn:</strong> ${escapeAndTrim(guest2.name) || 'Ingen andra gäst'}</p>
+			<p><strong>Allergier/Specialkost:</strong> ${escapeAndTrim(guest2.dietaryRestrictions) || 'Inga'}</p>
 
 			<h3>Boende</h3>
 			<p><strong>Behöver boende:</strong> ${needsAccommodation ? 'Ja' : 'Nej'}</p>
-			<p><strong>Önskemål om boende:</strong> ${accommodationNotes || 'Inga'}</p>
+			<p><strong>Önskemål om boende:</strong> ${escapeAndTrim(accommodationNotes) || 'Inga'}</p>
 		`,
 	});
 
