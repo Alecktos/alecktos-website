@@ -100,7 +100,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	await sql`INSERT INTO comments (comment) VALUES (${comment})`;
 
 	// Simulate processing delay
-	await new Promise((resolve) => setTimeout(resolve, 1000));
+	// await new Promise((resolve) => setTimeout(resolve, 1000));
 
 	return {
 		success: true,
