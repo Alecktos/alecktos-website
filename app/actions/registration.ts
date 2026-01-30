@@ -95,9 +95,15 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	}
 
 	const sql = neon(`${process.env.DATABASE_URL}`);
-	const comment = "Alex testar lägga till en kommentar";
-	// Insert the comment from the form into the Postgres database
-	await sql`INSERT INTO comments (comment) VALUES (${comment})`;
+
+	await sql`INSERT INTO registrations (guest1_name, guest1_dietary_restrictions, guest2_name, guest2_dietary_restrictions, needs_accommodation) VALUES (
+		${registrationData.guest1.name},
+		${registrationData.guest1.dietaryRestrictions},
+		${registrationData.guest2.name},
+		${registrationData.guest2.dietaryRestrictions},
+		${registrationData.needsAccommodation}
+	)`;
+
 
 	// Simulate processing delay
 	// await new Promise((resolve) => setTimeout(resolve, 1000));
