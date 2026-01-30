@@ -3,6 +3,33 @@
 import {neon} from "@neondatabase/serverless";
 import {Resend} from "resend";
 import escapeHtml from "escape-html";
+import {z} from "zod";
+
+// Validation constants
+const MAX_NAME_LENGTH = 100;
+const MAX_DIETARY_LENGTH = 500;
+const MAX_NOTES_LENGTH = 1000;
+
+// Zod schema for guest info
+const guestInfoSchema = z.object({
+	name: z.string().max(MAX_NAME_LENGTH, `Namnet får max vara ${MAX_NAME_LENGTH} tecken`),
+	dietaryRestrictions: z.string().max(MAX_DIETARY_LENGTH, `Allergier/specialkost får max vara ${MAX_DIETARY_LENGTH} tecken`),
+});
+
+// Zod schema for guest1 (name required)
+const guest1Schema = guestInfoSchema.extend({
+	name: z.string()
+		.min(1, "Namn för gäst 1 är obligatoriskt")
+		.max(MAX_NAME_LENGTH, `Namnet får max vara ${MAX_NAME_LENGTH} tecken`),
+});
+
+// Full registration data schema
+const registrationSchema = z.object({
+	guest1: guest1Schema,
+	guest2: guestInfoSchema,
+	needsAccommodation: z.boolean(),
+	notes: z.string().max(MAX_NOTES_LENGTH, `Meddelandet får max vara ${MAX_NOTES_LENGTH} tecken`),
+});
 
 interface GuestInfo {
 	name: string;
@@ -84,6 +111,19 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		needsAccommodation,
 		notes,
 	};
+
+	// Validate registration data
+	const validationResult = registrationSchema.safeParse(registrationData);
+	if (!validationResult.success) {
+		const errorMessages = validationResult.error.issues
+			.map((issue) => issue.message)
+			.join(", ");
+		console.error("Validation failed:", errorMessages);
+		return {
+			success: false,
+			message: errorMessages,
+		};
+	}
 
 	console.log("Registration submitted:", registrationData);
 

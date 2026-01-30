@@ -37,6 +37,7 @@ export default function RegistrationForm() {
 		notes: "",
 	});
 	const [submitted, setSubmitted] = useState(false);
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
 	const handleGuestChange = (
 		guestKey: "guest1" | "guest2",
@@ -53,9 +54,18 @@ export default function RegistrationForm() {
 	};
 
 	const handleFormAction = async (formData: FormData) => {
+		setErrorMessage(null);
 		const result = await submitRegistration(formData);
 		if (result.success) {
 			setSubmitted(true);
+		} else {
+			setErrorMessage(result.message);
+			setFormState({
+				guest1: { name: "", dietaryRestrictions: "" },
+				guest2: { name: "", dietaryRestrictions: "" },
+				needsAccommodation: false,
+				notes: "",
+			});
 		}
 	};
 
@@ -188,6 +198,7 @@ export default function RegistrationForm() {
 						{/*</label>*/}
 						<textarea
 							name="notes"
+							maxLength={1000}
 							value={formState.notes}
 							onChange={(e) =>
 								setFormState((prev) => ({
@@ -202,6 +213,14 @@ export default function RegistrationForm() {
 					</div>
 				</div>
 			</div>
+
+			{/* Error Message */}
+			{errorMessage && (
+				<div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+					<p className="font-medium">Det gick inte att skicka anmälan:</p>
+					<p>{errorMessage}</p>
+				</div>
+			)}
 
 			{/* Submit Button */}
 			<SubmitButton />
