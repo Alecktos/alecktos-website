@@ -3,12 +3,12 @@ import RegistrationForm from "./components/RegistrationForm";
 
 export default function Home() {
   return (
-    // <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex min-h-screen w-full flex-col bg-off-white text-center">
+    <div className="min-h-screen bg-off-white">
+      <main className="max-w-screen-2xl mx-auto min-h-screen w-full flex flex-col bg-blush-lighter text-center">
         <h1 className="text-5xl italic font-serif p-4 text-sage-darker" >Malin & Alexander</h1>
         {/*<p>Nästa steg är att formulär med databas integration på plats</p>*/}
         {/*<p>Jag vill även migrera över mina andra appar sidor till denna</p>*/}
-        <div className="relative w-full max-w-7xl mx-auto text-center">
+        <div className="relative w-full text-center">
           <div className="relative w-full h-128">
                 <Image
                 className="my-image object-cover"
@@ -102,6 +102,6 @@ export default function Home() {
         {/*  </a>*/}
         {/*</div>*/}
       </main>
-    // </div>
+    </div>
   );
 }
