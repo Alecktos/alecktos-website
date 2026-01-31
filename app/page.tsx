@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-5xl italic font-serif p-4 text-sage-darker" >Malin & Alexander</h1>
         {/*<p>Nästa steg är att formulär med databas integration på plats</p>*/}
         {/*<p>Jag vill även migrera över mina andra appar sidor till denna</p>*/}
-        <div className="relative w-full text-center">
+        <div className="relative w-full max-w-7xl mx-auto text-center">
           <div className="relative w-full h-128">
                 <Image
                 className="my-image object-cover"
@@ -19,9 +19,9 @@ export default function Home() {
               />
           </div>
           <div className="w-full absolute bottom-0 left-0 text-center mb-32">
-			<h2 className="text-8xl font-serif font-bold text-sage-lighter drop-shadow-lg text-center">
-              2026-08-16
-            </h2>
+			{/*<h2 className="text-8xl font-serif font-bold text-sage-lighter drop-shadow-lg text-center">*/}
+            {/*  2026-08-16*/}
+            {/*</h2>*/}
              {/*<button className="mt-10 bg-blush-dark hover:bg-blush-medium text-sage-darker font-bold py-2 px-4 rounded">*/}
              {/*    Anmäl dig här*/}
              {/*</button>*/}
@@ -32,6 +32,23 @@ export default function Home() {
 
         {/* Registration Form Section */}
         <section className="py-16 px-4" id="registration">
+          {/* Information Section */}
+          <div className="w-full max-w-2xl mx-auto mb-8 p-8 bg-blush-medium rounded-lg shadow-lg">
+            <h2 className="text-3xl font-serif text-sage-darker mb-4 text-center">
+              Välkommen till vårt bröllop!
+            </h2>
+            <p className="text-lg text-sage-darker mb-4 text-center">
+              Vi gifter oss och vill gärna fira denna speciella dag tillsammans med er.
+            </p>
+            <div className="text-sage-darker space-y-2">
+              <p><strong>Datum:</strong> 15 augusti 2026</p>
+              <p><strong>Plats:</strong> Tävelsås bygdegård</p>
+            </div>
+            <p className="text-sage-dark mt-4 text-sm">
+              Mer information om schemat och övriga detaljer kommer att skickas ut via e-post.
+            </p>
+          </div>
+
           <RegistrationForm />
         </section>
 
