@@ -30,6 +30,7 @@ function SubmitButton() {
 }
 
 export default function RegistrationForm() {
+	const [canAttend, setCanAttend] = useState<boolean | null>(null);
 	const [formState, setFormState] = useState<FormState>({
 		guest1: { name: "", dietaryRestrictions: "" },
 		guest2: { name: "", dietaryRestrictions: "" },
@@ -72,16 +73,131 @@ export default function RegistrationForm() {
 	if (submitted) {
 		return (
 			<div className="w-full max-w-2xl mx-auto p-8 bg-blush-medium rounded-lg shadow-lg">
-				<h2 className="text-3xl font-serif text-sage-darker mb-4">
-					Tack för din anmälan! 💕
-				</h2>
-				<p className="text-lg text-sage-darker">
-					Vi har mottagit er anmälan och ser fram emot att fira med er!
-				</p>
+				{canAttend ? (
+					<>
+						<h2 className="text-3xl font-serif text-sage-darker mb-4">
+							Tack för din anmälan! 💕
+						</h2>
+						<p className="text-lg text-sage-darker">
+							Vi har mottagit er anmälan och ser fram emot att fira med er!
+						</p>
+					</>
+				) : (
+					<>
+						<h2 className="text-3xl font-serif text-sage-darker mb-4">
+							Tack för ditt svar! 💕
+						</h2>
+						<p className="text-lg text-sage-darker">
+							Vad synd att ni inte kan komma.
+						</p>
+					</>
+				)}
 			</div>
 		);
 	}
 
+	// Show attendance selection buttons if not yet chosen
+	if (canAttend === null) {
+		return (
+			<div className="w-full max-w-2xl mx-auto p-8 bg-blush-light rounded-lg shadow-lg">
+				<h2 className="text-3xl font-serif text-sage-darker mb-6 text-center">
+					Anmälan till bröllopet
+				</h2>
+				<p className="text-lg text-sage-darker mb-8 text-center">
+					Kan ni komma på bröllopet?
+				</p>
+				<div className="flex flex-col gap-4">
+					<button
+						type="button"
+						onClick={() => setCanAttend(true)}
+						className="w-full bg-blush-darker hover:bg-blush-medium text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+					>
+						Ja, vi kommer!
+					</button>
+					<button
+						type="button"
+						onClick={() => setCanAttend(false)}
+						className="w-full bg-transparent border-2 border-blush-darker text-blush-darker hover:bg-blush-darker hover:text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+					>
+						Tyvärr kan vi inte komma
+					</button>
+				</div>
+			</div>
+		);
+	}
+
+	// Show decline form (only names) if canAttend is false
+	if (canAttend === false) {
+		return (
+			<form
+				action={handleFormAction}
+				className="w-full max-w-2xl mx-auto p-8 bg-blush-light rounded-lg shadow-lg"
+			>
+				<h2 className="text-3xl font-serif text-sage-darker mb-6 text-center">
+					Anmälan till bröllopet
+				</h2>
+				<input type="hidden" name="canAttend" value="false" />
+
+				{/* Guest 1 */}
+				<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+					<h3 className="text-xl font-semibold text-sage-darker mb-4">Gäst 1</h3>
+					<div className="space-y-4">
+						<div>
+							<label className="block text-sm font-medium text-sage-darker mb-1">
+								Namn *
+							</label>
+							<input
+								type="text"
+								name="guest1Name"
+								required
+								value={formState.guest1.name}
+								onChange={(e) =>
+									handleGuestChange("guest1", "name", e.target.value)
+								}
+								className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+								placeholder="Förnamn Efternamn"
+							/>
+						</div>
+					</div>
+				</div>
+
+				{/* Guest 2 */}
+				<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+					<h3 className="text-xl font-semibold text-sage-darker mb-4">Gäst 2 <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
+					<div className="space-y-4">
+						<div>
+							<label className="block text-sm font-medium text-sage-darker mb-1">
+								Namn
+							</label>
+							<input
+								type="text"
+								name="guest2Name"
+								value={formState.guest2.name}
+								onChange={(e) =>
+									handleGuestChange("guest2", "name", e.target.value)
+								}
+								className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+								placeholder="Förnamn Efternamn"
+							/>
+						</div>
+					</div>
+				</div>
+
+				{/* Error Message */}
+				{errorMessage && (
+					<div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+						<p className="font-medium">Det gick inte att skicka anmälan:</p>
+						<p>{errorMessage}</p>
+					</div>
+				)}
+
+				{/* Submit Button */}
+				<SubmitButton />
+			</form>
+		);
+	}
+
+	// Full form for attending guests
 	return (
 		<form
 			action={handleFormAction}
@@ -90,6 +206,7 @@ export default function RegistrationForm() {
 			<h2 className="text-3xl font-serif text-sage-darker mb-6 text-center">
 				Anmälan till bröllopet
 			</h2>
+			<input type="hidden" name="canAttend" value="true" />
 
 			{/* Guest 1 */}
 			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
