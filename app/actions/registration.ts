@@ -178,15 +178,23 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 
 	const sql = neon(`${process.env.DATABASE_URL}`);
 
-	await sql`INSERT INTO registrations (can_attend, guest1_name, guest1_dietary_restrictions, guest2_name, guest2_dietary_restrictions, needs_accommodation, notes) VALUES (
-		${registrationData.canAttend},
-		${registrationData.guest1.name},
-		${registrationData.guest1.dietaryRestrictions},
-		${registrationData.guest2.name},
-		${registrationData.guest2.dietaryRestrictions},
-		${registrationData.needsAccommodation},
-		${registrationData.notes}
-	)`;
+	try {
+		await sql`INSERT INTO registrations (can_attend, guest1_name, guest1_dietary_restrictions, guest2_name, guest2_dietary_restrictions, needs_accommodation, notes) VALUES (
+			${registrationData.canAttend},
+			${registrationData.guest1.name},
+			${registrationData.guest1.dietaryRestrictions},
+			${registrationData.guest2.name},
+			${registrationData.guest2.dietaryRestrictions},
+			${registrationData.needsAccommodation},
+			${registrationData.notes}
+		)`;
+	} catch (error) {
+		console.error("Error saving to database:", error);
+		return {
+			success: false,
+			message: "Ett fel uppstod vid anmälan. Vänligen försök igen.",
+		};
+	}
 
 	return {
 		success: true,
