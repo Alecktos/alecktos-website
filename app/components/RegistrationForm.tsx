@@ -24,7 +24,7 @@ function SubmitButton() {
 			disabled={pending}
 			className="w-full bg-blush-darker hover:bg-blush-darkest disabled:bg-blush-medium text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg cursor-pointer disabled:cursor-not-allowed"
 		>
-			{pending ? "Skickar..." : "Skicka anmälan"}
+			{pending ? "Skickar..." : "Skicka"}
 		</button>
 	);
 }
@@ -180,6 +180,28 @@ export default function RegistrationForm() {
 								placeholder="Förnamn Efternamn"
 							/>
 						</div>
+					</div>
+				</div>
+
+				{/* Notes */}
+				<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+					<h3 className="text-xl font-semibold text-sage-darker mb-4">
+						Meddelande <span className="text-sm font-normal text-sage-dark">(valfritt)</span>
+					</h3>
+					<div>
+						<textarea
+							name="notes"
+							maxLength={1000}
+							value={formState.notes}
+							onChange={(e) =>
+								setFormState((prev) => ({
+									...prev,
+									notes: e.target.value,
+								}))
+							}
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+							rows={4}
+						/>
 					</div>
 				</div>
 

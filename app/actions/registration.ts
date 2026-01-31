@@ -46,7 +46,7 @@ const declineRegistrationSchema = z.object({
 		dietaryRestrictions: z.string(),
 	}),
 	needsAccommodation: z.boolean(),
-	notes: z.string(),
+	notes: z.string().max(MAX_NOTES_LENGTH, `Meddelandet får max vara ${MAX_NOTES_LENGTH} tecken`),
 });
 
 interface GuestInfo {
@@ -109,6 +109,11 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 
 		<h3>Meddelande</h3>
 		<p>${registrationData.notes || 'Inget meddelande'}</p>`;
+	} else if (registrationData.notes) {
+		// Include notes for guests who cannot attend
+		emailBody += `
+		<h3>Meddelande</h3>
+		<p>${registrationData.notes}</p>`;
 	}
 
 	return await resend.emails.send({
