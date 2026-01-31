@@ -22,7 +22,7 @@ function SubmitButton() {
 		<button
 			type="submit"
 			disabled={pending}
-			className="w-full bg-blush-darker hover:bg-blush-medium disabled:bg-blush-medium text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+			className="w-full bg-blush-darker hover:bg-blush-darkest disabled:bg-blush-medium text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg cursor-pointer disabled:cursor-not-allowed"
 		>
 			{pending ? "Skickar..." : "Skicka anmälan"}
 		</button>
@@ -110,14 +110,14 @@ export default function RegistrationForm() {
 					<button
 						type="button"
 						onClick={() => setCanAttend(true)}
-						className="w-full bg-blush-darker hover:bg-blush-medium text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+						className="w-full bg-blush-darker hover:bg-blush-darkest text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg cursor-pointer"
 					>
 						Ja, vi kommer!
 					</button>
 					<button
 						type="button"
 						onClick={() => setCanAttend(false)}
-						className="w-full bg-transparent border-2 border-blush-darker text-blush-darker hover:bg-blush-darker hover:text-off-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg"
+						className="w-full bg-transparent border-2 border-blush-darker text-blush-darker hover:border-blush-darkest hover:text-blush-darkest font-bold py-3 px-6 rounded-lg transition-colors duration-200 text-lg cursor-pointer"
 					>
 						Tyvärr kan vi inte komma
 					</button>
@@ -285,7 +285,7 @@ export default function RegistrationForm() {
 
 			{/* Accommodation & Notes */}
 			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
-				<h3 className="text-xl font-semibold text-sage-darker mb-4">Övrigt</h3>
+				<h3 className="text-xl font-semibold text-sage-darker mb-4">Övrigt <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
 				<div className="space-y-4">
 					<div className="flex items-center justify-center">
 						<input

@@ -15,6 +15,7 @@
   --blush-medium: #F5D5D2;
   --blush-dark: #E69B97;
   --blush-darker: #D4817C;
+  --blush-darkest: #B86A65;
   --error: #C45B52;
 }
 
@@ -29,6 +30,7 @@
   --color-blush-medium: var(--blush-medium);
   --color-blush-dark: var(--blush-dark);
   --color-blush-darker: var(--blush-darker);
+  --color-blush-darkest: var(--blush-darkest);
   --color-error: var(--error);
 }
 
