@@ -6,6 +6,7 @@ import { submitRegistration } from "@/app/actions/registration";
 
 interface GuestInfo {
 	name: string;
+	email: string;
 	dietaryRestrictions: string;
 }
 
@@ -32,8 +33,8 @@ function SubmitButton() {
 export default function RegistrationForm() {
 	const [canAttend, setCanAttend] = useState<boolean | null>(null);
 	const [formState, setFormState] = useState<FormState>({
-		guest1: { name: "", dietaryRestrictions: "" },
-		guest2: { name: "", dietaryRestrictions: "" },
+		guest1: { name: "", email: "", dietaryRestrictions: "" },
+		guest2: { name: "", email: "", dietaryRestrictions: "" },
 		needsAccommodation: false,
 		notes: "",
 	});
@@ -62,8 +63,8 @@ export default function RegistrationForm() {
 		} else {
 			setErrorMessage(result.message);
 			setFormState({
-				guest1: { name: "", dietaryRestrictions: "" },
-				guest2: { name: "", dietaryRestrictions: "" },
+				guest1: { name: "", email: "", dietaryRestrictions: "" },
+				guest2: { name: "", email: "", dietaryRestrictions: "" },
 				needsAccommodation: false,
 				notes: "",
 			});
@@ -252,6 +253,22 @@ export default function RegistrationForm() {
 					</div>
 					<div>
 						<label className="block text-sm font-medium text-sage-darker mb-1">
+							E-post *
+						</label>
+						<input
+							type="email"
+							name="guest1Email"
+							required
+							value={formState.guest1.email}
+							onChange={(e) =>
+								handleGuestChange("guest1", "email", e.target.value)
+							}
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+							placeholder=""
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium text-sage-darker mb-1">
 							Allergier / Specialkost
 						</label>
 						<input
@@ -285,6 +302,21 @@ export default function RegistrationForm() {
 							}
 							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
 							placeholder="Förnamn Efternamn"
+						/>
+					</div>
+					<div>
+						<label className="block text-sm font-medium text-sage-darker mb-1">
+							E-post
+						</label>
+						<input
+							type="email"
+							name="guest2Email"
+							value={formState.guest2.email}
+							onChange={(e) =>
+								handleGuestChange("guest2", "email", e.target.value)
+							}
+							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+
 						/>
 					</div>
 					<div>

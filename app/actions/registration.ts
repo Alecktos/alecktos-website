@@ -32,17 +32,19 @@ const registrationSchema = z.object({
 	notes: z.string().max(MAX_NOTES_LENGTH, `Meddelandet får max vara ${MAX_NOTES_LENGTH} tecken`),
 });
 
-// Decline registration schema (only names required)
+// Decline registration schema (only name required, no email needed)
 const declineRegistrationSchema = z.object({
 	canAttend: z.literal(false),
 	guest1: z.object({
 		name: z.string()
 			.min(1, "Namn för gäst 1 är obligatoriskt")
 			.max(MAX_NAME_LENGTH, `Namnet får max vara ${MAX_NAME_LENGTH} tecken`),
+		email: z.string(),
 		dietaryRestrictions: z.string(),
 	}),
 	guest2: z.object({
 		name: z.string().max(MAX_NAME_LENGTH, `Namnet får max vara ${MAX_NAME_LENGTH} tecken`),
+		email: z.string(),
 		dietaryRestrictions: z.string(),
 	}),
 	needsAccommodation: z.boolean(),
@@ -51,6 +53,7 @@ const declineRegistrationSchema = z.object({
 
 interface GuestInfo {
 	name: string;
+	email: string;
 	dietaryRestrictions: string;
 }
 
@@ -89,7 +92,8 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 		<p><strong>Status:</strong> ${attendanceStatus}</p>
 
 		<h3>Gäst 1</h3>
-		<p><strong>Namn:</strong> ${registrationData.guest1.name}</p>`;
+		<p><strong>Namn:</strong> ${registrationData.guest1.name}</p>
+		<p><strong>E-post:</strong> ${registrationData.guest1.email}</p>`;
 
 	if (registrationData.canAttend) {
 		emailBody += `
@@ -98,7 +102,8 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 
 	emailBody += `
 		<h3>Gäst 2</h3>
-		<p><strong>Namn:</strong> ${registrationData.guest2.name || 'Ingen andra gäst'}</p>`;
+		<p><strong>Namn:</strong> ${registrationData.guest2.name || 'Ingen andra gäst'}</p>
+		<p><strong>E-post:</strong> ${registrationData.guest2.email || 'Ingen e-post'}</p>`;
 
 	if (registrationData.canAttend) {
 		emailBody += `
@@ -131,12 +136,14 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	// Extract guest 1 data
 	const guest1: GuestInfo = {
 		name: escapeAndTrim(formData.get("guest1Name") as string),
+		email: escapeAndTrim(formData.get("guest1Email") as string || ""),
 		dietaryRestrictions: escapeAndTrim(formData.get("guest1DietaryRestrictions") as string || ""),
 	};
 
 	// Extract guest 2 data
 	const guest2: GuestInfo = {
 		name: escapeAndTrim(formData.get("guest2Name") as string),
+		email: escapeAndTrim(formData.get("guest2Email") as string || ""),
 		dietaryRestrictions: escapeAndTrim(formData.get("guest2DietaryRestrictions") as string || ""),
 	};
 
@@ -184,11 +191,13 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	const sql = neon(`${process.env.DATABASE_URL}`);
 
 	try {
-		await sql`INSERT INTO registrations (can_attend, guest1_name, guest1_dietary_restrictions, guest2_name, guest2_dietary_restrictions, needs_accommodation, notes) VALUES (
+		await sql`INSERT INTO registrations (can_attend, guest1_name, guest1_email, guest1_dietary_restrictions, guest2_name, guest2_email, guest2_dietary_restrictions, needs_accommodation, notes) VALUES (
 			${registrationData.canAttend},
 			${registrationData.guest1.name},
+			${registrationData.guest1.email},
 			${registrationData.guest1.dietaryRestrictions},
 			${registrationData.guest2.name},
+			${registrationData.guest2.email},
 			${registrationData.guest2.dietaryRestrictions},
 			${registrationData.needsAccommodation},
 			${registrationData.notes}
