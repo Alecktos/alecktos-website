@@ -135,7 +135,7 @@ export default function RegistrationForm() {
 				className="w-full max-w-2xl mx-auto p-8 bg-blush-light rounded-lg shadow-lg"
 			>
 				<h2 className="text-3xl font-serif text-sage-darker mb-6 text-center">
-					Anmälan till bröllopet
+					Tyvärr kan vi inte komma
 				</h2>
 				<input type="hidden" name="canAttend" value="false" />
 
@@ -227,7 +227,7 @@ export default function RegistrationForm() {
 			className="w-full max-w-2xl mx-auto p-8 bg-blush-light rounded-lg shadow-lg"
 		>
 			<h2 className="text-3xl font-serif text-sage-darker mb-6 text-center">
-				Anmälan till bröllopet
+				Ja, vi kommer!
 			</h2>
 			<input type="hidden" name="canAttend" value="true" />
 
