@@ -255,6 +255,9 @@ export default function RegistrationForm() {
 						<label className="block text-sm font-medium text-sage-darker mb-1">
 							E-post *
 						</label>
+						<p className="text-xs text-sage-dark mb-2">
+							Används för nyheter och uppdateringar kring tider
+						</p>
 						<input
 							type="email"
 							name="guest1Email"
@@ -308,6 +311,9 @@ export default function RegistrationForm() {
 						<label className="block text-sm font-medium text-sage-darker mb-1">
 							E-post
 						</label>
+						<p className="text-xs text-sage-dark mb-2">
+							Används för nyheter och uppdateringar kring tider
+						</p>
 						<input
 							type="email"
 							name="guest2Email"
