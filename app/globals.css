@@ -39,7 +39,3 @@ body {
   /*color: var(--foreground);*/
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.my-image {
-  @apply grayscale brightness-150;
-}
