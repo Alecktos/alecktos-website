@@ -21,7 +21,7 @@ export default function Home() {
 
 
         {/* Registration Form Section */}
-        <section className="py-16 px-4" id="registration">
+        <section className="py-8 px-1" id="registration">
           {/* Information Section */}
           <div className="w-full max-w-2xl mx-auto mb-8 p-8 bg-blush-medium rounded-lg shadow-lg">
             <h2 className="text-3xl font-serif text-sage-darker mb-4 text-center">
