@@ -177,7 +177,6 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 
 	console.log("Registration submitted:", registrationData);
 
-	// TODO: Save to database, send confirmation email, etc.
 	const { error } = await sendEmailNotification(registrationData);
 
 	if (error) {
@@ -186,6 +185,40 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			success: false,
 			message: "Ett fel uppstod vid anmälan.",
 		};
+	}
+
+
+	// Create contacts if they can attend
+	if (canAttend) {
+		const guest1Result  = await resend.contacts.create({
+			email: guest1.email,
+			firstName: guest1.name,
+			unsubscribed: false,
+		});
+
+		if (guest1Result.error) {
+			console.error('Error creating contact:', guest1Result.error);
+			return {
+				success: false,
+				message: "Ett fel uppstod vid anmälan.",
+			};
+		}
+
+		if (guest2.email) {
+			const guest2Result = await resend.contacts.create({
+				email: guest2.email,
+				firstName: guest2.name,
+				unsubscribed: false,
+			});
+
+			if (guest2Result.error) {
+				console.error('Error creating contact:', guest2Result.error);
+				return {
+					success: false,
+					message: "Ett fel uppstod vid anmälan.",
+				};
+			}
+		}
 	}
 
 	const sql = neon(`${process.env.DATABASE_URL}`);
