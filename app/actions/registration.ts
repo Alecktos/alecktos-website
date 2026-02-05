@@ -32,14 +32,14 @@ const registrationSchema = z.object({
 	notes: z.string().max(MAX_NOTES_LENGTH, `Meddelandet får max vara ${MAX_NOTES_LENGTH} tecken`),
 });
 
-// Decline registration schema (only name required, no email needed)
+// Decline registration schema (name and email required for guest1)
 const declineRegistrationSchema = z.object({
 	canAttend: z.literal(false),
 	guest1: z.object({
 		name: z.string()
 			.min(1, "Namn för gäst 1 är obligatoriskt")
 			.max(MAX_NAME_LENGTH, `Namnet får max vara ${MAX_NAME_LENGTH} tecken`),
-		email: z.string(),
+		email: z.string().email("Ange en giltig e-postadress för gäst 1"),
 		dietaryRestrictions: z.string(),
 	}),
 	guest2: z.object({
@@ -124,6 +124,52 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 	return await resend.emails.send({
 		from: 'Berlind Website <wedding@berlind.me>',
 		to: ['alexander.berlind@proton.me'],
+		subject: subject,
+		html: emailBody,
+	});
+}
+
+async function sendConfirmationEmail(guestName: string, guestEmail: string, registrationData: RegistrationData) {
+	const subject = registrationData.canAttend
+		? "Bekräftelse på din anmälan till bröllopet"
+		: "Bekräftelse - Vi har mottagit ditt svar";
+
+	let emailBody = `
+		<h2>Hej ${guestName}!</h2>`;
+
+	if (registrationData.canAttend) {
+		emailBody += `
+		<p>Tack för din anmälan! Vi är så glada att du kan komma på vårt bröllop.</p>
+
+		<h3>Din registrering</h3>
+		<p><strong>Gäst 1:</strong> ${registrationData.guest1.name}</p>`;
+
+		if (registrationData.guest1.dietaryRestrictions) {
+			emailBody += `<p><strong>Allergier/Specialkost:</strong> ${registrationData.guest1.dietaryRestrictions}</p>`;
+		}
+
+		if (registrationData.guest2.name) {
+			emailBody += `<p><strong>Gäst 2:</strong> ${registrationData.guest2.name}</p>`;
+			if (registrationData.guest2.dietaryRestrictions) {
+				emailBody += `<p><strong>Allergier/Specialkost:</strong> ${registrationData.guest2.dietaryRestrictions}</p>`;
+			}
+		}
+
+		emailBody += `
+		<p><strong>Behöver hjälp med boende:</strong> ${registrationData.needsAccommodation ? 'Ja' : 'Nej'}</p>
+
+		<p>Vi återkommer med mer information om schemat och andra nyheter.</p>`;
+	} else {
+		emailBody += `
+		<p>Tack för ditt svar! Vi kommer sakna dig, men vi hoppas att vi ses en annan gång.</p>`;
+	}
+
+	emailBody += `
+		<p>Med vänliga hälsningar,<br>Malin & Alexander</p>`;
+
+	return await resend.emails.send({
+		from: 'Berlind Website <wedding@berlind.me>',
+		to: [guestEmail],
 		subject: subject,
 		html: emailBody,
 	});
@@ -241,6 +287,32 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			success: false,
 			message: "Ett fel uppstod vid anmälan. Vänligen försök igen.",
 		};
+	}
+
+	// Send confirmation emails to guests
+	if (guest1.email) {
+		const { error: guest1EmailError } = await sendConfirmationEmail(
+			guest1.name,
+			guest1.email,
+			registrationData
+		);
+		if (guest1EmailError) {
+			console.error("Error sending confirmation email to guest 1:", guest1EmailError);
+			// Don't fail the registration, just log the error
+		}
+	}
+
+	// Send to guest 2 only if they have an email
+	if (guest2.email) {
+		const { error: guest2EmailError } = await sendConfirmationEmail(
+			guest2.name,
+			guest2.email,
+			registrationData
+		);
+		if (guest2EmailError) {
+			console.error("Error sending confirmation email to guest 2:", guest2EmailError);
+			// Don't fail the registration, just log the error
+		}
 	}
 
 	return {

@@ -159,6 +159,22 @@ export default function RegistrationForm() {
 								placeholder="Förnamn Efternamn"
 							/>
 						</div>
+						<div>
+							<label className="block text-sm font-medium text-sage-darker mb-1">
+								E-post *
+							</label>
+							<input
+								type="email"
+								name="guest1Email"
+								required
+								value={formState.guest1.email}
+								onChange={(e) =>
+									handleGuestChange("guest1", "email", e.target.value)
+								}
+								className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+								placeholder="namn@exempel.se"
+							/>
+						</div>
 					</div>
 				</div>
 
