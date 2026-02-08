@@ -43,8 +43,8 @@ export default function Home() {
 			          Vill du anmäla tal eller annat, kontakta våra toastmadames.
 		          </p>
 		          <div className="text-sage-darker space-y-2 text-sage-darker ">
-		          <p><strong>Elin Berlind:</strong> 070-xxx xx xx | elin.xxxxx@gmail.com</p>
-		          <p><strong>Sofie Rothén:</strong> 070-xxx xx xx | sofie.xxxxx@gmail.com</p>
+		          <p><strong>Förnamn Efternamn:</strong> 070-xxx xx xx | fornamn.efternamn@gmail.com</p>
+		          <p><strong>Förnamn Efternamn:</strong> 070-xxx xx xx | fornamn.xxxxx@gmail.com</p>
 	          </div>
 	          </div>
           </div>
