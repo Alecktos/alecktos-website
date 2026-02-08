@@ -44,7 +44,7 @@ export default function Home() {
 		          </p>
 		          <div className="text-sage-darker space-y-2 text-sage-darker ">
 		          <p><strong>Förnamn Efternamn:</strong> 070-xxx xx xx | fornamn.efternamn@gmail.com</p>
-		          <p><strong>Förnamn Efternamn:</strong> 070-xxx xx xx | fornamn.xxxxx@gmail.com</p>
+		          <p><strong>Förnamn Efternamn:</strong> 070-xxx xx xx | fornamn.efternamn@gmail.com</p>
 	          </div>
 	          </div>
           </div>
