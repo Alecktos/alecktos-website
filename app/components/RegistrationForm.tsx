@@ -13,7 +13,8 @@ interface GuestInfo {
 interface FormState {
 	guest1: GuestInfo;
 	guest2: GuestInfo;
-	needsAccommodation: boolean;
+	accommodationOsaby: boolean;
+	accommodationSateri: boolean;
 	notes: string;
 }
 
@@ -35,7 +36,8 @@ export default function RegistrationForm() {
 	const [formState, setFormState] = useState<FormState>({
 		guest1: { name: "", email: "", dietaryRestrictions: "" },
 		guest2: { name: "", email: "", dietaryRestrictions: "" },
-		needsAccommodation: false,
+		accommodationOsaby: false,
+		accommodationSateri: false,
 		notes: "",
 	});
 	const [submitted, setSubmitted] = useState(false);
@@ -65,7 +67,8 @@ export default function RegistrationForm() {
 			setFormState({
 				guest1: { name: "", email: "", dietaryRestrictions: "" },
 				guest2: { name: "", email: "", dietaryRestrictions: "" },
-				needsAccommodation: false,
+				accommodationOsaby: false,
+				accommodationSateri: false,
 				notes: "",
 			});
 		}
@@ -363,25 +366,46 @@ export default function RegistrationForm() {
 			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
 				<h3 className="text-xl font-semibold text-sage-darker mb-4">Övrigt <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
 				<div className="space-y-4">
-					<div className="flex items-center justify-center">
+					<div className="flex items-center">
 						<input
 							type="checkbox"
-							id="needsAccommodation"
-							name="needsAccommodation"
-							checked={formState.needsAccommodation}
+							id="accommodationOsaby"
+							name="accommodationOsaby"
+							checked={formState.accommodationOsaby}
 							onChange={(e) =>
 								setFormState((prev) => ({
 									...prev,
-									needsAccommodation: e.target.checked,
+									accommodationOsaby: e.target.checked,
 								}))
 							}
 							className="w-5 h-5 text-blush-dark border-sage-darker rounded focus:ring-blush-dark"
 						/>
 					<label
-						htmlFor="needsAccommodation"
+						htmlFor="accommodationOsaby"
 						className="ml-3 text-sage-darker font-medium"
 					>
-						Önskar hjälp med boende
+						Önskar hjälp med boende på Herrgård de luxe
+					</label>
+				</div>
+				<div className="flex items-center">
+						<input
+							type="checkbox"
+							id="accommodationSateri"
+							name="accommodationSateri"
+							checked={formState.accommodationSateri}
+							onChange={(e) =>
+								setFormState((prev) => ({
+									...prev,
+									accommodationSateri: e.target.checked,
+								}))
+							}
+							className="w-5 h-5 text-blush-dark border-sage-darker rounded focus:ring-blush-dark"
+						/>
+					<label
+						htmlFor="accommodationSateri"
+						className="ml-3 text-sage-darker font-medium"
+					>
+						Önskar hjälp med boende på Stjärnviks säteri
 					</label>
 				</div>
 				<hr className="border-sage-light" />
