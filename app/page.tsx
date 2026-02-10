@@ -5,21 +5,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-off-white">
       <main className="min-h-screen w-full flex flex-col  ">
-
-        <div className="relative w-full text-center">
-          <div className="relative w-full h-128">
-                <Image
-                className="brightness-150 object-cover object-top-right"
-                src="/beach_7.png"
-                alt="Header image"
-                fill
-                priority
-              />
-          </div>
-        </div>
-
-
-
         {/* Registration Form Section */}
         <section className="py-8 px-1" id="registration">
           {/* Information Section */}

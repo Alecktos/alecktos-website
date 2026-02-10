@@ -1,6 +1,7 @@
 "use client";
 
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./globals.css";
@@ -51,6 +52,17 @@ export default function RootLayout({
 				</Link>
 				</div>
 			</nav>
+			  <div className="relative w-full text-center">
+				  <div className="relative w-full h-128">
+					  <Image
+						  className="brightness-150 object-cover object-top-right"
+						  src="/beach_7.png"
+						  alt="Header image"
+						  fill
+						  priority
+					  />
+				  </div>
+			  </div>
 			{children}
 		  </div>
 	  </body>
