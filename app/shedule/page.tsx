@@ -54,54 +54,58 @@ export default function SchedulePage() {
 					Lördag 15 augusti 2026
 				</p>
 
-				<div className="relative">
-					{/* Timeline line */}
-					<div className="absolute left-8 top-0 bottom-0 w-0.5 bg-sage-light hidden md:block"></div>
-
-					{/* Schedule items */}
-					<div className="space-y-6">
-						{scheduleItems.map((item, index) => (
-							<div
-								key={index}
-								className="bg-blush-medium rounded-lg p-6 md:ml-16 relative"
-							>
-								{/* Timeline dot */}
-								<div className="absolute -left-10 top-6 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
-
-								<div className="flex items-start gap-4">
-									<span className="text-3xl" role="img" aria-hidden="true">
-										{item.icon}
-									</span>
-									<div className="flex-1">
-										<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-											<h2 className="text-2xl font-semibold text-sage-darker">
-												{item.title}
-											</h2>
-											<span className="text-lg font-medium text-sage-dark">
-												{item.time}
-											</span>
-										</div>
-										<p className="text-sage-dark">
-											{item.description}
-										</p>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
+			{/* Coming soon notice */}
+				<div className="bg-blush-medium rounded-lg p-6 mb-8 text-center">
+					<h2 className="text-2xl font-semibold text-sage-darker mb-2">
+						🗓️ Schemat släpps snart!
+					</h2>
+					<p className="text-sage-dark">
+						Det detaljerade schemat för bröllopsdagen kommer att publiceras här inom kort.
+					</p>
 				</div>
 
-				{/* Additional info */}
-				<div className="mt-12 bg-blush-medium rounded-lg p-6 text-center">
-					<h2 className="text-xl font-semibold text-sage-darker mb-3">
-						Praktisk information
-					</h2>
-					<p className="text-sage-dark mb-2">
-						Klädkod: Kavaj / Festlig
-					</p>
-					<p className="text-sage-dark text-sm">
-						Schemat är preliminärt och kan komma att justeras.
-					</p>
+				<div className="relative">
+					{/* Blur overlay */}
+					<div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+					</div>
+
+					{/* Blurred content */}
+					<div className="blur-sm select-none mb-8">
+						{/* Timeline line */}
+						<div className="absolute left-8 top-0 bottom-0 w-0.5 bg-sage-light hidden md:block"></div>
+
+						{/* Schedule items */}
+						<div className="space-y-6">
+							{scheduleItems.map((item, index) => (
+								<div
+									key={index}
+									className="bg-blush-medium rounded-lg p-6 md:ml-16 relative"
+								>
+									{/* Timeline dot */}
+									<div className="absolute -left-10 top-6 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
+
+									<div className="flex items-start gap-4">
+										<span className="text-3xl" role="img" aria-hidden="true">
+											{item.icon}
+										</span>
+										<div className="flex-1">
+											<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+												<h2 className="text-2xl font-semibold text-sage-darker">
+													{item.title}
+												</h2>
+												<span className="text-lg font-medium text-sage-dark">
+													{item.time}
+												</span>
+											</div>
+											<p className="text-sage-dark">
+												{item.description}
+											</p>
+										</div>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
