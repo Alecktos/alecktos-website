@@ -405,7 +405,7 @@ export default function RegistrationForm() {
 						htmlFor="accommodationSateri"
 						className="ml-3 text-sage-darker font-medium"
 					>
-						Önskar hjälp med boende på Stjärnviks säteri
+						Önskar hjälp med boende på Stjärnviks säteri
 					</label>
 				</div>
 				<hr className="border-sage-light" />
