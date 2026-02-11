@@ -24,7 +24,7 @@ export default function RootLayout({
   const pathname = usePathname();
 
   return (
-	<html lang="en">
+	<html lang="sv">
 	  <body
 		className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 	  >
