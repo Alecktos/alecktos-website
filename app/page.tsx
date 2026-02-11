@@ -4,22 +4,7 @@ import RegistrationForm from "./components/RegistrationForm";
 export default function Home() {
   return (
     <div className="min-h-screen bg-off-white">
-      <main className="max-w-screen-2xl mx-auto min-h-screen w-full flex flex-col bg-blush-lighter text-center">
-        <h1 className="text-5xl italic font-serif p-4 text-sage-darker" >Malin & Alexander</h1>
-        <div className="relative w-full text-center">
-          <div className="relative w-full h-128">
-                <Image
-                className="brightness-150 object-cover object-top-right"
-                src="/beach_7.png"
-                alt="Header image"
-                fill
-                priority
-              />
-          </div>
-        </div>
-
-
-
+      <main className="min-h-screen w-full flex flex-col  ">
         {/* Registration Form Section */}
         <section className="py-8 px-1" id="registration">
           {/* Information Section */}
