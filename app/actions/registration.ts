@@ -127,7 +127,7 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 
 	return await resend.emails.send({
 		from: 'Berlind Website <wedding@berlind.me>',
-		to: ['alexander.berlind@proton.me'],
+		to: ['alexander.berlind@proton.me', 'malin.johannesson.94@gmail.com'],
 		subject: subject,
 		html: emailBody,
 	});
@@ -171,6 +171,9 @@ async function sendConfirmationEmail(guestName: string, guestEmail: string, regi
 
 	emailBody += `
 		<p>Med vänliga hälsningar,<br>Malin & Alexander</p>`;
+
+	emailBody += `
+		<p>Detta mail kan inte besvaras</p>`;
 
 	return await resend.emails.send({
 		from: 'Berlind Website <wedding@berlind.me>',
