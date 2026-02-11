@@ -32,7 +32,7 @@ export default function RootLayout({
 			<nav className="bg-off-white py-4 px-6 shadow-sm">
 				<div className="flex items-center">
 					<div className="flex-1"></div>
-					<h1 className="text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</h1>
+					<div className="text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</div>
 					<div className="flex-1 flex gap-6 justify-end">
 						<Link
 						  href="/"
