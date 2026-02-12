@@ -88,7 +88,7 @@ function escapeAndTrim(text: string | null | undefined): string {
 }
 
 /**
- * Helper function to create a Promise-based delay for rate limiting and spacing async operations
+ * Helper function to create a Promise-based delay for rate limiting
  * @param ms - Delay duration in milliseconds
  * @returns Promise that resolves after the specified delay
  */
