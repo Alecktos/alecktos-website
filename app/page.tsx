@@ -1,5 +1,5 @@
 import RegistrationForm from "./components/RegistrationForm";
-import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+import { BlushMediumBox } from "@/app/components/BlushMediumBox";
 
 export default function Home() {
   return (
