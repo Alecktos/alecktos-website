@@ -10,7 +10,7 @@ export default function Nav() {
 		<nav className="bg-off-white py-4 px-6 shadow-sm">
 			<div className="flex items-center">
 				<div className="flex-1"></div>
-				<Link href="/" className="text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</Link>
+				<Link href="/" className="hidden md:block text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</Link>
 				<div className="flex-1 flex gap-8 justify-end">
 					<Link
 						href="/"
