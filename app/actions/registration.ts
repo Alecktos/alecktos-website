@@ -308,6 +308,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		await delay(1000);
 
 		const { error } = await sendEmailNotification(registrationData);
+		console.log('sent organizers email');
 		if (error) {
 			console.error("Error sending email:", error);
 			// return {
@@ -316,16 +317,16 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			// };
 		}
 
-		if (guest1.email) {
-			const { error: confirmationEmailError } = await sendConfirmationEmail(
-				registrationData
-			);
-			if (confirmationEmailError) {
-				console.error("Error sending confirmation email:", confirmationEmailError);
-			}
+
+		const { error: confirmationEmailError } = await sendConfirmationEmail(registrationData);
+		console.log('sent confirmation email');
+		if (confirmationEmailError) {
+			console.error("Error sending confirmation email:", confirmationEmailError);
 		}
+
 	})();
 
+	console.log('returning success response');
 	return {
 		success: true,
 		message: "Anmälan mottagen!",
