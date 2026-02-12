@@ -87,6 +87,9 @@ function escapeAndTrim(text: string | null | undefined): string {
 	return escapeHtml(trimmed);
 }
 
+// Helper function for delays in async operations
+const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
+
 async function sendEmailNotification(registrationData: RegistrationData) {
 	const attendanceStatus = registrationData.canAttend ? "Kommer" : "Kommer inte";
 	const subject = `Ny anmälan - ${attendanceStatus}`;
@@ -302,10 +305,9 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 
 	// Send emails in the background using Next.js after() API
 	// This ensures emails are sent after the response is returned
+	// Note: Resend rate limit is 2 requests/sec per team. We send 2 emails sequentially
+	// with a 500ms delay between them to ensure we stay within limits for this registration.
 	after(async () => {
-		// Helper function for delay
-		const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
-
 		const { error } = await sendEmailNotification(registrationData);
 		console.log('sent organizers email');
 		if (error) {
