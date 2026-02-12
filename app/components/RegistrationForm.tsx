@@ -387,7 +387,7 @@ export default function RegistrationForm() {
 						Önskar hjälp med boende på Herrgård de luxe
 					</label>
 				</div>
-				<div className="flex items-center">
+					<div className="flex items-center">
 						<input
 							type="checkbox"
 							id="accommodationSateri"
