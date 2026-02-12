@@ -9,7 +9,7 @@ export default function Home() {
 				{/* Registration Form Section */}
 				<section className="py-8 px-1" id="registration">
 					{/* Information Section */}
-					<h1 className="text-3xl font-serif text-sage-darker mb-4 text-center">
+					<h1 className="text-4xl font-serif text-sage-darker mb-8 text-center">
 						Välkommen till vårt bröllop!
 					</h1>
 					<BlushMediumBox>
