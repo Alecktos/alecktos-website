@@ -183,7 +183,7 @@ async function sendConfirmationEmail(registrationData: RegistrationData) {
 		<p>Med vänliga hälsningar,<br>Malin & Alexander</p>`;
 
 	emailBody += `
-		<p>Detta mejl kan inte besvaras.</p>`;
+		<p>Detta mejl kan ej besvaras.</p>`;
 
 	return await resend.emails.send({
 		from: 'Berlind Website <wedding@berlind.me>',
@@ -241,17 +241,40 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		};
 	}
 
-	console.log("Registration submitted:", registrationData);
+	// Create contacts if they can attend
+	if (canAttend) {
+		const guest1Result  = await resend.contacts.create({
+			email: guest1.email,
+			firstName: guest1.name,
+			unsubscribed: false,
+		});
 
-	const { error } = await sendEmailNotification(registrationData);
+		if (guest1Result.error) {
+			console.error('Error creating contact:', guest1Result.error);
+			return {
+				success: false,
+				message: "Ett fel uppstod vid anmälan.",
+			};
+		}
 
-	if (error) {
-		console.error("Error sending email:", error);
-		return {
-			success: false,
-			message: "Ett fel uppstod vid anmälan.",
-		};
+		if (guest2.email) {
+			const guest2Result = await resend.contacts.create({
+				email: guest2.email,
+				firstName: guest2.name,
+				unsubscribed: false,
+			});
+
+			if (guest2Result.error) {
+				console.error('Error creating contact:', guest2Result.error);
+				return {
+					success: false,
+					message: "Ett fel uppstod vid anmälan.",
+				};
+			}
+		}
 	}
+
+	console.log("Registration:", registrationData);
 
 	const sql = neon(`${process.env.DATABASE_URL}`);
 
@@ -282,42 +305,16 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
 		// Wait 1 second before sending confirmation email to avoid rate limit
-		await delay(1100);
+		await delay(1000);
 
-		// Create contacts if they can attend
-		if (canAttend) {
-			const guest1Result  = await resend.contacts.create({
-				email: guest1.email,
-				firstName: guest1.name,
-				unsubscribed: false,
-			});
-
-			if (guest1Result.error) {
-				console.error('Error creating contact:', guest1Result.error);
-				// return {
-				// 	success: false,
-				// 	message: "Ett fel uppstod vid anmälan.",
-				// };
-			}
-
-			if (guest2.email) {
-				const guest2Result = await resend.contacts.create({
-					email: guest2.email,
-					firstName: guest2.name,
-					unsubscribed: false,
-				});
-
-				if (guest2Result.error) {
-					console.error('Error creating contact:', guest2Result.error);
-					// return {
-					// 	success: false,
-					// 	message: "Ett fel uppstod vid anmälan.",
-					// };
-				}
-			}
+		const { error } = await sendEmailNotification(registrationData);
+		if (error) {
+			console.error("Error sending email:", error);
+			// return {
+			// 	success: false,
+			// 	message: "Ett fel uppstod vid anmälan.",
+			// };
 		}
-
-		await delay(1100);
 
 		if (guest1.email) {
 			const { error: confirmationEmailError } = await sendConfirmationEmail(
