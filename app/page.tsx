@@ -1,5 +1,6 @@
 import RegistrationForm from "./components/RegistrationForm";
 import { BlushMediumBox } from "@/app/components/BlushMediumBox";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -20,7 +21,7 @@ export default function Home() {
 							<p><strong>Plats:</strong> Tävelsås bygdegård</p>
 						</div>
 						<p className="text-sage-dark mt-4 text-sm">
-							Mer information om schemat och övriga detaljer kommer läggas ut här löpande.
+							Mer information om <Link href="/schedule" className="underline hover:text-blush-dark">schemat</Link> och övriga detaljer kommer läggas ut här löpande.
 						</p>
 
 						<div className="text-sage-darker mt-8 text-center space-y-2">

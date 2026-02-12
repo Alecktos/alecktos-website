@@ -10,23 +10,23 @@ export default function Nav() {
 		<nav className="bg-off-white py-4 px-6 shadow-sm">
 			<div className="flex items-center">
 				<div className="flex-1"></div>
-				<h1 className="text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</h1>
-				<div className="flex-1 flex gap-6 justify-end">
+				<Link href="/" className="hidden md:block text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</Link>
+				<div className="flex-1 flex gap-8 justify-end">
 					<Link
 						href="/"
-						className={`font-medium transition-colors ${pathname === "/" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
+						className={`font-medium tracking-wide transition-colors ${pathname === "/" ? "text-blush-darkest border-b-2 border-blush-dark" : "text-sage-darker hover:text-blush-darkest"}`}
 					>
 						Anmälan
 					</Link>
 					<Link
 						href="/accommodation"
-						className={`font-medium transition-colors ${pathname === "/accommodation" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
+						className={`font-medium tracking-wide transition-colors ${pathname === "/accommodation" ? "text-blush-darkest border-b-2 border-blush-dark" : "text-sage-darker hover:text-blush-darkest"}`}
 					>
 						Boende
 					</Link>
 					<Link
 						href="/schedule"
-						className={`font-medium transition-colors ${pathname === "/schedule" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
+						className={`font-medium tracking-wide transition-colors ${pathname === "/schedule" ? "text-blush-darkest border-b-2 border-blush-dark" : "text-sage-darker hover:text-blush-darkest"}`}
 					>
 						Schema
 					</Link>
