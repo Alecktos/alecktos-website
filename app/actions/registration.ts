@@ -302,12 +302,8 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 
 	// Send emails in the background using Next.js after() API
 	// This ensures emails are sent after the response is returned
+	// Sequential awaits provide natural spacing to avoid rate limiting
 	after(async () => {
-		const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
-
-		// Wait 1 second before sending confirmation email to avoid rate limit
-		await delay(1000);
-
 		const { error } = await sendEmailNotification(registrationData);
 		console.log('sent organizers email');
 		if (error) {
