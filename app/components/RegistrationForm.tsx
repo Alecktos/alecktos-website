@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitRegistration } from "@/app/actions/registration";
+import Link from "next/link";
 
 interface GuestInfo {
 	name: string;
@@ -408,6 +409,9 @@ export default function RegistrationForm() {
 						Önskar hjälp med boende på Stjärnviks säteri
 					</label>
 				</div>
+				<p className="text-xs text-sage-dark mt-2">
+					Läs mer om alternativen på <Link href="/accommodation" className="underline hover:text-blush-dark">boendesidan</Link>.
+				</p>
 				<hr className="border-sage-light" />
 				<div>
 						{/*<label className="block text-sm font-medium text-sage-darker mb-1">*/}
