@@ -133,26 +133,36 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 	});
 }
 
-async function sendConfirmationEmail(guestName: string, guestEmail: string, registrationData: RegistrationData) {
+async function sendConfirmationEmail(registrationData: RegistrationData) {
 	const subject = registrationData.canAttend
 		? "Bekräftelse på din anmälan till bröllopet"
 		: "Bekräftelse - Vi har mottagit ditt svar";
 
+	const recipients = [registrationData.guest1.email];
+	if (registrationData.guest2.email) {
+		recipients.push(registrationData.guest2.email);
+	}
+
+	const hasSecondGuest = Boolean(registrationData.guest2.name);
+	const youSingularPlural = hasSecondGuest ? 'ni' : 'du';
+	const yourSingularPlural = hasSecondGuest ? 'er' : 'din';
+	const yourAnswerSingularPlural = hasSecondGuest ? 'ert' : 'ditt';
+
 	let emailBody = `
-		<h2>Hej ${guestName}!</h2>`;
+		<h2>Hej ${registrationData.guest1.name}${hasSecondGuest ? ` & ${registrationData.guest2.name}` : ''}!</h2>`;
 
 	if (registrationData.canAttend) {
 		emailBody += `
-		<p>Tack för din anmälan! Vi är så glada att du kan komma på vårt bröllop.</p>
+		<p>Tack för ${yourSingularPlural} anmälan! Vi är så glada att ${youSingularPlural} kan komma på vårt bröllop.</p>
 
-		<h3>Din registrering</h3>
+		<h3>${hasSecondGuest ? 'Er' : 'Din'} registrering</h3>
 		<p><strong>Gäst 1:</strong> ${registrationData.guest1.name}</p>`;
 
 		if (registrationData.guest1.dietaryRestrictions) {
 			emailBody += `<p><strong>Allergier/Specialkost:</strong> ${registrationData.guest1.dietaryRestrictions}</p>`;
 		}
 
-		if (registrationData.guest2.name) {
+		if (hasSecondGuest) {
 			emailBody += `<p><strong>Gäst 2:</strong> ${registrationData.guest2.name}</p>`;
 			if (registrationData.guest2.dietaryRestrictions) {
 				emailBody += `<p><strong>Allergier/Specialkost:</strong> ${registrationData.guest2.dietaryRestrictions}</p>`;
@@ -166,18 +176,18 @@ async function sendConfirmationEmail(guestName: string, guestEmail: string, regi
 		<p>Vi återkommer med mer information om schemat och andra nyheter.</p>`;
 	} else {
 		emailBody += `
-		<p>Tack för ditt svar! Vi kommer sakna dig, men vi hoppas att vi ses en annan gång.</p>`;
+		<p>Tack för ${yourAnswerSingularPlural} svar! Vi kommer sakna ${hasSecondGuest ? 'er' : 'dig'}, men vi hoppas att vi ses en annan gång.</p>`;
 	}
 
 	emailBody += `
 		<p>Med vänliga hälsningar,<br>Malin & Alexander</p>`;
 
 	emailBody += `
-		<p>Detta mejl kan inte besvaras.</p>`;
+		<p>Detta mejl kan ej besvaras.</p>`;
 
 	return await resend.emails.send({
 		from: 'Berlind Website <wedding@berlind.me>',
-		to: [guestEmail],
+		to: recipients,
 		subject: subject,
 		html: emailBody,
 	});
@@ -231,19 +241,6 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		};
 	}
 
-	console.log("Registration submitted:", registrationData);
-
-	const { error } = await sendEmailNotification(registrationData);
-
-	if (error) {
-		console.error("Error sending email:", error);
-		return {
-			success: false,
-			message: "Ett fel uppstod vid anmälan.",
-		};
-	}
-
-
 	// Create contacts if they can attend
 	if (canAttend) {
 		const guest1Result  = await resend.contacts.create({
@@ -277,6 +274,8 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		}
 	}
 
+	console.log("Registration:", registrationData);
+
 	const sql = neon(`${process.env.DATABASE_URL}`);
 
 	try {
@@ -300,32 +299,34 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		};
 	}
 
-	// Send confirmation emails to guests
-	if (guest1.email) {
-		const { error: guest1EmailError } = await sendConfirmationEmail(
-			guest1.name,
-			guest1.email,
-			registrationData
-		);
-		if (guest1EmailError) {
-			console.error("Error sending confirmation email to guest 1:", guest1EmailError);
-			// Don't fail the registration, just log the error
-		}
-	}
+	// Send confirmation email to both guests asynchronously with delay to avoid rate limiting
+	// Fire and forget - don't await, return success immediately
+	(async () => {
+		const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
-	// Send to guest 2 only if they have an email
-	if (guest2.email) {
-		const { error: guest2EmailError } = await sendConfirmationEmail(
-			guest2.name,
-			guest2.email,
-			registrationData
-		);
-		if (guest2EmailError) {
-			console.error("Error sending confirmation email to guest 2:", guest2EmailError);
-			// Don't fail the registration, just log the error
-		}
-	}
+		// Wait 1 second before sending confirmation email to avoid rate limit
+		await delay(1000);
 
+		const { error } = await sendEmailNotification(registrationData);
+		console.log('sent organizers email');
+		if (error) {
+			console.error("Error sending email:", error);
+			// return {
+			// 	success: false,
+			// 	message: "Ett fel uppstod vid anmälan.",
+			// };
+		}
+
+
+		const { error: confirmationEmailError } = await sendConfirmationEmail(registrationData);
+		console.log('sent confirmation email');
+		if (confirmationEmailError) {
+			console.error("Error sending confirmation email:", confirmationEmailError);
+		}
+
+	})();
+
+	console.log('returning success response');
 	return {
 		success: true,
 		message: "Anmälan mottagen!",
