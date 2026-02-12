@@ -173,7 +173,7 @@ async function sendConfirmationEmail(guestName: string, guestEmail: string, regi
 		<p>Med vänliga hälsningar,<br>Malin & Alexander</p>`;
 
 	emailBody += `
-		<p>Detta mail kan inte besvaras</p>`;
+		<p>Detta mejl kan inte besvaras.</p>`;
 
 	return await resend.emails.send({
 		from: 'Berlind Website <wedding@berlind.me>',
