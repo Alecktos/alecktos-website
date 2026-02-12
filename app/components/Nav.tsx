@@ -9,9 +9,9 @@ export default function Nav() {
 	return (
 		<nav className="bg-off-white py-4 px-6 shadow-sm">
 			<div className="flex items-center">
-				<div className="flex-1"></div>
+				<div className="hidden md:block md:flex-1"></div>
 				<Link href="/" className="hidden md:block text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</Link>
-				<div className="flex-1 flex gap-8 justify-end">
+				<div className="w-full md:flex-1 flex gap-8 justify-center md:justify-end">
 					<Link
 						href="/"
 						className={`font-medium tracking-wide transition-colors ${pathname === "/" ? "text-blush-darkest border-b-2 border-blush-dark" : "text-sage-darker hover:text-blush-darkest"}`}
