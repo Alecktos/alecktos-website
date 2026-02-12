@@ -1,38 +1,54 @@
+import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+
 export default function AccommodationPage() {
 	return (
-		<div className="min-h-screen bg-blush-light p-8">
+		<div className="min-h-screen bg-off-white p-8">
 			<div className="max-w-4xl mx-auto">
 				<h1 className="text-4xl font-serif text-sage-darker mb-8 text-center">
 					Boende
 				</h1>
 
-				<div className="bg-blush-medium rounded-lg p-6 mb-6">
+				<BlushMediumBox>
 					<h2 className="text-2xl font-semibold text-sage-darker mb-4">
-						Osaby Herrgård
+						Herrgård de luxe
 					</h2>
 					<p className="text-sage-dark mb-4">
-						Osaby Herrgård ligger vackert beläget vid sjön Åsnen i hjärtat av Småland.
-						Här kan ni bo i historisk miljö med moderna bekvämligheter. Herrgården
-						erbjuder charmiga rum med utsikt över parken och sjön.
+						Gemensamt badrum, frukost ingår.
+					</p>
+					<p className="text-sage-dark mb-4">
+						<a href="https://herrgarddeluxe.stay.at/" target="_blank" rel="noopener noreferrer" className="underline hover:text-sage-darker">Osaby Herrgårds hemsida</a>
 					</p>
 					<p className="text-sage-dark">
-						Avståndet till festlokalen är cirka 15 minuter med bil.
+						<b>Avstånd till festlokalen:</b> 5,4 km, cirka 8 minuter med bil.
 					</p>
-				</div>
+				</BlushMediumBox>
 
-				<div className="bg-blush-medium rounded-lg p-6">
+				<BlushMediumBox>
 					<h2 className="text-2xl font-semibold text-sage-darker mb-4">
 						Stjärnviks Säteri
 					</h2>
 					<p className="text-sage-dark mb-4">
-						Stjärnviks Säteri är en idyllisk gård med anor från 1600-talet.
-						Boendet erbjuder en lugn och avkopplande miljö omgiven av vacker natur.
-						Perfekt för er som vill kombinera bröllopsfirande med en mini-semester.
+						Bokning görs genom oss via anmälan. Gemensamt kök och badrum, frukost ingår inte. Begränsat antal rum, först till kvarn gäller.
+					</p>
+					<p className="text-sage-dark mb-4">
+						<a href="https://stjarnvik.nu/" target="_blank" rel="noopener noreferrer" className="underline hover:text-sage-darker">Stjärnviks Säteri hemsida</a>
 					</p>
 					<p className="text-sage-dark">
-						Avståndet till festlokalen är cirka 10 minuter med bil.
+						<b>Avstånd till festlokalen:</b> 2,1 km, cirka 3 minuter med bil.
 					</p>
-				</div>
+				</BlushMediumBox>
+
+				<BlushMediumBox>
+					<h2 className="text-2xl font-semibold text-sage-darker mb-4">
+						Boende inne i Växjö
+					</h2>
+					<p className="text-sage-dark mb-4">
+						I Växjö finns flertalet hotell att välja mellan.
+					</p>
+					<p className="text-sage-dark">
+						<b>Avstånd till festlokalen:</b> 15 km, cirka 20 minuter med bil.
+					</p>
+				</BlushMediumBox>
 			</div>
 		</div>
 	);

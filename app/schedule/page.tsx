@@ -1,3 +1,5 @@
+import { BlushMediumBox } from "../components/BlushMediumBox";
+
 export default function SchedulePage() {
 	const scheduleItems = [
 		{
@@ -45,7 +47,7 @@ export default function SchedulePage() {
 	];
 
 	return (
-		<div className="min-h-screen bg-blush-light p-8">
+		<div className="min-h-screen bg-off-white p-8">
 			<div className="max-w-4xl mx-auto">
 				<h1 className="text-4xl font-serif text-sage-darker mb-4 text-center">
 					Schema
@@ -55,14 +57,14 @@ export default function SchedulePage() {
 				</p>
 
 			{/* Coming soon notice */}
-				<div className="bg-blush-medium rounded-lg p-6 mb-8 text-center">
+				<BlushMediumBox>
 					<h2 className="text-2xl font-semibold text-sage-darker mb-2">
-						🗓️ Schemat släpps snart!
+						Schemat släpps snart!
 					</h2>
 					<p className="text-sage-dark">
 						Det detaljerade schemat för bröllopsdagen kommer att publiceras här inom kort.
 					</p>
-				</div>
+				</BlushMediumBox>
 
 				<div className="relative">
 					{/* Blur overlay */}
@@ -72,17 +74,17 @@ export default function SchedulePage() {
 					{/* Blurred content */}
 					<div className="blur-sm select-none mb-8">
 						{/* Timeline line */}
-						<div className="absolute left-8 top-0 bottom-0 w-0.5 bg-sage-light hidden md:block"></div>
+						<div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-light hidden md:block"></div>
 
 						{/* Schedule items */}
-						<div className="space-y-6">
+						<div className="space-y-6 flex flex-col items-center">
 							{scheduleItems.map((item, index) => (
 								<div
 									key={index}
-									className="bg-blush-medium rounded-lg p-6 md:ml-16 relative"
+									className="bg-blush-medium max-w-2xl w-full rounded-lg p-6 relative"
 								>
 									{/* Timeline dot */}
-									<div className="absolute -left-10 top-6 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
+									<div className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
 
 									<div className="flex items-start gap-4">
 										<span className="text-3xl" role="img" aria-hidden="true">

@@ -1,4 +1,5 @@
 import RegistrationForm from "./components/RegistrationForm";
+import {BlushMediumBox} from "@/app/components/BlushMediumBox";
 
 export default function Home() {
   return (
@@ -7,10 +8,10 @@ export default function Home() {
         {/* Registration Form Section */}
         <section className="py-8 px-1" id="registration">
           {/* Information Section */}
-          <div className="w-full max-w-2xl mx-auto mb-8 p-8 bg-blush-medium rounded-lg shadow-lg">
-            <h2 className="text-3xl font-serif text-sage-darker mb-4 text-center">
-              Välkommen till vårt bröllop!
-            </h2>
+	        <h1 className="text-3xl font-serif text-sage-darker mb-4 text-center">
+		        Välkommen till vårt bröllop!
+	        </h1>
+          <BlushMediumBox>
             <p className="text-lg text-sage-darker mb-4 text-center">
               Vi gifter oss och vill gärna fira denna speciella dag tillsammans med er.
             </p>
@@ -31,7 +32,7 @@ export default function Home() {
 		          <p><strong>Förnamn Efternamn:</strong> 070-xxx xx xx | fornamn.efternamn@gmail.com</p>
 	          </div>
 	          </div>
-          </div>
+          </BlushMediumBox>
           <RegistrationForm />
         </section>
       </main>
