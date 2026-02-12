@@ -32,7 +32,7 @@ export default function RootLayout({
 		  <div className="max-w-screen-2xl mx-auto text-center bg-blush-lighter">
 			<Nav />
 			  <div className="relative w-full text-center">
-				  <div className="relative w-full h-112">
+				  <div className="relative w-full h-120">
 					  <Image
 						  className="object-cover object-top-right md:hidden"
 						  src={"/beach_10_desktop.png"}
