@@ -1,4 +1,4 @@
-import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+import { BlushMediumBox } from "@/app/components/BlushMediumBox";
 
 export default function AccommodationPage() {
 	return (
