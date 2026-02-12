@@ -1,9 +1,7 @@
-"use client";
-
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import type { Metadata } from "next";
+import Nav from "./components/Nav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,45 +14,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+	title: "Malin & Alexander",
+	description: "Bröllopsinformation för Malin och Alexander",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
-
   return (
 	<html lang="sv">
 	  <body
 		className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 	  >
 		  <div className="max-w-screen-2xl mx-auto text-center bg-blush-lighter">
-			<nav className="bg-off-white py-4 px-6 shadow-sm">
-				<div className="flex items-center">
-					<div className="flex-1"></div>
-					<div className="text-4xl italic font-serif text-sage-darker text-center">Malin & Alexander</div>
-					<div className="flex-1 flex gap-6 justify-end">
-						<Link
-						  href="/"
-						  className={`font-medium transition-colors ${pathname === "/" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
-						>
-						  Anmälan
-						</Link>
-						<Link
-						  href="/accommodation"
-						  className={`font-medium transition-colors ${pathname === "/accommodation" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
-						>
-						  Boende
-						</Link>
-						<Link
-						  href="/shedule"
-						  className={`font-medium transition-colors ${pathname === "/shedule" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
-						>
-						  Schema
-						</Link>
-					</div>
-				</div>
-			</nav>
+			<Nav />
 			  <div className="relative w-full text-center">
 				  <div className="relative w-full h-128">
 					  <Image
