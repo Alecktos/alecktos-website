@@ -307,20 +307,14 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		};
 	}
 
-	// Send emails in the background using Next.js after() API
-	// This ensures emails are sent after the response is returned
-	// Note: Resend rate limit is 2 requests/sec per team (500ms minimum between request starts).
-	// We add a 600ms delay AFTER the first email completes, ensuring we well exceed this minimum.
 	after(async () => {
+		await delay(1000);
+
 		const { error } = await sendEmailNotification(registrationData);
 		console.log('sent organizers email');
 		if (error) {
 			console.error("Error sending email:", error);
 		}
-
-		// Delay after first email completes to avoid rate limiting
-		// (Resend: 2 requests/sec = 500ms minimum between starts, using 600ms + email time for safety)
-		await delay(600);
 
 		const { error: confirmationEmailError } = await sendConfirmationEmail(registrationData);
 		console.log('sent confirmation email');
