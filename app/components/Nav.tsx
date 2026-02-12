@@ -25,8 +25,8 @@ export default function Nav() {
 						Boende
 					</Link>
 					<Link
-						href="/shedule"
-						className={`font-medium transition-colors ${pathname === "/shedule" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
+						href="/schedule"
+						className={`font-medium transition-colors ${pathname === "/schedule" ? "text-sage-darker underline" : "text-sage-darker hover:text-sage-dark"}`}
 					>
 						Schema
 					</Link>
