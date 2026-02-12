@@ -87,7 +87,11 @@ function escapeAndTrim(text: string | null | undefined): string {
 	return escapeHtml(trimmed);
 }
 
-// Helper function for delays in async operations
+/**
+ * Helper function to create a Promise-based delay for rate limiting and spacing async operations
+ * @param ms - Delay duration in milliseconds
+ * @returns Promise that resolves after the specified delay
+ */
 const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
 async function sendEmailNotification(registrationData: RegistrationData) {
@@ -306,7 +310,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	// Send emails in the background using Next.js after() API
 	// This ensures emails are sent after the response is returned
 	// Note: Resend rate limit is 2 requests/sec per team. We send 2 emails sequentially
-	// with a 600ms delay between them to ensure we stay well within limits for this registration.
+	// with a 600ms delay (100ms safety margin over the 500ms minimum) to ensure we stay within limits.
 	after(async () => {
 		const { error } = await sendEmailNotification(registrationData);
 		console.log('sent organizers email');
@@ -314,7 +318,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			console.error("Error sending email:", error);
 		}
 
-		// Delay to avoid rate limiting (Resend: 2 requests/sec = 500ms minimum between requests)
+		// Delay to avoid rate limiting (Resend: 2 requests/sec = 500ms minimum, using 600ms for safety)
 		await delay(600);
 
 		const { error: confirmationEmailError } = await sendConfirmationEmail(registrationData);
