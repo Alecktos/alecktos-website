@@ -205,7 +205,7 @@ export default function RegistrationForm() {
 				</div>
 
 				{/* Notes */}
-				<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+				<div className="mb-6 p-6 bg-blush-medium rounded-lg">
 					<h3 className="text-xl font-semibold text-sage-darker mb-4">
 						Meddelande <span className="text-sm font-normal text-sage-dark">(valfritt)</span>
 					</h3>
@@ -363,11 +363,16 @@ export default function RegistrationForm() {
 				</div>
 			</div>
 
-			{/* Accommodation & Notes */}
+			{/* Boende */}
 			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
-				<h3 className="text-xl font-semibold text-sage-darker mb-4">Övrigt <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
+				<div className="text-center mb-4">
+					<h3 className="text-xl font-semibold text-sage-darker mb-2">Boende <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
+					<p className="text-xs text-sage-dark">
+						Önskar ni hjälp med boende? Läs mer om alternativen på <Link href="/accommodation" className="underline hover:text-blush-darker">boendesidan</Link>.
+					</p>
+				</div>
 				<div className="space-y-4">
-					<div className="flex items-center">
+					<div className="flex items-center justify-center">
 						<input
 							type="checkbox"
 							id="accommodationOsaby"
@@ -381,14 +386,14 @@ export default function RegistrationForm() {
 							}
 							className="w-5 h-5 text-blush-dark border-sage-darker rounded focus:ring-blush-dark"
 						/>
-					<label
-						htmlFor="accommodationOsaby"
-						className="ml-3 text-sage-darker font-medium"
-					>
-						Önskar hjälp med boende på Herrgård de luxe
-					</label>
-				</div>
-					<div className="flex items-center">
+						<label
+							htmlFor="accommodationOsaby"
+							className="ml-3 text-sage-darker font-medium"
+						>
+							Herrgård de luxe
+						</label>
+					</div>
+					<div className="flex items-center justify-center">
 						<input
 							type="checkbox"
 							id="accommodationSateri"
@@ -402,36 +407,34 @@ export default function RegistrationForm() {
 							}
 							className="w-5 h-5 text-blush-dark border-sage-darker rounded focus:ring-blush-dark"
 						/>
-					<label
-						htmlFor="accommodationSateri"
-						className="ml-3 text-sage-darker font-medium"
-					>
-						Önskar hjälp med boende på Stjärnviks säteri
-					</label>
-				</div>
-				<p className="text-xs text-sage-dark mt-2">
-					Läs mer om alternativen på <Link href="/accommodation" className="underline hover:text-blush-dark">boendesidan</Link>.
-				</p>
-				<hr className="border-sage-light" />
-				<div>
-						{/*<label className="block text-sm font-medium text-sage-darker mb-1">*/}
-						{/*	Frågor, önskemål eller annat ni vill meddela*/}
-						{/*</label>*/}
-						<textarea
-							name="notes"
-							maxLength={1000}
-							value={formState.notes}
-							onChange={(e) =>
-								setFormState((prev) => ({
-									...prev,
-									notes: e.target.value,
-								}))
-							}
-							className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
-							rows={4}
-							placeholder="Frågor, önskemål eller annat ni vill meddela"
-						/>
+						<label
+							htmlFor="accommodationSateri"
+							className="ml-3 text-sage-darker font-medium"
+						>
+							Stjärnviks säteri
+						</label>
 					</div>
+				</div>
+			</div>
+
+			{/* Övrigt */}
+			<div className="mb-8 p-6 bg-blush-medium rounded-lg">
+				<h3 className="text-xl font-semibold text-sage-darker mb-4">Övrigt <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
+				<div>
+					<textarea
+						name="notes"
+						maxLength={1000}
+						value={formState.notes}
+						onChange={(e) =>
+							setFormState((prev) => ({
+								...prev,
+								notes: e.target.value,
+							}))
+						}
+						className="w-full px-4 py-2 border border-sage-light rounded-md focus:ring-2 focus:ring-blush-dark focus:border-transparent bg-off-white"
+						rows={4}
+						placeholder="Frågor, önskemål eller annat ni vill meddela"
+					/>
 				</div>
 			</div>
 
