@@ -1,9 +1,10 @@
 "use server";
 
-import {neon} from "@neondatabase/serverless";
-import {Resend} from "resend";
+import { after } from "next/server";
+import { neon } from "@neondatabase/serverless";
+import { Resend } from "resend";
 import escapeHtml from "escape-html";
-import {z} from "zod";
+import { z } from "zod";
 
 // Validation constants
 const MAX_NAME_LENGTH = 100;
@@ -85,6 +86,13 @@ function escapeAndTrim(text: string | null | undefined): string {
 	}
 	return escapeHtml(trimmed);
 }
+
+/**
+ * Helper function to create a Promise-based delay for rate limiting
+ * @param ms - Delay duration in milliseconds
+ * @returns Promise that resolves after the specified delay
+ */
+const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
 
 async function sendEmailNotification(registrationData: RegistrationData) {
 	const attendanceStatus = registrationData.canAttend ? "Kommer" : "Kommer inte";
@@ -299,32 +307,21 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		};
 	}
 
-	// Send confirmation email to both guests asynchronously with delay to avoid rate limiting
-	// Fire and forget - don't await, return success immediately
-	(async () => {
-		const delay = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms));
-
-		// Wait 1 second before sending confirmation email to avoid rate limit
+	after(async () => {
 		await delay(1000);
 
 		const { error } = await sendEmailNotification(registrationData);
 		console.log('sent organizers email');
 		if (error) {
 			console.error("Error sending email:", error);
-			// return {
-			// 	success: false,
-			// 	message: "Ett fel uppstod vid anmälan.",
-			// };
 		}
-
 
 		const { error: confirmationEmailError } = await sendConfirmationEmail(registrationData);
 		console.log('sent confirmation email');
 		if (confirmationEmailError) {
 			console.error("Error sending confirmation email:", confirmationEmailError);
 		}
-
-	})();
+	});
 
 	console.log('returning success response');
 	return {
