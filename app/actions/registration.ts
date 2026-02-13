@@ -178,11 +178,11 @@ async function sendConfirmationEmail(registrationData: RegistrationData) {
 		}
 
 		if (registrationData.accommodationOsaby) {
-			emailBody += `<p><strong>Boende Osaby:</strong> ${registrationData.accommodationOsaby ? 'Ja' : 'Nej'}</p>`;
+			emailBody += `<p><strong>Boende Osaby:</strong> Ja</p>`;
 		}
 
 		if (registrationData.accommodationSateri) {
-			emailBody += `<p><strong>Boende Säteri:</strong> ${registrationData.accommodationSateri ? 'Ja' : 'Nej'}</p>`;
+			emailBody += `<p><strong>Boende Säteri:</strong> Ja</p>`;
 		}
 
 		if (registrationData.notes) {
