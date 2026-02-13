@@ -35,14 +35,14 @@ export default function RootLayout({
 				  <div className="relative w-full h-120">
 					  <Image
 						  className="object-cover object-top-right md:hidden"
-						  src={"/beach_10_desktop.png"}
+						  src={"/beach_11_desktop.png"}
 						  alt="Header image"
 						  fill
 						  priority
 					  />
 					  <Image
 						  className="object-cover grayscale object-top-right hidden md:block"
-						  src="/beach_10_desktop.png"
+						  src="/beach_11_desktop.png"
 						  alt="Header image"
 						  fill
 						  priority
