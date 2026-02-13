@@ -2,7 +2,7 @@
 This is (as of now) a website for wedding invitation and RSVP management.
 
 ## Domain
-- Declined guest will not be added as contacts in resend.
+- Declined guests will not be added as contacts in Resend.
 
 ## Website Colors
 | Color | Hex | CSS Variable | Usage |
