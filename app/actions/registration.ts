@@ -177,9 +177,19 @@ async function sendConfirmationEmail(registrationData: RegistrationData) {
 			}
 		}
 
+		if (registrationData.accommodationOsaby) {
+			emailBody += `<p><strong>Boende Osaby:</strong> ${registrationData.accommodationOsaby ? 'Ja' : 'Nej'}</p>`;
+		}
+
+		if (registrationData.accommodationSateri) {
+			emailBody += `<p><strong>Boende Säteri:</strong> ${registrationData.accommodationSateri ? 'Ja' : 'Nej'}</p>`;
+		}
+
+		if (registrationData.notes) {
+			emailBody += `<p><strong>Meddelande:</strong> ${registrationData.notes}</p>`;
+		}
+
 		emailBody += `
-		<p><strong>Boende Osaby:</strong> ${registrationData.accommodationOsaby ? 'Ja' : 'Nej'}</p>
-		<p><strong>Boende Säteri:</strong> ${registrationData.accommodationSateri ? 'Ja' : 'Nej'}</p>
 
 		<p>Vi återkommer med mer information om schemat och andra nyheter.</p>`;
 	} else {
