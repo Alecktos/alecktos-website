@@ -1,6 +1,9 @@
 # Alecktos website
 This is (as of now) a website for wedding invitation and RSVP management.
 
+## Domain
+- Declined guests will not be added as contacts in Resend.
+
 ## Website Colors
 | Color | Hex | CSS Variable | Usage |
 |-------|-----|--------------|-------|
@@ -26,3 +29,8 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+
+## Confirmed Testing
+✅ Email formats
+✅ Db inserts
+✅ Send to confirmed guests
