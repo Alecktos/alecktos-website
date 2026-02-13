@@ -1,6 +1,9 @@
 # Alecktos website
 This is (as of now) a website for wedding invitation and RSVP management.
 
+## Domain
+- Declined guest will not be added as contacts in resend.
+
 ## Website Colors
 | Color | Hex | CSS Variable | Usage |
 |-------|-----|--------------|-------|
