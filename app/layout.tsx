@@ -5,13 +5,13 @@ import Nav from "./components/Nav";
 import "./globals.css";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+	variable: "--font-geist-sans",
+	subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+	variable: "--font-geist-mono",
+	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -20,31 +20,31 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-	<html lang="sv">
-	  <body
-		className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-	  >
-		  <div className="max-w-screen-2xl mx-auto text-center bg-blush-lighter">
-			<Nav />
-			  <div className="relative w-full text-center">
-				  <div className="relative w-full h-94 md:h-120">
-					  <Image
-						  className="object-cover object-top-right md:grayscale brightness-110"
-						  src="/beach_11_desktop.png"
-						  alt="Header image"
-						  fill
-						  priority
-					  />
-				  </div>
-			  </div>
-			{children}
-		  </div>
-	  </body>
-	</html>
-  );
+	return (
+		<html lang="sv">
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+			>
+				<div className="max-w-screen-2xl mx-auto text-center bg-blush-lighter">
+					<Nav />
+					<div className="relative w-full text-center">
+						<div className="relative w-full h-94 md:h-120">
+							<Image
+								className="object-cover object-top-right md:grayscale brightness-110"
+								src="/beach_11_desktop.png"
+								alt="Header image"
+								fill
+								priority
+							/>
+						</div>
+					</div>
+					{children}
+				</div>
+			</body>
+		</html>
+	);
 }
