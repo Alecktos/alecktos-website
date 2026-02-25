@@ -34,7 +34,7 @@ export default function RootLayout({
 			  <div className="relative w-full text-center">
 				  <div className="relative w-full h-94 md:h-120">
 					  <Image
-						  className="object-cover object-top-right md:grayscale"
+						  className="object-cover object-top-right md:grayscale brightness-110"
 						  src="/beach_11_desktop.png"
 						  alt="Header image"
 						  fill
