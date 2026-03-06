@@ -28,10 +28,10 @@ export default function AccommodationPage() {
 						Stjärnviks Säteri
 					</h2>
 					<p className="text-sage-dark mb-4">
-						Bokning görs genom oss via anmälan. Gemensamt kök och badrum, frukost ingår inte. Begränsat antal rum, först till kvarn gäller.
+						Bokning görs genom oss via anmälan. Gemensamt kök och badrum. Lakan och frukost ingår. Begränsat antal rum, först till kvarn gäller.
 					</p>
 					<p className="text-sage-dark mb-4">
-						Kostnad: 500 kr per person. Lakan ingår.
+						Kostnad: 500 kr per person.
 					</p>
 					<p className="text-sage-dark mb-4">
 						<a href="https://stjarnvik.nu/" target="_blank" rel="noopener noreferrer" className="underline hover:text-sage-darker">Stjärnviks Säteri hemsida</a>
