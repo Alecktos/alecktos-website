@@ -14,7 +14,6 @@ interface GuestInfo {
 interface FormState {
 	guest1: GuestInfo;
 	guest2: GuestInfo;
-	accommodationOsaby: boolean;
 	accommodationSateri: boolean;
 	notes: string;
 }
@@ -37,7 +36,6 @@ export default function RegistrationForm() {
 	const [formState, setFormState] = useState<FormState>({
 		guest1: { name: "", email: "", dietaryRestrictions: "" },
 		guest2: { name: "", email: "", dietaryRestrictions: "" },
-		accommodationOsaby: false,
 		accommodationSateri: false,
 		notes: "",
 	});
@@ -68,7 +66,6 @@ export default function RegistrationForm() {
 			setFormState({
 				guest1: { name: "", email: "", dietaryRestrictions: "" },
 				guest2: { name: "", email: "", dietaryRestrictions: "" },
-				accommodationOsaby: false,
 				accommodationSateri: false,
 				notes: "",
 			});
@@ -372,27 +369,6 @@ export default function RegistrationForm() {
 					</p>
 				</div>
 				<div className="space-y-4">
-					<div className="flex items-center justify-center">
-						<input
-							type="checkbox"
-							id="accommodationOsaby"
-							name="accommodationOsaby"
-							checked={formState.accommodationOsaby}
-							onChange={(e) =>
-								setFormState((prev) => ({
-									...prev,
-									accommodationOsaby: e.target.checked,
-								}))
-							}
-							className="w-5 h-5 text-blush-dark border-sage-darker rounded focus:ring-blush-dark"
-						/>
-						<label
-							htmlFor="accommodationOsaby"
-							className="ml-3 text-sage-darker font-medium"
-						>
-							Herrgård de luxe
-						</label>
-					</div>
 					<div className="flex items-center justify-center">
 						<input
 							type="checkbox"

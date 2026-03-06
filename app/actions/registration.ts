@@ -29,7 +29,6 @@ const registrationSchema = z.object({
 	canAttend: z.literal(true),
 	guest1: guest1Schema,
 	guest2: guestInfoSchema,
-	accommodationOsaby: z.boolean(),
 	accommodationSateri: z.boolean(),
 	notes: z.string().max(MAX_NOTES_LENGTH, `Meddelandet får max vara ${MAX_NOTES_LENGTH} tecken`),
 });
@@ -49,7 +48,6 @@ const declineRegistrationSchema = z.object({
 		email: z.string(),
 		dietaryRestrictions: z.string(),
 	}),
-	accommodationOsaby: z.boolean(),
 	accommodationSateri: z.boolean(),
 	notes: z.string().max(MAX_NOTES_LENGTH, `Meddelandet får max vara ${MAX_NOTES_LENGTH} tecken`),
 });
@@ -64,7 +62,6 @@ interface RegistrationData {
 	canAttend: boolean;
 	guest1: GuestInfo;
 	guest2: GuestInfo;
-	accommodationOsaby: boolean;
 	accommodationSateri: boolean;
 	notes: string;
 }
@@ -121,7 +118,6 @@ async function sendEmailNotification(registrationData: RegistrationData) {
 		<p><strong>Allergier/Specialkost:</strong> ${registrationData.guest2.dietaryRestrictions || 'Inga'}</p>
 
 		<h3>Boende</h3>
-		<p><strong>Boende Osaby:</strong> ${registrationData.accommodationOsaby ? 'Ja' : 'Nej'}</p>
 		<p><strong>Boende Säteri:</strong> ${registrationData.accommodationSateri ? 'Ja' : 'Nej'}</p>
 
 		<h3>Meddelande</h3>
@@ -177,9 +173,6 @@ async function sendConfirmationEmail(registrationData: RegistrationData) {
 			}
 		}
 
-		if (registrationData.accommodationOsaby) {
-			emailBody += `<p><strong>Boende Osaby:</strong> Ja</p>`;
-		}
 
 		if (registrationData.accommodationSateri) {
 			emailBody += `<p><strong>Boende Säteri:</strong> Ja</p>`;
@@ -230,7 +223,6 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	};
 
 	// Extract accommodation data
-	const accommodationOsaby = formData.get("accommodationOsaby") === "on";
 	const accommodationSateri = formData.get("accommodationSateri") === "on";
 
 	// Extract general notes
@@ -240,7 +232,6 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 		canAttend,
 		guest1,
 		guest2,
-		accommodationOsaby,
 		accommodationSateri,
 		notes,
 	};
@@ -297,7 +288,7 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 	const sql = neon(`${process.env.DATABASE_URL}`);
 
 	try {
-		await sql`INSERT INTO registrations (can_attend, guest1_name, guest1_email, guest1_dietary_restrictions, guest2_name, guest2_email, guest2_dietary_restrictions, accommodation_osaby, accommodation_sateri, notes) VALUES (
+		await sql`INSERT INTO registrations (can_attend, guest1_name, guest1_email, guest1_dietary_restrictions, guest2_name, guest2_email, guest2_dietary_restrictions, accommodation_sateri, notes) VALUES (
 			${registrationData.canAttend},
 			${registrationData.guest1.name},
 			${registrationData.guest1.email},
@@ -305,7 +296,6 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			${registrationData.guest2.name},
 			${registrationData.guest2.email},
 			${registrationData.guest2.dietaryRestrictions},
-			${registrationData.accommodationOsaby},
 			${registrationData.accommodationSateri},
 			${registrationData.notes}
 		)`;

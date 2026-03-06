@@ -16,7 +16,7 @@ export default function AccommodationPage() {
 						Gemensamt badrum, frukost ingår.
 					</p>
 					<p className="text-sage-dark mb-4">
-						<a href="https://herrgarddeluxe.stay.at/" target="_blank" rel="noopener noreferrer" className="underline hover:text-sage-darker">Osaby Herrgårds hemsida</a>
+						<a href="https://herrgarddeluxe.stay.at/" target="_blank" rel="noopener noreferrer" className="underline hover:text-sage-darker">Herrgård de luxe hemsida</a>
 					</p>
 					<p className="text-sage-dark">
 						<b>Avstånd till festlokalen:</b> 5,4 km, cirka 8 minuter med bil.
