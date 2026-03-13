@@ -329,7 +329,7 @@ export default function RegistrationForm() {
 							E-post
 						</label>
 						<p className="text-xs text-sage-dark mb-2">
-							Används för nyheter och uppdateringar kring tider
+							Valfritt – fyll i om även gäst 2 vill få nyheter och uppdateringar
 						</p>
 						<input
 							type="email"
