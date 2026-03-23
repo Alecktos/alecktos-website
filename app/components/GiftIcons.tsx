@@ -188,11 +188,8 @@ export function WineIcon(): JSX.Element {
 export function AirplaneIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
-			<path d="M21 3 l-9 9" />
-			<path d="M21 3 l-2 8 -5 -3" />
-			<path d="M21 3 l-8 2 3 5" />
-			<path d="M12 12 l-3 7 2 -3 3 1" />
-			<path d="M12 12 l-7 3 3 -2 -1 -3" />
+			<path d="M12 2 q-1 0 -1 2 v6 L3 14 v2 l8 -2 v4 l-2 2 v1 h6 v-1 l-2 -2 v-4 l8 2 v-2 l-8 -4 V4 q0 -2 -1 -2 z" fill="currentColor" opacity="0.15" />
+			<path d="M12 2 q-1 0 -1 2 v6 L3 14 v2 l8 -2 v4 l-2 2 v1 h6 v-1 l-2 -2 v-4 l8 2 v-2 l-8 -4 V4 q0 -2 -1 -2 z" />
 		</svg>
 	);
 }
