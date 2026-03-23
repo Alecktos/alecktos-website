@@ -64,7 +64,7 @@ const categories: GiftCategory[] = [
 			{ name: "Kompressor", icon: <CompressorIcon /> },
 			{ name: "Högtryckstvätt", icon: <PressureWasherIcon /> },
 			{ name: "Cirkelsåg", icon: <CircularSawIcon /> },
-			{ name: "Bilvårdsprodukter", icon: <CarCareIcon />, comment: "T.ex bilschampo, avfettningsmedel" },
+			{ name: "Bilvårdsprodukter", icon: <CarCareIcon />, comment: "T.ex. bilschampo, avfettningsmedel" },
 		],
 	},
 	{
