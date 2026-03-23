@@ -156,21 +156,6 @@ export function GiftCardIcon(): JSX.Element {
 	);
 }
 
-export function GrapesIcon(): JSX.Element {
-	return (
-		<svg {...svgProps}>
-			<circle cx="9" cy="12" r="2.5" fill="currentColor" opacity="0.2" />
-			<circle cx="15" cy="12" r="2.5" fill="currentColor" opacity="0.2" />
-			<circle cx="12" cy="10" r="2.5" fill="currentColor" opacity="0.2" />
-			<circle cx="12" cy="15" r="2.5" fill="currentColor" opacity="0.2" />
-			<circle cx="12" cy="20" r="2.5" fill="currentColor" opacity="0.2" />
-			<circle cx="9" cy="17" r="2.5" fill="currentColor" opacity="0.2" />
-			<circle cx="15" cy="17" r="2.5" fill="currentColor" opacity="0.2" />
-			<path d="M12 7 v-4" />
-			<path d="M12 3 q3 0 4 2" />
-		</svg>
-	);
-}
 
 export function WineIcon(): JSX.Element {
 	return (

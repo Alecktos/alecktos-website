@@ -12,7 +12,6 @@ import {
 	HedgeTrimmerIcon,
 	AxeIcon,
 	GiftCardIcon,
-	GrapesIcon,
 	WineIcon,
 	AirplaneIcon,
 	ScrewdriverIcon,
@@ -71,7 +70,7 @@ const categories: GiftCategory[] = [
 		title: "Matlagning",
 		gifts: [
 			{ name: "Oliver & olivolja", icon: <OlivesIcon /> },
-			{ name: "Dricksglas", icon: <DrinkingGlassIcon />, comment: "Vilka?" },
+			// { name: "Dricksglas", icon: <DrinkingGlassIcon />, comment: "Vilka?" },
 			{ name: "Klotgrill", icon: <KettleGrillIcon /> },
 			{ name: "Muurikka", icon: <MuurikkaIcon /> },
 			{ name: "Pizzaugn gasol", icon: <PizzaOvenIcon /> },
@@ -80,9 +79,9 @@ const categories: GiftCategory[] = [
 	{
 		title: "Till Hemmet",
 		gifts: [
-			{ name: "Lakan", icon: <BedSheetsIcon />, comment: "Mått?" },
+			{ name: "Sängkläder", icon: <BedSheetsIcon />, comment: "Påslakan 230 x 220 cm (finns på Hemtex)" },
 			{ name: "Gymredskap", icon: <GymIcon />, comment: "T.ex. hantlar, kettlebells, Stepbräda" },
-			{ name: "Golvmatta till gym", icon: <GymMatIcon />, comment: "10m², från Biltema" },
+			// { name: "Golvmatta till gym", icon: <GymMatIcon />, comment: "10m², från Biltema" },
 			{ name: "Sonos Play", icon: <SpeakerIcon /> },
 		],
 	},
@@ -92,7 +91,7 @@ const categories: GiftCategory[] = [
 			{ name: "Presentkort Ikea", icon: <GiftCardIcon /> },
 			{ name: "Presentkort Mio", icon: <GiftCardIcon /> },
 			{ name: "Presentkort Bauhaus", icon: <GiftCardIcon /> },
-			{ name: "Presentkort Ästad vingård", icon: <GrapesIcon /> },
+			{ name: "Presentkort Ästad vingård", icon: <GiftCardIcon /> },
 			{ name: "Vinprovning", icon: <WineIcon /> },
 			{ name: "Bidrag till bröllopsresa", icon: <AirplaneIcon /> },
 		],
