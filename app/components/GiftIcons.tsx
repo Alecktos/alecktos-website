@@ -197,9 +197,12 @@ export function AirplaneIcon(): JSX.Element {
 export function ScrewdriverIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
-			<path d="M14 3 l3 3 -8 8 -3 -3 z" />
-			<path d="M6 14 l-2 2 q-1 1 0 3 l1 1 q2 1 3 0 l2 -2 z" fill="currentColor" opacity="0.2" />
-			<line x1="17" y1="6" x2="20" y2="3" />
+			<rect x="2" y="3" width="13" height="7" rx="2" fill="currentColor" opacity="0.15" />
+			<rect x="2" y="3" width="13" height="7" rx="2" />
+			<line x1="15" y1="6.5" x2="22" y2="6.5" />
+			<path d="M4 10 h6 v9 q0 1 -1 1 H5 q-1 0 -1 -1 z" fill="currentColor" opacity="0.15" />
+			<path d="M4 10 h6 v9 q0 1 -1 1 H5 q-1 0 -1 -1 z" />
+			<path d="M10 12 q2 1 1.5 3" />
 		</svg>
 	);
 }
