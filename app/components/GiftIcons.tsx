@@ -212,7 +212,6 @@ export function WheelbarrowIcon(): JSX.Element {
 			<circle cx="5" cy="19" r="2.5" />
 			<line x1="5" y1="15" x2="5" y2="16.5" />
 			<line x1="17" y1="7" x2="22" y2="5" />
-			<line x1="15" y1="15" x2="22" y2="12" />
 		</svg>
 	);
 }
@@ -220,12 +219,14 @@ export function WheelbarrowIcon(): JSX.Element {
 export function CarJackIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
-			<line x1="4" y1="21" x2="20" y2="21" />
-			<path d="M6 21 l4 -10 h4 l4 10" />
-			<line x1="10" y1="11" x2="14" y2="11" />
-			<rect x="8" y="4" width="8" height="4" rx="1" fill="currentColor" opacity="0.15" />
-			<rect x="8" y="4" width="8" height="4" rx="1" />
-			<line x1="12" y1="8" x2="12" y2="11" />
+			<rect x="3" y="14" width="14" height="4" rx="1" fill="currentColor" opacity="0.15" />
+			<rect x="3" y="14" width="14" height="4" rx="1" />
+			<circle cx="6" cy="20" r="1.5" />
+			<circle cx="14" cy="20" r="1.5" />
+			<line x1="7" y1="14" x2="7" y2="8" />
+			<rect x="4" y="6" width="6" height="2" rx="0.5" fill="currentColor" opacity="0.15" />
+			<rect x="4" y="6" width="6" height="2" rx="0.5" />
+			<line x1="17" y1="16" x2="22" y2="11" />
 		</svg>
 	);
 }
