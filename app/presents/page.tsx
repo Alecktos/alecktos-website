@@ -123,7 +123,7 @@ export default function PresentsPage(): React.JSX.Element {
 				<div className="w-full max-w-2xl mx-auto space-y-8">
 					{categories.map((category) => (
 						<section key={category.title}>
-							<h2 className="text-2xl font-serif text-sage-darker mb-3">{category.title}</h2>
+							<h2 className="text-2xl font-serif text-sage-darker mb-4">{category.title}</h2>
 							<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 								{category.gifts.map((gift) => (
 									<div
