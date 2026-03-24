@@ -69,18 +69,6 @@ export function OlivesIcon(): JSX.Element {
 	);
 }
 
-export function OliveOilIcon(): JSX.Element {
-	return (
-		<svg {...svgProps}>
-			<rect x="7" y="8" width="10" height="13" rx="1" fill="currentColor" opacity="0.15" />
-			<rect x="7" y="8" width="10" height="13" rx="1" />
-			<rect x="9" y="4" width="6" height="4" rx="0.5" />
-			<line x1="12" y1="4" x2="12" y2="2" />
-			<ellipse cx="12" cy="15" rx="2" ry="2.5" fill="currentColor" opacity="0.3" />
-		</svg>
-	);
-}
-
 export function DrinkingGlassIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>

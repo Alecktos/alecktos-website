@@ -5,7 +5,6 @@ import {
 	SecateursIcon,
 	WaterHoseIcon,
 	OlivesIcon,
-	OliveOilIcon,
 	DrinkingGlassIcon,
 	BedSheetsIcon,
 	CarCareIcon,
