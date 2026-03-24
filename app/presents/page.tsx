@@ -79,7 +79,7 @@ const categories: GiftCategory[] = [
 	{
 		title: "Till Hemmet",
 		gifts: [
-			{ name: "Sängkläder", icon: <BedSheetsIcon />, comment: "Påslakan 230 x 220 cm (finns på Hemtex)" },
+			{ name: "Sängkläder", icon: <BedSheetsIcon />, comment: "180 cm säng. Påslakan 230 x 220 cm (finns på Hemtex)" },
 			{ name: "Gymredskap", icon: <GymIcon />, comment: "T.ex. hantlar, kettlebells, Stepbräda" },
 			// { name: "Golvmatta till gym", icon: <GymMatIcon />, comment: "10m², från Biltema" },
 			{ name: "Sonos Play", icon: <SpeakerIcon /> },
