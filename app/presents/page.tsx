@@ -26,6 +26,7 @@ import {
 	ClearingSawIcon,
 	PizzaOvenIcon,
 	GymMatIcon,
+	HeadlampIcon,
 } from "@/app/components/GiftIcons";
 import type { JSX } from "react";
 
@@ -63,6 +64,7 @@ const categories: GiftCategory[] = [
 			{ name: "Högtryckstvätt", icon: <PressureWasherIcon /> },
 			{ name: "Cirkelsåg", icon: <CircularSawIcon /> },
 			{ name: "Bilvårdsprodukter", icon: <CarCareIcon />, comment: "T.ex. bilschampo, avfettningsmedel" },
+			{ name: "Pannlampa", icon: <HeadlampIcon /> },
 		],
 	},
 	{
