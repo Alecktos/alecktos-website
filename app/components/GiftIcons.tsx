@@ -337,6 +337,26 @@ export function PizzaOvenIcon(): JSX.Element {
 	);
 }
 
+export function HeadlampIcon(): JSX.Element {
+	const head = "M6 12 Q6 4 12 3 Q16 3 16 7 L18 10 L16 12 L16 15 Q14 17 14 21 L8 21 Q8 17 6 15 Z";
+	return (
+		<svg {...svgProps}>
+			{/* Head silhouette (side view, facing right) */}
+			<path d={head} fill="currentColor" opacity="0.12" />
+			<path d={head} />
+			{/* Strap across head */}
+			<path d="M16 7 Q11 6 6 9" strokeWidth="2" />
+			{/* Lamp housing on forehead */}
+			<rect x="14" y="5" width="4.5" height="3.5" rx="0.8" fill="currentColor" opacity="0.3" />
+			<rect x="14" y="5" width="4.5" height="3.5" rx="0.8" />
+			{/* Light beams */}
+			<line x1="18.5" y1="6.5" x2="22" y2="4" />
+			<line x1="18.5" y1="6.5" x2="22.5" y2="6.5" />
+			<line x1="18.5" y1="6.5" x2="22" y2="9" />
+		</svg>
+	);
+}
+
 export function GymMatIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
