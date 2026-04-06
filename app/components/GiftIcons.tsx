@@ -278,20 +278,6 @@ export function CompressorIcon(): JSX.Element {
 	);
 }
 
-export function PressureWasherIcon(): JSX.Element {
-	return (
-		<svg {...svgProps}>
-			<rect x="4" y="8" width="10" height="13" rx="2" fill="currentColor" opacity="0.15" />
-			<rect x="4" y="8" width="10" height="13" rx="2" />
-			<circle cx="9" cy="17" r="2" />
-			<path d="M14 12 q4 0 4 -3 v-4 q0 -2 -2 -2 h-2" />
-			<line x1="18" y1="5" x2="22" y2="2" />
-			<line x1="20" y1="2" x2="22" y2="2" />
-			<line x1="22" y1="2" x2="22" y2="4" />
-		</svg>
-	);
-}
-
 export function CircularSawIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
