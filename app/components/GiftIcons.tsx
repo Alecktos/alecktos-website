@@ -356,3 +356,20 @@ export function GymMatIcon(): JSX.Element {
 	);
 }
 
+export function CoffeeGrinderIcon(): JSX.Element {
+	return (
+		<svg {...svgProps}>
+			{/* Hopper (V-shape on top) */}
+			<path d="M7 2 L10 8 h4 L17 2 z" fill="currentColor" opacity="0.15" />
+			<path d="M7 2 L10 8 h4 L17 2 z" />
+			{/* Cylindrical body */}
+			<rect x="8" y="8" width="8" height="10" rx="1" fill="currentColor" opacity="0.15" />
+			<rect x="8" y="8" width="8" height="10" rx="1" />
+			{/* Grind adjustment dial on side */}
+			<line x1="16" y1="12" x2="19" y2="12" />
+			<circle cx="20" cy="12" r="1.2" />
+			{/* Base */}
+			<line x1="6" y1="20" x2="18" y2="20" />
+		</svg>
+	);
+}

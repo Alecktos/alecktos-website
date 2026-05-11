@@ -26,6 +26,7 @@ import {
 	PizzaOvenIcon,
 	GymMatIcon,
 	HeadlampIcon,
+	CoffeeGrinderIcon,
 } from "@/app/components/GiftIcons";
 import type { JSX } from "react";
 
@@ -71,8 +72,9 @@ const categories: GiftCategory[] = [
 			{ name: "Oliver & olivolja", icon: <OlivesIcon /> },
 			// { name: "Dricksglas", icon: <DrinkingGlassIcon />, comment: "Vilka?" },
 			{ name: "Klotgrill", icon: <KettleGrillIcon /> },
-			{ name: "Muurikka", icon: <MuurikkaIcon /> },
+			{ name: "Muurikka gasol", icon: <MuurikkaIcon /> },
 			{ name: "Pizzaugn gasol", icon: <PizzaOvenIcon /> },
+			{ name: "Kaffekvarn elektrisk", icon: <CoffeeGrinderIcon /> },
 		],
 	},
 	{
