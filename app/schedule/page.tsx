@@ -59,7 +59,7 @@ export default function SchedulePage() {
 					{/* Schedule items */}
 					<div className="flex flex-col items-center">
 						{scheduleItems.map((item, index) => (
-							<BlushMediumBox key={index}>
+							<BlushMediumBox key={`${item.time}-${item.description}`}>
 								{/* Timeline dot, do not show on first box */}
 								{index !== 0 &&
 									<div
