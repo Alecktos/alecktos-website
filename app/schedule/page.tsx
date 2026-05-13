@@ -54,7 +54,8 @@ export default function SchedulePage() {
 				<div className="relative">
 					{/* Timeline line */}
 					<div
-						className="absolute left-1/2 -translate-x-1/2 top-0 bottom-8 w-0.5 bg-sage-light hidden md:block"></div>
+						className="absolute left-1/2 -translate-x-1/2 top-0 bottom-8 w-0.5 bg-sage-light hidden md:block"
+					/>
 
 					{/* Schedule items */}
 					<div className="flex flex-col items-center">
@@ -63,7 +64,8 @@ export default function SchedulePage() {
 								{/* Timeline dot, do not show on first box */}
 								{index !== 0 &&
 									<div
-										className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
+										className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"
+									/>
 								}
 
 
