@@ -96,17 +96,12 @@ export function PartyIcon(): JSX.Element {
 	);
 }
 
-/** Knife and fork */
+/** Crescent moon */
 export function MoonIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
-			<line x1="8" y1="3" x2="8" y2="21"/>
-			<line x1="6" y1="3" x2="6" y2="9"/>
-			<line x1="10" y1="3" x2="10" y2="9"/>
-			<line x1="8" y1="9" x2="8" y2="9"/>
-			<path d="M6 9 q0 2 2 2 q2 0 2 -2"/>
-			<line x1="16" y1="3" x2="16" y2="21"/>
-			<path d="M16 3 q3 0 3 4 q0 4 -3 4"/>
+			<path d="M15 3a8.5 8.5 0 1 0 6 14.5A9 9 0 0 1 15 3z" fill="currentColor" opacity="0.15"/>
+			<path d="M15 3a8.5 8.5 0 1 0 6 14.5A9 9 0 0 1 15 3z"/>
 		</svg>
 	);
 }
