@@ -1,49 +1,44 @@
-import { BlushMediumBox } from "../components/BlushMediumBox";
+import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+import {BusIcon, CakeIcon, CeremonyIcon, DinnerIcon, MoonIcon, PartyIcon,} from "@/app/components/ScheduleIcons";
+import type {JSX} from "react";
 
 export default function SchedulePage() {
-	const scheduleItems = [
+	const scheduleItems: { time: string; description: string; icon: JSX.Element }[] = [
 		{
 			time: "14:00",
-			title: "Vigsel",
-			description: "Vigseln äger rum i Tävelsås kyrka. Vi ber er att vara på plats senast 13:45.",
-			icon: "💒"
+			description: "Buss avgår från Tävelsås bygdegård till vigselplats",
+			icon: <BusIcon/>,
 		},
 		{
-			time: "15:00",
-			title: "Mingel & Fotografering",
-			description: "Efter vigseln samlas vi utanför kyrkan för mingel och gratulationer. Fotografering sker under denna tid.",
-			icon: "📸"
+			time: "14:30",
+			description: "Vigsel",
+			icon: <CeremonyIcon/>,
 		},
 		{
-			time: "16:30",
-			title: "Välkomstdrink",
-			description: "Välkomstdrink serveras på Tävelsås bygdegård.",
-			icon: "🥂"
+			time: "15:30",
+			description: "Bröllopstårta och brudskål",
+			icon: <CakeIcon/>,
 		},
 		{
-			time: "17:30",
-			title: "Middag",
-			description: "Treretters middag serveras i festlokalen.",
-			icon: "🍽️"
+			time: "17:00",
+			description: "Buss avgår tillbaka till bygdegården",
+			icon: <BusIcon/>,
 		},
 		{
-			time: "20:00",
-			title: "Tårta & Kaffe",
-			description: "Bröllopstårta serveras tillsammans med kaffe och te.",
-			icon: "🎂"
+			time: "18:00",
+			description: "Middag",
+			icon: <DinnerIcon/>,
 		},
 		{
-			time: "21:00",
-			title: "Dans & Fest",
-			description: "Brudvalsen inleder kvällens dans och fest. Dansgolvet är öppet!",
-			icon: "💃"
+			time: "21:30",
+			description: "FEST!",
+			icon: <PartyIcon/>,
 		},
 		{
-			time: "01:00",
-			title: "Kvällen avslutas",
-			description: "Tack för en underbar kväll! Transport kan ordnas vid behov.",
-			icon: "🌙"
-		}
+			time: "00:00",
+			description: "Vickning",
+			icon: <MoonIcon/>,
+		},
 	];
 
 	return (
@@ -56,58 +51,52 @@ export default function SchedulePage() {
 					Lördag 15 augusti 2026
 				</p>
 
-			{/* Coming soon notice */}
-				<BlushMediumBox>
-					<h2 className="text-2xl font-semibold text-sage-darker mb-2">
-						Schemat släpps snart!
-					</h2>
-					<p className="text-sage-dark">
-						Det detaljerade schemat för bröllopsdagen kommer att publiceras här inom kort.
-					</p>
-				</BlushMediumBox>
-
 				<div className="relative">
-					{/* Blur overlay */}
-					<div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-					</div>
+					{/* Timeline line */}
+					<div
+						className="absolute left-1/2 -translate-x-1/2 top-0 bottom-8 w-0.5 bg-sage-light hidden md:block"
+					/>
 
-					{/* Blurred content */}
-					<div className="blur-sm select-none mb-8">
-						{/* Timeline line */}
-						<div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-light hidden md:block"></div>
+					{/* Schedule items */}
+					<div className="flex flex-col items-center">
+						{scheduleItems.map((item, index) => (
+							<BlushMediumBox key={`${item.time}-${item.description}`}>
+								{/* Timeline dot, do not show on first box */}
+								{index !== 0 &&
+									<div
+										className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"
+									/>
+								}
 
-						{/* Schedule items */}
-						<div className="space-y-6 flex flex-col items-center">
-							{scheduleItems.map((item, index) => (
-								<div
-									key={index}
-									className="bg-blush-medium max-w-2xl w-full rounded-lg p-6 relative"
-								>
-									{/* Timeline dot */}
-									<div className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
 
-									<div className="flex items-start gap-4">
-										<span className="text-3xl" role="img" aria-hidden="true">
-											{item.icon}
-										</span>
-										<div className="flex-1">
-											<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-												<h2 className="text-2xl font-semibold text-sage-darker">
-													{item.title}
-												</h2>
-												<span className="text-lg font-medium text-sage-dark">
-													{item.time}
-												</span>
-											</div>
-											<p className="text-sage-dark">
-												{item.description}
-											</p>
-										</div>
+								<div className="flex flex-col items-center text-center gap-2">
+									<div className="flex items-center gap-3">
+										<h2 className="text-sage-darker text-lg font-semibold">
+											{item.time}
+										</h2>
+
+									</div>
+									<div className="flex items-center gap-3">
+									<span className="text-xl font-medium text-sage-dark">
+										{item.description}
+									</span>
+										<span className="text-sage-dark shrink-0" aria-hidden="true">
+										{item.icon}
+									</span>
 									</div>
 								</div>
-							))}
-						</div>
+							</BlushMediumBox>
+						))}
 					</div>
+				</div>
+				<div className="mt-12 text-center">
+					<h2 className="text-2xl font-serif text-sage-darker mb-4">
+						Övrig information
+					</h2>
+					<ul className="text-sage-dark text-lg list-disc list-inside space-y-2">
+						<li>Vigseln kommer ske utomhus på gräsyta.</li>
+						<li>Utanför bygdegården kommer det finnas olika aktiviteter - Utmana gärna varandra!</li>
+					</ul>
 				</div>
 			</div>
 		</div>
