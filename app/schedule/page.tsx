@@ -1,42 +1,44 @@
-import {BlushMediumBox} from "../components/BlushMediumBox";
+import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+import {BusIcon, CakeIcon, CeremonyIcon, DinnerIcon, MoonIcon, PartyIcon,} from "@/app/components/ScheduleIcons";
+import type {JSX} from "react";
 
 export default function SchedulePage() {
-	const scheduleItems = [
+	const scheduleItems: { time: string; description: string; icon: JSX.Element }[] = [
 		{
 			time: "14:00",
-			description: "Buss avgår från Tävelsås bygdegård till hemlig vigselplats",
-			icon: "💒"
+			description: "Buss avgår från Tävelsås bygdegård till vigselplats",
+			icon: <BusIcon/>,
 		},
 		{
 			time: "14:30",
 			description: "Vigsel",
-			icon: "📸"
+			icon: <CeremonyIcon/>,
 		},
 		{
 			time: "15:30",
 			description: "Bröllopstårta och brudskål",
-			icon: "🥂"
+			icon: <CakeIcon/>,
 		},
 		{
 			time: "17:00",
-			description: "Buss avgår mot Tävelsås bygdegård",
-			icon: "🍽️"
+			description: "Buss avgår tillbaka till bygdegården",
+			icon: <BusIcon/>,
 		},
 		{
 			time: "18:00",
 			description: "Middag",
-			icon: "🎂"
+			icon: <DinnerIcon/>,
 		},
 		{
 			time: "21:30",
 			description: "FEST!",
-			icon: "💃"
+			icon: <PartyIcon/>,
 		},
 		{
 			time: "00:00",
 			description: "Vickning",
-			icon: "🌙"
-		}
+			icon: <MoonIcon/>,
+		},
 	];
 
 	return (
@@ -52,38 +54,47 @@ export default function SchedulePage() {
 				<div className="relative">
 					{/* Timeline line */}
 					<div
-						className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-sage-light hidden md:block"></div>
+						className="absolute left-1/2 -translate-x-1/2 top-0 bottom-8 w-0.5 bg-sage-light hidden md:block"></div>
 
 					{/* Schedule items */}
-					<div className="space-y-6 flex flex-col items-center">
+					<div className="flex flex-col items-center">
 						{scheduleItems.map((item, index) => (
-							<div
-								key={index}
-								className="bg-blush-medium max-w-2xl w-full rounded-lg p-6 relative"
-							>
-								{/* Timeline dot */}
-								<div
-									className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
+							<BlushMediumBox key={index}>
+								{/* Timeline dot, do not show on first box */}
+								{index !== 0 &&
+									<div
+										className="absolute left-1/2 -translate-x-1/2 -top-3 w-4 h-4 bg-sage-darker rounded-full border-4 border-blush-light hidden md:block"></div>
+								}
 
-								<div className="flex items-start gap-4">
-										<span className="text-3xl" role="img" aria-hidden="true">
-											{item.icon}
-										</span>
-									<div className="flex-1">
-										<div
-											className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-											<span className="text-lg font-medium text-sage-dark">
-													{item.time}
-											</span>
-										</div>
+
+								<div className="flex flex-col items-center text-center gap-2">
+									<div className="flex items-center gap-3">
 										<h2 className="text-sage-darker text-lg font-semibold">
-											{item.description}
+											{item.time}
 										</h2>
+
+									</div>
+									<div className="flex items-center gap-3">
+									<span className="text-xl font-medium text-sage-dark">
+										{item.description}
+									</span>
+										<span className="text-sage-dark shrink-0" aria-hidden="true">
+										{item.icon}
+									</span>
 									</div>
 								</div>
-							</div>
+							</BlushMediumBox>
 						))}
 					</div>
+				</div>
+				<div className="mt-12 text-center">
+					<h2 className="text-2xl font-serif text-sage-darker mb-4">
+						Övrig information
+					</h2>
+					<ul className="text-sage-dark text-lg list-disc list-inside space-y-2">
+						<li>Vigseln kommer ske utomhus på gräsyta.</li>
+						<li>Utanför bygdegården kommer det finnas olika aktiviteter - Utmana gärna varandra!</li>
+					</ul>
 				</div>
 			</div>
 		</div>
