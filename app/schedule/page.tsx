@@ -1,5 +1,12 @@
 import {BlushMediumBox} from "@/app/components/BlushMediumBox";
-import {BusIcon, CakeIcon, CeremonyIcon, DinnerIcon, MoonIcon, PartyIcon,} from "@/app/components/ScheduleIcons";
+import {
+	BusIcon,
+	CakeIcon,
+	CeremonyIcon,
+	DinnerIcon,
+	KnifeAndForkIcon,
+	PartyIcon,
+} from "@/app/components/ScheduleIcons";
 import type {JSX} from "react";
 
 export default function SchedulePage() {
@@ -37,7 +44,7 @@ export default function SchedulePage() {
 		{
 			time: "00:00",
 			description: "Vickning",
-			icon: <MoonIcon/>,
+			icon: <KnifeAndForkIcon/>,
 		},
 	];
 
