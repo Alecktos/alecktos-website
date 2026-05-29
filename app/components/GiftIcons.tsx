@@ -373,3 +373,19 @@ export function CoffeeGrinderIcon(): JSX.Element {
 		</svg>
 	);
 }
+
+export function GlassBowlIcon(): JSX.Element {
+	return (
+		<svg {...svgProps}>
+			{/* Open bowl shape */}
+			<path d="M3 9 Q3 18 12 18 Q21 18 21 9" fill="currentColor" opacity="0.15" />
+			<path d="M3 9 Q3 18 12 18 Q21 18 21 9" />
+			{/* Wide open rim */}
+			<path d="M2 9 Q12 7 22 9" />
+			{/* Small base */}
+			<line x1="9" y1="18" x2="9" y2="20" />
+			<line x1="15" y1="18" x2="15" y2="20" />
+			<line x1="8" y1="20" x2="16" y2="20" />
+		</svg>
+	);
+}

@@ -24,6 +24,7 @@ import {
 	WaterHoseIcon,
 	WheelbarrowIcon,
 	WineIcon,
+	GlassBowlIcon,
 } from "@/app/components/GiftIcons";
 import type {JSX} from "react";
 
@@ -72,6 +73,7 @@ const categories: GiftCategory[] = [
 			{ name: "Muurikka gasol", icon: <MuurikkaIcon /> },
 			{ name: "Pizzaugn gasol", icon: <PizzaOvenIcon /> },
 			{ name: "Kaffekvarn elektrisk", icon: <CoffeeGrinderIcon /> },
+			{ name: "Vakuumskålset", icon: <GlassBowlIcon />, comment: "Zwilling Fresh & Save" },
 		],
 	},
 	{
