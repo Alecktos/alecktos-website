@@ -50,7 +50,7 @@ const categories: GiftCategory[] = [
 			// { name: "Häcksax", icon: <HedgeTrimmerIcon /> },
 			{ name: "Yxa", icon: <AxeIcon /> },
 			{ name: "Skottkärra", icon: <WheelbarrowIcon /> },
-			{name: "Torkvinda", icon: <TorkvindaIcon/>, comment: "Gärna modell större"},
+			{ name: "Torkvinda", icon: <TorkvindaIcon />, comment: "Gärna modell större" },
 		],
 	},
 	{
