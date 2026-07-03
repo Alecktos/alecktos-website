@@ -6,7 +6,6 @@ import {
 	CarCareIcon,
 	CarJackIcon,
 	CircularSawIcon,
-	ClearingSawIcon,
 	CoffeeGrinderIcon,
 	CompressorIcon,
 	GiftCardIcon,
@@ -51,8 +50,7 @@ const categories: GiftCategory[] = [
 			// { name: "Häcksax", icon: <HedgeTrimmerIcon /> },
 			{ name: "Yxa", icon: <AxeIcon /> },
 			{ name: "Skottkärra", icon: <WheelbarrowIcon /> },
-			{ name: "Röjsåg", icon: <ClearingSawIcon /> },
-			{name: "Torkvinda", icon: <TorkvindaIcon/>, comment: "Gärna en större modell"},
+			{name: "Torkvinda", icon: <TorkvindaIcon/>, comment: "Gärna modell större"},
 		],
 	},
 	{

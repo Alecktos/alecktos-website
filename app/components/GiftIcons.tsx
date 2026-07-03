@@ -296,19 +296,6 @@ export function CircularSawIcon(): JSX.Element {
 	);
 }
 
-export function ClearingSawIcon(): JSX.Element {
-	return (
-		<svg {...svgProps}>
-			<line x1="12" y1="3" x2="12" y2="14" />
-			<circle cx="12" cy="17" r="4" fill="currentColor" opacity="0.15" />
-			<circle cx="12" cy="17" r="4" />
-			<line x1="8.5" y1="14.5" x2="15.5" y2="19.5" />
-			<line x1="8.5" y1="19.5" x2="15.5" y2="14.5" />
-			<line x1="9" y1="3" x2="15" y2="3" />
-		</svg>
-	);
-}
-
 export function PizzaOvenIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
