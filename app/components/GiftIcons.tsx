@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type {JSX} from "react";
 
 const svgProps = {
 	width: 28,
@@ -386,6 +386,21 @@ export function GlassBowlIcon(): JSX.Element {
 			<line x1="9" y1="18" x2="9" y2="20" />
 			<line x1="15" y1="18" x2="15" y2="20" />
 			<line x1="8" y1="20" x2="16" y2="20" />
+		</svg>
+	);
+}
+
+export function TorkvindaIcon(): JSX.Element {
+	return (
+		<svg {...svgProps}>
+			{/* Center pole */}
+			<line x1="12" y1="9" x2="12" y2="22"/>
+			{/* Arms angled upward, radiating from the hub */}
+			<line x1="12" y1="9" x2="21" y2="6"/>
+			<line x1="12" y1="9" x2="3" y2="6"/>
+			<line x1="12" y1="9" x2="5.6" y2="3.5"/>
+			<line x1="12" y1="9" x2="12" y2="2.5"/>
+			<line x1="12" y1="9" x2="18.4" y2="3.5"/>
 		</svg>
 	);
 }
