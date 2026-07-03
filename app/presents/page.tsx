@@ -82,7 +82,8 @@ const categories: GiftCategory[] = [
 			{ name: "Sängkläder", icon: <BedSheetsIcon />, comment: "180 cm säng. Påslakan 230 x 220 cm (finns på Hemtex)" },
 			{ name: "Gymredskap", icon: <GymIcon />, comment: "T.ex. hantlar, kettlebells, Stepbräda" },
 			// { name: "Golvmatta till gym", icon: <GymMatIcon />, comment: "10m², från Biltema" },
-			{ name: "Sonos Play", icon: <SpeakerIcon /> },
+			{name: "Sonos Play", icon: <SpeakerIcon/>, comment: "Svart"},
+			{name: "Sonos Era 100", icon: <SpeakerIcon/>, comment: "Vit"},
 		],
 	},
 	{
