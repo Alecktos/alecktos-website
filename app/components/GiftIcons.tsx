@@ -381,13 +381,13 @@ export function TorkvindaIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
 			{/* Center pole */}
-			<line x1="12" y1="9" x2="12" y2="22"/>
+			<line x1="12" y1="9" x2="12" y2="22" />
 			{/* Arms angled upward, radiating from the hub */}
-			<line x1="12" y1="9" x2="21" y2="6"/>
-			<line x1="12" y1="9" x2="3" y2="6"/>
-			<line x1="12" y1="9" x2="5.6" y2="3.5"/>
-			<line x1="12" y1="9" x2="12" y2="2.5"/>
-			<line x1="12" y1="9" x2="18.4" y2="3.5"/>
+			<line x1="12" y1="9" x2="21" y2="6" />
+			<line x1="12" y1="9" x2="3" y2="6" />
+			<line x1="12" y1="9" x2="5.6" y2="3.5" />
+			<line x1="12" y1="9" x2="12" y2="2.5" />
+			<line x1="12" y1="9" x2="18.4" y2="3.5" />
 		</svg>
 	);
 }
