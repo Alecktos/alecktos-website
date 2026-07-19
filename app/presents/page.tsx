@@ -12,6 +12,7 @@ import {
 	GlassBowlIcon,
 	GymIcon,
 	HeadlampIcon,
+	HoseReelCartIcon,
 	KettleGrillIcon,
 	MuurikkaIcon,
 	OlivesIcon,
@@ -22,7 +23,6 @@ import {
 	SnowShovelIcon,
 	SpeakerIcon,
 	TorkvindaIcon,
-	WaterHoseIcon,
 	WineIcon,
 } from "@/app/components/GiftIcons";
 import type {JSX} from "react";
@@ -45,7 +45,7 @@ const categories: GiftCategory[] = [
 			{ name: "Räfsa", icon: <RakeIcon /> },
 			{ name: "Snöskyffel", icon: <SnowShovelIcon /> },
 			{ name: "Sekatör", icon: <SecateursIcon /> },
-			{ name: "Vattenslang", icon: <WaterHoseIcon /> },
+			{name: "Slangvagn", icon: <HoseReelCartIcon/>},
 			// { name: "Häcksax", icon: <HedgeTrimmerIcon /> },
 			{ name: "Yxa", icon: <AxeIcon /> },
 			{ name: "Torkvinda", icon: <TorkvindaIcon />, comment: "Gärna modell större" },

@@ -45,14 +45,30 @@ export function SecateursIcon(): JSX.Element {
 	);
 }
 
-export function WaterHoseIcon(): JSX.Element {
+export function HoseReelCartIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
-			<path d="M3 18 q0 -6 6 -6 q6 0 6 -6" fill="none" />
-			<path d="M15 6 l4 -2 l1 3" />
-			<circle cx="3" cy="18" r="2" />
-			<path d="M19 5 l2 -1" />
-			<path d="M19 3 l2 1" />
+			{/* Push handle */}
+			<path d="M8 7 V3 Q8 1.5 9.5 1.5 H14.5 Q16 1.5 16 3 V7"/>
+			{/* A-frame legs */}
+			<path d="M8 7 L5.5 21"/>
+			<path d="M16 7 L19 19.5"/>
+			{/* Front support foot */}
+			<path d="M17.7 18.2 L20.3 20.8"/>
+			{/* Rear wheel */}
+			<circle cx="5.5" cy="21" r="2" fill="currentColor" opacity="0.15"/>
+			<circle cx="5.5" cy="21" r="2"/>
+			{/* Reel drum */}
+			<circle cx="12" cy="12" r="5.5" fill="currentColor" opacity="0.12"/>
+			<circle cx="12" cy="12" r="5.5"/>
+			<circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+			<line x1="12" y1="6.8" x2="12" y2="17.2"/>
+			<line x1="6.8" y1="12" x2="17.2" y2="12"/>
+			<line x1="8.7" y1="8.7" x2="15.3" y2="15.3"/>
+			<line x1="8.7" y1="15.3" x2="15.3" y2="8.7"/>
+			{/* Crank handle */}
+			<path d="M9.5 15.5 L6.5 18.5"/>
+			<circle cx="6" cy="19" r="1" fill="currentColor"/>
 		</svg>
 	);
 }
