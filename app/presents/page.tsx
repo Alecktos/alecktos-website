@@ -23,7 +23,6 @@ import {
 	SpeakerIcon,
 	TorkvindaIcon,
 	WaterHoseIcon,
-	WheelbarrowIcon,
 	WineIcon,
 } from "@/app/components/GiftIcons";
 import type {JSX} from "react";
@@ -49,7 +48,6 @@ const categories: GiftCategory[] = [
 			{ name: "Vattenslang", icon: <WaterHoseIcon /> },
 			// { name: "Häcksax", icon: <HedgeTrimmerIcon /> },
 			{ name: "Yxa", icon: <AxeIcon /> },
-			{ name: "Skottkärra", icon: <WheelbarrowIcon /> },
 			{ name: "Torkvinda", icon: <TorkvindaIcon />, comment: "Gärna modell större" },
 		],
 	},

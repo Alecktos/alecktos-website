@@ -180,18 +180,6 @@ export function ScrewdriverIcon(): JSX.Element {
 	);
 }
 
-export function WheelbarrowIcon(): JSX.Element {
-	return (
-		<svg {...svgProps}>
-			<path d="M3 7 h14 l-2 8 H5 z" fill="currentColor" opacity="0.15" />
-			<path d="M3 7 h14 l-2 8 H5 z" />
-			<circle cx="5" cy="19" r="2.5" />
-			<line x1="5" y1="15" x2="5" y2="16.5" />
-			<line x1="17" y1="7" x2="22" y2="5" />
-		</svg>
-	);
-}
-
 export function CarJackIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
