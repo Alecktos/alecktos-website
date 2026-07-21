@@ -10,11 +10,12 @@ import {
 import type {JSX} from "react";
 
 export default function SchedulePage() {
-	const scheduleItems: { time: string; description: string; icon: JSX.Element }[] = [
+	const scheduleItems: { time: string; description: string; icon: JSX.Element; note?: string }[] = [
 		{
 			time: "14:00",
 			description: "Buss avgår från Tävelsås bygdegård till vigselplats",
 			icon: <BusIcon/>,
+			note: "Var på plats i god tid innan bussen avgår.",
 		},
 		{
 			time: "14:30",
@@ -91,6 +92,11 @@ export default function SchedulePage() {
 										{item.icon}
 									</span>
 									</div>
+									{item.note && (
+										<p className="text-sage-dark text-sm italic">
+											{item.note}
+										</p>
+									)}
 								</div>
 							</BlushMediumBox>
 						))}
