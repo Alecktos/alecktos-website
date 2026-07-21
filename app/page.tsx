@@ -1,5 +1,5 @@
 import RegistrationForm from "./components/RegistrationForm";
-import { BlushMediumBox } from "@/app/components/BlushMediumBox";
+import {BlushMediumBox} from "@/app/components/BlushMediumBox";
 import Link from "next/link";
 
 export default function Home() {
@@ -18,13 +18,17 @@ export default function Home() {
 						</p>
 
 						<div className="text-sage-darker space-y-1">
-							<p><strong>Datum:</strong> 15 augusti 2026</p>
-							<p><strong>Plats:</strong> Tävelsås bygdegård</p>
-							<p><strong>Klädkod:</strong> Kavaj</p>
+							<p><strong>Plats:</strong> Tävelsås bygdegård - <a
+								href="https://maps.app.goo.gl/pVwtNwDkw3xN5GNk8" target="_blank"
+								rel="noopener noreferrer" className="underline hover:text-blush-dark">Vägbeskrivning</a>
+							</p>
+							<p><strong>Datum & Tid:</strong> Buss avgår till vigselplats 14:00 den 15 augusti 2026</p>
 						</div>
 
-						<p className="text-sage-dark mt-4 text-sm">
-							Mer information om <Link href="/schedule" className="underline hover:text-blush-dark">schemat</Link> och övriga detaljer kommer läggas ut här löpande.
+						<p className="text-sage-dark mt-2 text-sm">
+							För mer information om schemat <Link href="/schedule"
+							                                     className="underline hover:text-blush-dark">klicka
+							här</Link>.
 						</p>
 
 						<hr className="border-blush-dark/30 my-6" />
@@ -42,6 +46,13 @@ export default function Home() {
 						<p className="text-sage-darker text-center">
 							Vi har valt att ha ett barnfritt bröllop, men ammande bebisar är såklart välkomna.
 						</p>
+
+						<hr className="border-blush-dark/30 my-6"/>
+
+						<p className="text-sage-darker text-center mt-4">
+							<strong>Klädkod:</strong> Kavaj
+						</p>
+
 					</BlushMediumBox>
 					<RegistrationForm />
 				</section>
