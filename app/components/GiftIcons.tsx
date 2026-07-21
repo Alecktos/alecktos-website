@@ -395,3 +395,18 @@ export function TorkvindaIcon(): JSX.Element {
 		</svg>
 	);
 }
+
+export function RainGaugeIcon(): JSX.Element {
+	return (
+		<svg {...svgProps}>
+			{/* Measuring tube */}
+			<path d="M9 4 h4 v14 a2 2 0 0 1 -4 0 z"/>
+			{/* Water inside */}
+			<path d="M9 13 h4 v5 a2 2 0 0 1 -4 0 z" fill="currentColor" opacity="0.2"/>
+			{/* Scale markings */}
+			<line x1="13" y1="7" x2="15" y2="7"/>
+			<line x1="13" y1="10" x2="15" y2="10"/>
+			<line x1="13" y1="13" x2="15" y2="13"/>
+		</svg>
+	);
+}

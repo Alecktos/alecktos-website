@@ -17,6 +17,7 @@ import {
 	MuurikkaIcon,
 	OlivesIcon,
 	PizzaOvenIcon,
+	RainGaugeIcon,
 	RakeIcon,
 	ScrewdriverIcon,
 	SecateursIcon,
@@ -49,6 +50,7 @@ const categories: GiftCategory[] = [
 			// { name: "Häcksax", icon: <HedgeTrimmerIcon /> },
 			{ name: "Yxa", icon: <AxeIcon /> },
 			{ name: "Torkvinda", icon: <TorkvindaIcon />, comment: "Gärna modell större" },
+			{name: "Regnmätare", icon: <RainGaugeIcon/>},
 		],
 	},
 	{
