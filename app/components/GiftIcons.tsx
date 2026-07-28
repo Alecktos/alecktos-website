@@ -300,6 +300,43 @@ export function CircularSawIcon(): JSX.Element {
 	);
 }
 
+export function MiterSawIcon(): JSX.Element {
+	return (
+		<svg {...svgProps}>
+			{/* Base plate */}
+			<rect x="3" y="18" width="18" height="3" rx="1" fill="currentColor" opacity="0.15" />
+			<rect x="3" y="18" width="18" height="3" rx="1" />
+			{/* Turntable / fence */}
+			<path d="M6 18 L6 15 L18 15 L18 18" />
+			{/* Pivot arm */}
+			<line x1="5" y1="16" x2="16" y2="7" />
+			{/* Saw blade */}
+			<circle cx="16" cy="7" r="4" fill="currentColor" opacity="0.1" />
+			<circle cx="16" cy="7" r="4" />
+			<circle cx="16" cy="7" r="1" fill="currentColor" />
+			{/* Handle */}
+			<path d="M16 3 L20 3" strokeWidth="2" />
+		</svg>
+	);
+}
+
+export function ReciprocatingSawIcon(): JSX.Element {
+	return (
+		<svg {...svgProps}>
+			{/* Body */}
+			<path d="M4 8 L14 8 L14 14 L8 14 Q4 14 4 10 Z" fill="currentColor" opacity="0.12" />
+			<path d="M4 8 L14 8 L14 14 L8 14 Q4 14 4 10 Z" />
+			{/* Handle */}
+			<path d="M4 8 Q2 8 2 11 Q2 14 5 14 L8 14" />
+			{/* Nose / shoe */}
+			<line x1="14" y1="9" x2="17" y2="9" />
+			<line x1="14" y1="13" x2="17" y2="13" />
+			{/* Blade with teeth */}
+			<path d="M17 11 L23 11 L22.4 11.8 L21.8 11 L21.2 11.8 L20.6 11 L20 11.8 L19.4 11 L18.8 11.8 L18.2 11 L17 11" />
+		</svg>
+	);
+}
+
 export function PizzaOvenIcon(): JSX.Element {
 	return (
 		<svg {...svgProps}>
