@@ -20,14 +20,14 @@ export default function Home() {
 						<div className="text-sage-darker space-y-1">
 							<p><strong>Plats:</strong> Tävelsås bygdegård - <a
 								href="https://maps.app.goo.gl/pVwtNwDkw3xN5GNk8" target="_blank"
-								rel="noopener noreferrer" className="underline hover:text-blush-dark">Vägbeskrivning</a>
+								rel="noopener noreferrer" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">Vägbeskrivning</a>
 							</p>
 							<p><strong>Datum & Tid:</strong> Buss avgår till vigselplats 14:00 den 15 augusti 2026</p>
 						</div>
 
 						<p className="text-sage-dark mt-2 text-sm">
 							För mer information om schemat <Link href="/schedule"
-							                                     className="underline hover:text-blush-dark">klicka
+							                                     className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">klicka
 							här</Link>.
 						</p>
 
@@ -35,10 +35,11 @@ export default function Home() {
 
 						<div className="text-center space-y-2">
 							<p className="text-sage-darker">
-								Vill du anmäla tal eller annat, kontakta vår toastmadame eller toastmaster:
+								Vill du anmäla tal eller annat, kontakta vår toastmadame eller toastmaster.
 							</p>
-							<p className="text-sage-darker"><strong>Matilda Rasmusson, Viktor Ferm</strong></p>
-							<p className="text-sage-darker italic">toastmasters.berlind@gmail.com</p>
+							<p className="text-sage-darker"><strong>Viktor Ferm:</strong> <a href="tel:+46708261181" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">070-826 11 81</a></p>
+							<p className="text-sage-darker"><strong>Matilda Rasmusson:</strong> <a href="tel:+46793343021" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">079-334 30 21</a></p>
+							<p className="text-sage-darker italic"><a href="mailto:toastmasters.berlind@gmail.com" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">toastmasters.berlind@gmail.com</a></p>
 						</div>
 
 						<hr className="border-blush-dark/30 my-6" />
