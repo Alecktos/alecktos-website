@@ -37,9 +37,9 @@ export default function Home() {
 							<p className="text-sage-darker">
 								Vill du anmäla tal eller annat, kontakta vår toastmadame eller toastmaster.
 							</p>
-							<p className="text-sage-darker"><strong>Viktor Ferm:</strong> <a href="tel:+46708261181" className="hover:text-blush-dark">070-826 11 81</a></p>
-							<p className="text-sage-darker"><strong>Matilda Rasmusson:</strong> <a href="tel:+46793343021" className="hover:text-blush-dark">079-334 30 21</a></p>
-							<p className="text-sage-darker italic"><a href="mailto:toastmasters.berlind@gmail.com" className="hover:text-blush-dark">toastmasters.berlind@gmail.com</a></p>
+							<p className="text-sage-darker"><strong>Viktor Ferm:</strong> <a href="tel:+46708261181" className="underline hover:text-blush-dark">070-826 11 81</a></p>
+							<p className="text-sage-darker"><strong>Matilda Rasmusson:</strong> <a href="tel:+46793343021" className="underline hover:text-blush-dark">079-334 30 21</a></p>
+							<p className="text-sage-darker italic"><a href="mailto:toastmasters.berlind@gmail.com" className="underline hover:text-blush-dark">toastmasters.berlind@gmail.com</a></p>
 						</div>
 
 						<hr className="border-blush-dark/30 my-6" />
