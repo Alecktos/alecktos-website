@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ExternalLinkIcon from "@/app/components/ExternalLinkIcon";
+import styles from "./page.module.css";
 
 interface Project {
 	title: string;
@@ -125,14 +126,6 @@ const projects: Project[] = [
 		]
 	},
 	{
-		title: "Me-Mover updates",
-		description: "Small updates to me-mover, a small open sourced cli-application for moving movie and tv-show files.",
-		year: "2024",
-		externalLinks: [
-			{displayName: "Github repo", href: "https://github.com/Alecktos/me-mover"}
-		]
-	},
-	{
 		title: "AIP File Formatter",
 		description: "Application used by an industrial company to format files between different systems.",
 		year: "2025",
@@ -170,43 +163,41 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/alexander-berlind-45253b70/";
 
 export default function Home() {
 	return (
-		<div className="min-h-screen bg-off-white p-8">
-			<main className="max-w-7xl mx-auto py-8">
-				<section className="flex flex-col sm:flex-row items-center gap-8">
-					<div className="w-40 h-40 shrink-0 rounded-full bg-sage-lighter flex items-center justify-center">
-						<span className="text-4xl font-serif text-sage-darker">AB</span>
+		<div className={styles.page}>
+			<main className={styles.main}>
+				<section className={styles.intro}>
+					<div className={styles.avatar}>
+						<span className={styles.avatarInitials}>AB</span>
 					</div>
-					<div className="text-center sm:text-left">
-						<h1 className="text-4xl font-serif text-sage-darker">
+					<div className={styles.introText}>
+						<h1 className={styles.name}>
 							Alexander Berlind
 						</h1>
-						<p className="text-lg text-sage-dark mt-1">
+						<p className={styles.tagline}>
 							Developer, Product Owner, Tech lead
 						</p>
 					</div>
 				</section>
 
-				<section className="mt-16">
-					<h2 className="text-2xl font-serif text-sage-darker mb-6">
+				<section className={styles.projects}>
+					<h2 className={styles.projectsHeading}>
 						Projects
 					</h2>
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:auto-rows-fr">
+					<div className={styles.projectGrid}>
 						{[...projects].reverse().map((project, index) => (
-							<div key={index}
-							     className="flex flex-col h-full border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors">
-								<div className="flex items-baseline justify-between gap-4">
-									<h3 className="text-xl font-semibold text-sage-darker">
+							<div key={index} className={styles.projectCard}>
+								<div className={styles.projectHeader}>
+									<h3 className={styles.projectTitle}>
 										{project.title}
 									</h3>
-									<span className="text-sm text-sage-dark shrink-0">
+									<span className={styles.projectYear}>
 										{project.year}
 									</span>
 								</div>
-								<p className="text-sage-dark mt-2">{project.description}</p>
-								<div className="mt-auto pt-4 flex flex-wrap gap-x-4 gap-y-2">
+								<p className={styles.projectDescription}>{project.description}</p>
+								<div className={styles.projectLinks}>
 									{project.href &&
-										<Link href={project.href} className="text-sage-dark underline inline-block">View
-											Project</Link>}
+										<Link href={project.href} className={styles.projectLink}>View Project</Link>}
 									{project.externalLinks?.map((externalLink, index) => {
 										if (typeof externalLink === "object") {
 											return (
@@ -215,7 +206,7 @@ export default function Home() {
 													href={externalLink.href}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="text-sage-dark underline inline-flex items-center gap-1"
+													className={styles.projectLink}
 												>
 													{externalLink.displayName}
 													<ExternalLinkIcon/>
@@ -229,7 +220,7 @@ export default function Home() {
 												href={externalLink}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="text-sage-dark underline inline-flex items-center gap-1"
+												className={styles.projectLink}
 											>
 												Go To Project
 												<ExternalLinkIcon/>
@@ -242,12 +233,12 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className="mt-16 flex gap-6 text-sage-dark">
+				<section className={styles.socials}>
 					<a
 						href={GITHUB_URL}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="underline hover:text-sage-darker"
+						className={styles.socialLink}
 					>
 						GitHub
 					</a>
@@ -255,7 +246,7 @@ export default function Home() {
 						href={LINKEDIN_URL}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="underline hover:text-sage-darker"
+						className={styles.socialLink}
 					>
 						LinkedIn
 					</a>
