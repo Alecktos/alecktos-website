@@ -1,10 +1,12 @@
 import Link from "next/link";
+import ExternalLinkIcon from "@/app/components/ExternalLinkIcon";
 
 interface Project {
 	title: string;
 	year: string;
 	description: string;
-	href: string;
+	href?: string;
+	externalLink?: string;
 }
 
 const projects: Project[] = [
@@ -15,6 +17,12 @@ const projects: Project[] = [
 			"Invitation and RSVP site for our wedding, in Swedish. Next.js App Router, server actions, Neon Postgres and Resend.",
 		href: "/wedding",
 	},
+	{
+		title: "Android Poker Game",
+		year: "2011",
+		description: "A poker game for android phones meant to be played together with other people. Developed in Java using the android SDK.",
+		externalLink: "https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends",
+	}
 ];
 
 const GITHUB_URL = "https://github.com/Alecktos";
@@ -43,12 +51,9 @@ export default function Home() {
 						Projects
 					</h2>
 					<div className="grid grid-cols-1 gap-4">
-						{projects.map((project) => (
-							<Link
-								key={project.href}
-								href={project.href}
-								className="block border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors"
-							>
+						{projects.map((project, index) => (
+							<div key={index}
+							     className="block border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors">
 								<div className="flex items-baseline justify-between gap-4">
 									<h3 className="text-xl font-semibold text-sage-darker">
 										{project.title}
@@ -58,7 +63,21 @@ export default function Home() {
 									</span>
 								</div>
 								<p className="text-sage-dark mt-2">{project.description}</p>
-							</Link>
+								{project.href &&
+									<Link href={project.href} className="text-sage-dark underline mt-2 inline-block">View
+										Project</Link>}
+								{project.externalLink && (
+									<a
+										href={project.externalLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-sage-dark underline mt-2 inline-flex items-center gap-1"
+									>
+										Go To Project
+										<ExternalLinkIcon/>
+									</a>
+								)}
+							</div>
 						))}
 					</div>
 				</section>
