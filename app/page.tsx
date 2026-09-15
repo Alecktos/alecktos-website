@@ -142,14 +142,6 @@ const projects: Project[] = [
 		]
 	},
 	{
-		title: "Me-Mover updates",
-		description: "Updates to me-mover, a small open sourced cli-application for moving movie and tv-show files.",
-		year: "2025",
-		externalLinks: [
-			{displayName: "Github repo", href: "https://github.com/Alecktos/me-mover"}
-		]
-	},
-	{
 		title: "Wedding site",
 		year: "2026",
 		description:
