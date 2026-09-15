@@ -171,7 +171,7 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/alexander-berlind-45253b70/";
 export default function Home() {
 	return (
 		<div className="min-h-screen bg-off-white p-8">
-			<main className="max-w-3xl mx-auto py-8">
+			<main className="max-w-5xl mx-auto py-8">
 				<section className="flex flex-col sm:flex-row items-center gap-8">
 					<div className="w-40 h-40 shrink-0 rounded-full bg-sage-lighter flex items-center justify-center">
 						<span className="text-4xl font-serif text-sage-darker">AB</span>
@@ -190,10 +190,10 @@ export default function Home() {
 					<h2 className="text-2xl font-serif text-sage-darker mb-6">
 						Projects
 					</h2>
-					<div className="grid grid-cols-1 gap-4">
-						{projects.reverse().map((project, index) => (
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr">
+						{[...projects].reverse().map((project, index) => (
 							<div key={index}
-							     className="block border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors">
+							     className="flex flex-col h-full border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors">
 								<div className="flex items-baseline justify-between gap-4">
 									<h3 className="text-xl font-semibold text-sage-darker">
 										{project.title}
@@ -203,38 +203,40 @@ export default function Home() {
 									</span>
 								</div>
 								<p className="text-sage-dark mt-2">{project.description}</p>
-								{project.href &&
-									<Link href={project.href} className="text-sage-dark underline mt-2 inline-block">View
-										Project</Link>}
-								{project.externalLinks?.map((externalLink, index) => {
-									if (typeof externalLink === "object") {
+								<div className="mt-auto pt-4 flex flex-wrap gap-x-4 gap-y-2">
+									{project.href &&
+										<Link href={project.href} className="text-sage-dark underline inline-block">View
+											Project</Link>}
+									{project.externalLinks?.map((externalLink, index) => {
+										if (typeof externalLink === "object") {
+											return (
+												<a
+													key={index}
+													href={externalLink.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="text-sage-dark underline inline-flex items-center gap-1"
+												>
+													{externalLink.displayName}
+													<ExternalLinkIcon/>
+												</a>
+											);
+										}
+
 										return (
 											<a
 												key={index}
-												href={externalLink.href}
+												href={externalLink}
 												target="_blank"
 												rel="noopener noreferrer"
-												className="text-sage-dark underline mt-2 mr-2 inline-flex items-center gap-1"
+												className="text-sage-dark underline inline-flex items-center gap-1"
 											>
-												{externalLink.displayName}
+												Go To Project
 												<ExternalLinkIcon/>
 											</a>
 										);
-									}
-
-									return (
-										<a
-											key={index}
-											href={externalLink}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-sage-dark underline mt-2 inline-flex items-center gap-1"
-										>
-											Go To Project
-											<ExternalLinkIcon/>
-										</a>
-									);
-								})}
+									})}
+								</div>
 							</div>
 						))}
 					</div>
