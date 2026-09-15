@@ -38,14 +38,14 @@ const projects: Project[] = [
 	{
 		title: "Experimentation with automatic trading",
 		year: "2018",
-		description: "Experimentation with automated trading. Applications in java, PHP, javascript for experimenting with automatic stock trading based on market movement. Some libs and applications are open sourced on github.",
+		description: "Experimenting with automatic stock trading based on market movement (Java). ",
 		externalLinks: [
-			{displayName: "alecktos-stockfetcher", href: "https://github.com/Alecktos/alecktos-stockfetcher"},
+			{displayName: "stockfetcher", href: "https://github.com/Alecktos/alecktos-stockfetcher"},
 			{
-				displayName: "alecktos-trading-statistics",
+				displayName: "trading-statistics",
 				href: "https://github.com/Alecktos/alecktos-trading-statistics"
 			},
-			{displayName: "alecktos-marketopen", href: "https://github.com/Alecktos/alecktos-marketopen"}
+			{displayName: "marketopen", href: "https://github.com/Alecktos/alecktos-marketopen"}
 		]
 	},
 	{
