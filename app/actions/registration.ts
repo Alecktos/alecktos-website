@@ -1,10 +1,10 @@
 "use server";
 
-import { after } from "next/server";
-import { neon } from "@neondatabase/serverless";
-import { Resend } from "resend";
+import {after} from "next/server";
+import {neon} from "@neondatabase/serverless";
+import {Resend} from "resend";
 import escapeHtml from "escape-html";
-import { z } from "zod";
+import {z} from "zod";
 
 // Validation constants
 const MAX_NAME_LENGTH = 100;
@@ -249,6 +249,12 @@ export async function submitRegistration(formData: FormData): Promise<{ success:
 			message: errorMessages,
 		};
 	}
+
+	//inactivate actual sending
+	return {
+		success: true,
+		message: "Anmälan mottagen!",
+	};
 
 	// Create contacts if they can attend
 	if (canAttend) {
