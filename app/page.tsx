@@ -6,7 +6,7 @@ interface Project {
 	year: string;
 	description: string;
 	href?: string;
-	externalLink?: string;
+	externalLinks?: { href: string, displayName: string }[] | string[];
 }
 
 const projects: Project[] = [
@@ -21,7 +21,38 @@ const projects: Project[] = [
 		title: "Android Poker Game",
 		year: "2011",
 		description: "A poker game for android phones meant to be played together with other people. Developed in Java using the android SDK.",
-		externalLink: "https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends",
+		externalLinks: ["https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends"],
+	},
+	{
+		title: "Tåghjälpen - Android App",
+		year: "2013",
+		description: "Train scheduling app for helping commuters. Written in ActionScript.",
+		externalLinks: ["https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends"],
+	},
+	{
+		title: "Arctic Adventure - Android Game",
+		year: "2015",
+		description: "Small android game called ”Arctic Adventure” developed for android. Written in python using the Kivy framework .",
+		externalLinks: ["https://apkpure.com/arctic-adventure/com.ale.arcticadventure"],
+	},
+	{
+		title: "Me-Mover - Opensource CLI for moving movies and tv-show files",
+		year: "2018",
+		description: "A command line tool for moving and renaming movie and tv-show files. Written in Python.",
+		externalLinks: ["https://github.com/Alecktos/me-mover"]
+	},
+	{
+		title: "Experimentation with automatic trading",
+		year: "2018",
+		description: "Experimentation with automated trading. Applications in java, PHP, javascript for experimenting with automatic stock trading based on market movement. Some libs and applications are open sourced on github.",
+		externalLinks: [
+			{displayName: "alecktos-stockfetcher", href: "https://github.com/Alecktos/alecktos-stockfetcher"},
+			{
+				displayName: "alecktos-trading-statistics",
+				href: "https://github.com/Alecktos/alecktos-trading-statistics"
+			},
+			{displayName: "alecktos-marketopen", href: "https://github.com/Alecktos/alecktos-marketopen"}
+		]
 	}
 ];
 
@@ -66,17 +97,35 @@ export default function Home() {
 								{project.href &&
 									<Link href={project.href} className="text-sage-dark underline mt-2 inline-block">View
 										Project</Link>}
-								{project.externalLink && (
-									<a
-										href={project.externalLink}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="text-sage-dark underline mt-2 inline-flex items-center gap-1"
-									>
-										Go To Project
-										<ExternalLinkIcon/>
-									</a>
-								)}
+								{project.externalLinks?.map((externalLink, index) => {
+									if (typeof externalLink === "object") {
+										return (
+											<a
+												key={index}
+												href={externalLink.href}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-sage-dark underline mt-2 mr-2 inline-flex items-center gap-1"
+											>
+												{externalLink.displayName}
+												<ExternalLinkIcon/>
+											</a>
+										);
+									}
+
+									return (
+										<a
+											key={index}
+											href={externalLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-sage-dark underline mt-2 inline-flex items-center gap-1"
+										>
+											Go To Project
+											<ExternalLinkIcon/>
+										</a>
+									);
+								})}
 							</div>
 						))}
 					</div>
