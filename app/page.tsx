@@ -13,21 +13,21 @@ interface Project {
 
 const projects: Project[] = [
 	{
-		title: "Android Poker Game",
+		title: "Poker Game",
 		year: "2011",
 		description: "A poker game for android phones meant to be played together with other people. Developed in Java using the android SDK.",
 		externalLinks: ["https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends"],
 	},
 	{
-		title: "Tåghjälpen - Android App",
+		title: "Tåghjälpen",
 		year: "2013",
 		description: "Train scheduling app for helping commuters. Written in ActionScript.",
 		externalLinks: ["https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends"],
 	},
 	{
-		title: "Arctic Adventure - Android Game",
+		title: "Arctic Adventure",
 		year: "2015",
-		description: "Small android game called ”Arctic Adventure” developed for android. Written in python using the Kivy framework .",
+		description: "Android game developed in python using the Kivy framework .",
 		externalLinks: ["https://apkpure.com/arctic-adventure/com.ale.arcticadventure"],
 	},
 	{
@@ -122,7 +122,7 @@ const projects: Project[] = [
 	},
 	{
 		title: "CdConcatenator",
-		description: "A Swift cli-application for merging videos having cd1, cd2 in the filename into a single video. Uses ffmpeg.",
+		description: "Swift CLI-application for merging videos having cd1, cd2 in the filename into a single video. Uses ffmpeg.",
 		year: "2023",
 		externalLinks: [
 			{displayName: "Github repo", href: "https://github.com/Alecktos/CdConcatenator"}
