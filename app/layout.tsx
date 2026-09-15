@@ -1,7 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import Image from "next/image";
-import type { Metadata } from "next";
-import Nav from "./components/Nav";
+import {Geist, Geist_Mono} from "next/font/google";
+import type {Metadata} from "next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Malin & Alexander",
-	description: "Bröllopsinformation för Malin och Alexander",
+	title: "Alexander Berlind",
+	description: "My personal site and projects.",
 };
 
 export default function RootLayout({
@@ -25,25 +23,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="sv">
+		<html lang="en">
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<div className="max-w-screen-2xl mx-auto text-center bg-blush-lighter">
-					<Nav />
-					<div className="relative w-full text-center">
-						<div className="relative w-full h-94 md:h-120">
-							<Image
-								className="object-cover object-top-right md:grayscale brightness-110"
-								src="/beach_11_desktop.png"
-								alt="Header image"
-								fill
-								priority
-							/>
-						</div>
-					</div>
-					{children}
-				</div>
+			{children}
 			</body>
 		</html>
 	);

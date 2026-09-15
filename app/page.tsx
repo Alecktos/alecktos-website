@@ -1,61 +1,104 @@
-import RegistrationForm from "./components/RegistrationForm";
-import {BlushMediumBox} from "@/app/components/BlushMediumBox";
 import Link from "next/link";
+import ExternalLinkIcon from "@/app/components/ExternalLinkIcon";
+
+interface Project {
+	title: string;
+	year: string;
+	description: string;
+	href?: string;
+	externalLink?: string;
+}
+
+const projects: Project[] = [
+	{
+		title: "Wedding site",
+		year: "2026",
+		description:
+			"Invitation and RSVP site for our wedding, in Swedish. Next.js App Router, server actions, Neon Postgres and Resend.",
+		href: "/wedding",
+	},
+	{
+		title: "Android Poker Game",
+		year: "2011",
+		description: "A poker game for android phones meant to be played together with other people. Developed in Java using the android SDK.",
+		externalLink: "https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends",
+	}
+];
+
+const GITHUB_URL = "https://github.com/Alecktos";
+const LINKEDIN_URL = "https://www.linkedin.com/in/alexander-berlind-45253b70/";
 
 export default function Home() {
 	return (
-		<div className="min-h-screen bg-off-white">
-			<main className="min-h-screen w-full flex flex-col  ">
-				{/* Registration Form Section */}
-				<section className="py-8 px-1" id="registration">
-					{/* Information Section */}
-					<h1 className="text-4xl font-serif text-sage-darker mb-8 text-center">
-						Välkommen till vårt bröllop!
-					</h1>
-					<BlushMediumBox>
-						<p className="text-lg text-sage-darker mb-4 text-center">
-							Vi gifter oss och vill gärna fira denna speciella dag tillsammans med er.
+		<div className="min-h-screen bg-off-white p-8">
+			<main className="max-w-3xl mx-auto py-8">
+				<section className="flex flex-col sm:flex-row items-center gap-8">
+					<div className="w-40 h-40 shrink-0 rounded-full bg-sage-lighter flex items-center justify-center">
+						<span className="text-4xl font-serif text-sage-darker">AB</span>
+					</div>
+					<div className="text-center sm:text-left">
+						<h1 className="text-4xl font-serif text-sage-darker">
+							Alexander Berlind
+						</h1>
+						<p className="text-lg text-sage-dark mt-1">
+							Developer, Product Owner, Tech lead
 						</p>
+					</div>
+				</section>
 
-						<div className="text-sage-darker space-y-1">
-							<p><strong>Plats:</strong> Tävelsås bygdegård - <a
-								href="https://maps.app.goo.gl/pVwtNwDkw3xN5GNk8" target="_blank"
-								rel="noopener noreferrer" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">Vägbeskrivning</a>
-							</p>
-							<p><strong>Datum & Tid:</strong> Buss avgår till vigselplats 14:00 den 15 augusti 2026</p>
-						</div>
+				<section className="mt-16">
+					<h2 className="text-2xl font-serif text-sage-darker mb-6">
+						Projects
+					</h2>
+					<div className="grid grid-cols-1 gap-4">
+						{projects.map((project, index) => (
+							<div key={index}
+							     className="block border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors">
+								<div className="flex items-baseline justify-between gap-4">
+									<h3 className="text-xl font-semibold text-sage-darker">
+										{project.title}
+									</h3>
+									<span className="text-sm text-sage-dark shrink-0">
+										{project.year}
+									</span>
+								</div>
+								<p className="text-sage-dark mt-2">{project.description}</p>
+								{project.href &&
+									<Link href={project.href} className="text-sage-dark underline mt-2 inline-block">View
+										Project</Link>}
+								{project.externalLink && (
+									<a
+										href={project.externalLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-sage-dark underline mt-2 inline-flex items-center gap-1"
+									>
+										Go To Project
+										<ExternalLinkIcon/>
+									</a>
+								)}
+							</div>
+						))}
+					</div>
+				</section>
 
-						<p className="text-sage-dark mt-2 text-sm">
-							För mer information om schemat <Link href="/schedule"
-							                                     className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">klicka
-							här</Link>.
-						</p>
-
-						<hr className="border-blush-dark/30 my-6" />
-
-						<div className="text-center space-y-2">
-							<p className="text-sage-darker">
-								Vill du anmäla tal eller annat, kontakta vår toastmadame eller toastmaster.
-							</p>
-							<p className="text-sage-darker"><strong>Viktor Ferm:</strong> <a href="tel:+46708261181" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">070-826 11 81</a></p>
-							<p className="text-sage-darker"><strong>Matilda Rasmusson:</strong> <a href="tel:+46793343021" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">079-334 30 21</a></p>
-							<p className="text-sage-darker italic"><a href="mailto:toastmasters.berlind@gmail.com" className="font-medium text-sage-darker underline decoration-sage-darker/40 underline-offset-2 hover:decoration-sage-darker">toastmasters.berlind@gmail.com</a></p>
-						</div>
-
-						<hr className="border-blush-dark/30 my-6" />
-
-						<p className="text-sage-darker text-center">
-							Vi har valt att ha ett barnfritt bröllop, men ammande bebisar är såklart välkomna.
-						</p>
-
-						<hr className="border-blush-dark/30 my-6"/>
-
-						<p className="text-sage-darker text-center mt-4">
-							<strong>Klädkod:</strong> Kavaj
-						</p>
-
-					</BlushMediumBox>
-					<RegistrationForm />
+				<section className="mt-16 flex gap-6 text-sage-dark">
+					<a
+						href={GITHUB_URL}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="underline hover:text-sage-darker"
+					>
+						GitHub
+					</a>
+					<a
+						href={LINKEDIN_URL}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="underline hover:text-sage-darker"
+					>
+						LinkedIn
+					</a>
 				</section>
 			</main>
 		</div>

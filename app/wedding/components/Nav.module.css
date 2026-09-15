@@ -1,4 +1,4 @@
-@reference "../globals.css";
+@reference "../../globals.css";
 
 .nav {
 	@apply bg-off-white py-4 px-6 shadow-sm;

@@ -1,4 +1,4 @@
-import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+import {BlushMediumBox} from "@/app/wedding/components/BlushMediumBox";
 import {
 	BusIcon,
 	CakeIcon,
@@ -6,7 +6,7 @@ import {
 	DinnerIcon,
 	KnifeAndForkIcon,
 	PartyIcon,
-} from "@/app/components/ScheduleIcons";
+} from "@/app/wedding/components/ScheduleIcons";
 import type {JSX} from "react";
 
 export default function SchedulePage() {

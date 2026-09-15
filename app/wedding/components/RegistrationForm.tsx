@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useFormStatus } from "react-dom";
-import { submitRegistration } from "@/app/actions/registration";
+import {useState} from "react";
+import {useFormStatus} from "react-dom";
+import {submitRegistration} from "@/app/wedding/actions/registration";
 import Link from "next/link";
 
 interface GuestInfo {
@@ -365,7 +365,8 @@ export default function RegistrationForm() {
 				<div className="text-center mb-4">
 					<h3 className="text-xl font-semibold text-sage-darker mb-2">Boende <span className="text-sm font-normal text-sage-dark">(valfritt)</span></h3>
 					<p className="text-xs text-sage-dark">
-						Önskar ni hjälp med boende? Läs mer om alternativen på <Link href="/accommodation" className="underline hover:text-blush-darker">boendesidan</Link>.
+						Önskar ni hjälp med boende? Läs mer om alternativen på <Link href="/wedding/accommodation"
+						                                                             className="underline hover:text-blush-darker">boendesidan</Link>.
 					</p>
 				</div>
 				<div className="space-y-4">
