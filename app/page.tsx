@@ -53,7 +53,37 @@ const projects: Project[] = [
 			},
 			{displayName: "alecktos-marketopen", href: "https://github.com/Alecktos/alecktos-marketopen"}
 		]
-	}
+	},
+	{
+		title: "Pi-hole on Asustor NAS",
+		year: "2020",
+		description: "Tutorial on how to run Pi-hole in docker on an Asustor NAS",
+		externalLinks: [
+			{displayName: "Youtube", href: "https://www.youtube.com/watch?v=7ZeRr5VS7tI"},
+			{displayName: "Github repo", href: "https://github.com/Alecktos/pi-hole-docker-asustor"}
+		]
+	},
+	{
+		title: "Install Nix with home-manager on macOS",
+		description: "Tutorial about how to install Nix with home-manager and fish-shell on macOS",
+		year: "2020",
+		externalLinks: [
+			{displayName: "Youtube", href: "https://www.youtube.com/watch?v=0LwF8wH8zQA&t"},
+			{displayName: "Medium", href: "https://alecktos.medium.com/nix-home-manager-fish-shell-on-mac-bbd2a598742"}
+		]
+	},
+	{
+		title: "How to use me-mover CLI",
+		description: "Tutorial on how to use the me-mover CLI.",
+		year: "2020",
+		externalLinks: [
+			{displayName: "Youtube", href: "https://www.youtube.com/watch?v=sd8W90gviqI"},
+			{
+				displayName: "Medium",
+				href: "https://alecktos.medium.com/me-mover-organize-your-tv-shows-and-movies-6f6e65f7aedb"
+			}
+		]
+	},
 ];
 
 const GITHUB_URL = "https://github.com/Alecktos";
