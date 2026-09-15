@@ -1,4 +1,4 @@
-import {BlushMediumBox} from "@/app/components/BlushMediumBox";
+import {BlushMediumBox} from "@/app/wedding/components/BlushMediumBox";
 import {
 	AirplaneIcon,
 	AxeIcon,
@@ -17,17 +17,17 @@ import {
 	MiterSawIcon,
 	MuurikkaIcon,
 	OlivesIcon,
-	ReciprocatingSawIcon,
 	PizzaOvenIcon,
 	RainGaugeIcon,
 	RakeIcon,
+	ReciprocatingSawIcon,
 	ScrewdriverIcon,
 	SecateursIcon,
 	SnowShovelIcon,
 	SpeakerIcon,
 	TorkvindaIcon,
 	WineIcon,
-} from "@/app/components/GiftIcons";
+} from "@/app/wedding/components/GiftIcons";
 import type {JSX} from "react";
 
 interface Gift {

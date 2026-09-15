@@ -1,7 +1,11 @@
 # Copilot Repository Instructions
 
 ## Project Overview
-This is a Next.js 16 website for wedding invitation and RSVP management, built with React 19 and TypeScript in strict mode.
+
+This is a Next.js 16 website built with React 19 and TypeScript in strict mode. It has two parts:
+
+- `/` — a personal presentation page for Alexander Berlind, in English
+- `/wedding/**` — a wedding invitation and RSVP subsite for Malin & Alexander, in Swedish
 
 ## Technology Stack
 - **Framework**: Next.js 16 (App Router)
@@ -28,7 +32,7 @@ This is a Next.js 16 website for wedding invitation and RSVP management, built w
 - **Never use `any` type** - use proper typing or `unknown` if necessary
 - Prefer interfaces over type aliases for object types
 - Use explicit return types for functions
-- Use path aliases with `@/*` for imports (e.g., `@/app/components/...`)
+- Use path aliases with `@/*` for imports (e.g., `@/app/wedding/components/...`)
 
 ### React
 - Use **functional components only**
@@ -46,21 +50,25 @@ This is a Next.js 16 website for wedding invitation and RSVP management, built w
 ## Design System
 
 ### Color Scheme
-Use the following CSS variables (defined in the project):
 
-| Variable | Hex | Usage |
-|----------|-----|-------|
-| `sage-darker` | #4A5240 | Primary text for better contrast |
-| `sage-dark` | #828C6A | Secondary text, icons |
-| `sage-light` | #A0AB89 | Header background, accommodation section, input borders |
-| `sage-lighter` | #C8D4B5 | Subtle backgrounds, hover accents |
-| `off-white` | #FFFAF9 | Input backgrounds, cards, form containers |
-| `blush-lighter` | #FBF0F1 | Subtle backgrounds, hover accents |
-| `blush-light` | #F6E5E7 | Page background |
-| `blush-medium` | #F5D5D2 | Guest sections background, button hover states |
-| `blush-dark` | #E69B97 | Primary buttons, focus rings, date overlay text |
-| `blush-darker` | #D4817C | Button hover accents, active states |
-| `error` | #C45B52 | Form errors, alerts |
+The blush and sage variables below are the wedding palette, defined in `app/globals.css`.
+The blush colors are wedding branding and belong only under `/wedding`; the personal
+root page uses the sage and off-white variables.
+
+| Variable        | Hex     | Usage                                                   |
+|-----------------|---------|---------------------------------------------------------|
+| `sage-darker`   | #4A5240 | Primary text for better contrast                        |
+| `sage-dark`     | #5D664C | Secondary text, icons                                   |
+| `sage-light`    | #A0AB89 | Header background, accommodation section, input borders |
+| `sage-lighter`  | #C8D4B5 | Subtle backgrounds, hover accents                       |
+| `off-white`     | #FFFAF9 | Input backgrounds, cards, form containers               |
+| `blush-lighter` | #FBF0F1 | Subtle backgrounds, hover accents                       |
+| `blush-light`   | #F6E5E7 | Page background                                         |
+| `blush-medium`  | #F5D5D2 | Guest sections background, button hover states          |
+| `blush-dark`    | #E69B97 | Primary buttons, focus rings, date overlay text         |
+| `blush-darker`  | #D4817C | Button hover accents, active states                     |
+| `blush-darkest` | #B86A65 | Submit button, active nav link                          |
+| `error`         | #C45B52 | Form errors, alerts                                     |
 
 **Always use these predefined color variables** instead of arbitrary color values.
 
@@ -71,9 +79,21 @@ Use the following CSS variables (defined in the project):
 - Use environment variables for sensitive data
 
 ## Code Organization
-- Server actions go in `app/actions/`
-- Client components go in `app/components/`
+
+- Wedding-only code is self-contained under `app/wedding/**`, with its components in `app/wedding/components/` and its
+  server action in `app/wedding/actions/`
+- `app/components/` is reserved for components genuinely shared between the two sections
+- Only `page.tsx` and `route.ts` create routes, so the `components/` and `actions/` folders under `app/wedding/` are not
+  routable
+- `app/layout.tsx` stays minimal (html/body, fonts, globals.css); wedding branding belongs in `app/wedding/layout.tsx`
 - Use Next.js App Router file conventions (page.tsx, layout.tsx, etc.)
+
+## Routing
+
+- Internal links in the wedding subsite must be absolute and start with `/wedding`
+- The nav active state uses exact `pathname ===` comparison, never `startsWith` — `startsWith("/wedding")` would mark
+  the first link active on every wedding page
+- The old bare paths (`/accommodation`, `/schedule`, `/presents`) are not redirected and return 404
 
 ## Scripts and Commands
 - **Development**: `npm run dev`
