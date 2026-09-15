@@ -11,13 +11,6 @@ interface Project {
 
 const projects: Project[] = [
 	{
-		title: "Wedding site",
-		year: "2026",
-		description:
-			"Invitation and RSVP site for our wedding, in Swedish. Next.js App Router, server actions, Neon Postgres and Resend.",
-		href: "/wedding",
-	},
-	{
 		title: "Android Poker Game",
 		year: "2011",
 		description: "A poker game for android phones meant to be played together with other people. Developed in Java using the android SDK.",
@@ -84,6 +77,92 @@ const projects: Project[] = [
 			}
 		]
 	},
+	{
+		title: "Debugging IntelliJ with nodemon",
+		description: "Video and written tutorial about how to debug a nodemon process from IntelliJ.",
+		year: "2021",
+		externalLinks: [
+			{displayName: "Youtube", href: "https://www.youtube.com/watch?v=0Ruix3BTuk8"},
+			{
+				displayName: "Medium",
+				href: "https://alecktos.medium.com/intellij-debugging-with-nodemon-4ebd121b18f1"
+			}
+		]
+	},
+	{
+		title: "Clean Code presentation",
+		description: "Youtube presentation about Clean Code.",
+		year: "2022",
+		externalLinks: [
+			{displayName: "Youtube", href: "https://www.youtube.com/watch?v=AFcLdxMI7rY"}
+		]
+	},
+	{
+		title: "Learning Swift",
+		description: "Projects for learning the Swift programming language.",
+		year: "2022",
+		externalLinks: [
+			{displayName: "MediaCDFileFormatter", href: "https://github.com/Alecktos/MediaCDFileFormatter"}
+		]
+	},
+	{
+		title: "Gym Watch - Apple Watch workout app",
+		description: "An early version of a workout app using Apple Watch as tracker. Developed using SwiftUI, SwiftData.",
+		year: "2023",
+		externalLinks: [
+			{
+				displayName: "App Store",
+				href: "https://apps.apple.com/se/app/gym-watch/id6462500989?platform=appleWatch"
+			}
+		]
+	},
+	{
+		title: "CdConcatenator",
+		description: "A Swift cli-application for merging videos having cd1, cd2 in the filename into a single video. Uses ffmpeg.",
+		year: "2023",
+		externalLinks: [
+			{displayName: "Github repo", href: "https://github.com/Alecktos/CdConcatenator"}
+		]
+	},
+	{
+		title: "Me-Mover updates",
+		description: "Small updates to me-mover, a small open sourced cli-application for moving movie and tv-show files.",
+		year: "2024",
+		externalLinks: [
+			{displayName: "Github repo", href: "https://github.com/Alecktos/me-mover"}
+		]
+	},
+	{
+		title: "AIP File Formatter",
+		description: "Application used by an industrial company to format files between different systems.",
+		year: "2025",
+		externalLinks: [
+			{displayName: "Github repo", href: "https://github.com/Alecktos/aip-fileformatter"}
+		]
+	},
+	{
+		title: "Learning Go with Ebitengine",
+		description: "Learning Go by building an iOS game using ebitengine.",
+		year: "2025",
+		externalLinks: [
+			{displayName: "Github repo", href: "https://github.com/Alecktos/clg"}
+		]
+	},
+	{
+		title: "Me-Mover updates",
+		description: "Updates to me-mover, a small open sourced cli-application for moving movie and tv-show files.",
+		year: "2025",
+		externalLinks: [
+			{displayName: "Github repo", href: "https://github.com/Alecktos/me-mover"}
+		]
+	},
+	{
+		title: "Wedding site",
+		year: "2026",
+		description:
+			"Invitation and RSVP site for our wedding, in Swedish. Next.js App Router, server actions, Neon Postgres and Resend.",
+		href: "/wedding",
+	},
 ];
 
 const GITHUB_URL = "https://github.com/Alecktos";
@@ -112,7 +191,7 @@ export default function Home() {
 						Projects
 					</h2>
 					<div className="grid grid-cols-1 gap-4">
-						{projects.map((project, index) => (
+						{projects.reverse().map((project, index) => (
 							<div key={index}
 							     className="block border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors">
 								<div className="flex items-baseline justify-between gap-4">
