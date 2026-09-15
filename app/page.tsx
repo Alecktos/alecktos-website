@@ -8,6 +8,7 @@ interface Project {
 	description: string;
 	href?: string;
 	externalLinks?: { href: string, displayName: string }[] | string[];
+	active?: boolean;
 }
 
 const projects: Project[] = [
@@ -30,10 +31,11 @@ const projects: Project[] = [
 		externalLinks: ["https://apkpure.com/arctic-adventure/com.ale.arcticadventure"],
 	},
 	{
-		title: "Me-Mover - Opensource CLI for moving movies and tv-show files",
-		year: "2018",
-		description: "A command line tool for moving and renaming movie and tv-show files. Written in Python.",
-		externalLinks: ["https://github.com/Alecktos/me-mover"]
+		title: "Me-Move",
+		year: "2018 -",
+		description: "An opensource command line tool for moving and renaming movie and tv-show files. Written in Python.",
+		externalLinks: ["https://github.com/Alecktos/me-mover"],
+		active: true
 	},
 	{
 		title: "Experimentation with automatic trading",
@@ -107,9 +109,10 @@ const projects: Project[] = [
 		]
 	},
 	{
-		title: "Gym Watch - Apple Watch workout app",
-		description: "An early version of a workout app using Apple Watch as tracker. Developed using SwiftUI, SwiftData.",
-		year: "2023",
+		title: "Gym Watch",
+		description: "Workout app using Apple Watch as tracker. Developed using SwiftUI, SwiftData.",
+		year: "2023 -",
+		active: true,
 		externalLinks: [
 			{
 				displayName: "App Store",
@@ -181,6 +184,7 @@ export default function Home() {
 								<div className={styles.projectHeader}>
 									<h3 className={styles.projectTitle}>
 										{project.title}
+										{project.active && <span className={styles.activeChip}>Active</span>}
 									</h3>
 									<span className={styles.projectYear}>
 										{project.year}

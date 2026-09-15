@@ -53,11 +53,15 @@
 }
 
 .projectTitle {
-	@apply text-xl font-semibold text-sage-darker;
+	@apply flex flex-wrap items-center gap-x-2 text-xl font-semibold text-sage-darker;
 }
 
 .projectYear {
 	@apply text-sm text-sage-dark shrink-0;
+}
+
+.activeChip {
+	@apply shrink-0 rounded-full bg-sage-lighter px-2 py-0.5 text-xs font-medium tracking-wide text-sage-darker;
 }
 
 .projectDescription {
