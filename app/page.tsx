@@ -22,7 +22,7 @@ const projects: Project[] = [
 		title: "Tåghjälpen",
 		year: "2013",
 		description: "Train scheduling app for helping commuters. Written in ActionScript.",
-		externalLinks: ["https://apkpure.com/texas-holdem-4-friends-free/com.TexasHoldemForFriends"],
+		externalLinks: ["https://apkpure.com/t%C3%A5ghj%C3%A4lpen/air.com.ale.taghjalpen"],
 	},
 	{
 		title: "Arctic Adventure",
