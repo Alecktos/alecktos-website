@@ -1,0 +1,85 @@
+@reference "./globals.css";
+
+.page {
+	@apply min-h-screen bg-off-white p-8;
+}
+
+.main {
+	@apply max-w-7xl mx-auto py-8;
+}
+
+.intro {
+	@apply flex flex-col sm:flex-row items-center gap-8;
+}
+
+.avatar {
+	@apply w-40 h-40 shrink-0 rounded-full bg-sage-lighter flex items-center justify-center;
+}
+
+.avatarInitials {
+	@apply text-4xl font-serif text-sage-darker;
+}
+
+.introText {
+	@apply text-center sm:text-left;
+}
+
+.name {
+	@apply text-4xl font-serif text-sage-darker;
+}
+
+.tagline {
+	@apply text-lg text-sage-dark mt-1;
+}
+
+.projects {
+	@apply mt-16;
+}
+
+.projectsHeading {
+	@apply text-2xl font-serif text-sage-darker mb-6;
+}
+
+.projectGrid {
+	@apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:auto-rows-fr;
+}
+
+.projectCard {
+	@apply flex flex-col h-full border border-sage-lighter rounded-lg p-6 hover:border-sage-light transition-colors;
+}
+
+.projectHeader {
+	@apply flex items-baseline justify-between gap-4;
+}
+
+.projectTitle {
+	@apply flex flex-wrap items-center gap-x-2 text-xl font-semibold text-sage-darker;
+}
+
+.projectYear {
+	@apply text-sm text-sage-dark shrink-0;
+}
+
+.activeChip {
+	@apply shrink-0 rounded-full bg-sage-lighter px-2 py-0.5 text-xs font-medium tracking-wide text-sage-darker;
+}
+
+.projectDescription {
+	@apply text-sage-dark mt-2;
+}
+
+.projectLinks {
+	@apply mt-auto pt-4 flex flex-wrap gap-x-4 gap-y-2;
+}
+
+.projectLink {
+	@apply text-sage-dark underline inline-flex items-center gap-1;
+}
+
+.socials {
+	@apply mt-16 flex gap-6 text-sage-dark;
+}
+
+.socialLink {
+	@apply underline hover:text-sage-darker;
+}
