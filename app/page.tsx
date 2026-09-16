@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ExternalLinkIcon from "@/app/components/ExternalLinkIcon";
 import styles from "./page.module.css";
@@ -153,16 +154,20 @@ const projects: Project[] = [
 	},
 ];
 
-const GITHUB_URL = "https://github.com/Alecktos";
-const LINKEDIN_URL = "https://www.linkedin.com/in/alexander-berlind-45253b70/";
-
 export default function Home() {
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
 				<section className={styles.intro}>
-					<div className={styles.avatar}>
-						<span className={styles.avatarInitials}>AB</span>
+					<div className={styles.avatarFrame}>
+						<Image
+							src="/profile.jpg"
+							alt="Alexander Berlind"
+							width={160}
+							height={160}
+							className={styles.avatar}
+							priority
+						/>
 					</div>
 					<div className={styles.introText}>
 						<h1 className={styles.name}>
@@ -171,7 +176,26 @@ export default function Home() {
 						<p className={styles.tagline}>
 							Developer, Product Owner, Tech lead
 						</p>
+						<div className={styles.socials}>
+							<a
+								href="https://github.com/Alecktos"
+								target="_blank"
+								rel="noopener noreferrer"
+								className={styles.socialLink}
+							>
+								GitHub
+							</a>
+							<a
+								href="https://www.linkedin.com/in/alexander-berlind-45253b70/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className={styles.socialLink}
+							>
+								LinkedIn
+							</a>
+						</div>
 					</div>
+
 				</section>
 
 				<section className={styles.projects}>
@@ -227,25 +251,6 @@ export default function Home() {
 							</div>
 						))}
 					</div>
-				</section>
-
-				<section className={styles.socials}>
-					<a
-						href={GITHUB_URL}
-						target="_blank"
-						rel="noopener noreferrer"
-						className={styles.socialLink}
-					>
-						GitHub
-					</a>
-					<a
-						href={LINKEDIN_URL}
-						target="_blank"
-						rel="noopener noreferrer"
-						className={styles.socialLink}
-					>
-						LinkedIn
-					</a>
 				</section>
 			</main>
 		</div>
