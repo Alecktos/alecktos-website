@@ -95,7 +95,7 @@
 }
 
 .socials {
-	@apply flex mt-2 gap-6 text-sage-dark;
+	@apply flex justify-center sm:justify-start mt-2 gap-6 text-sage-dark;
 }
 
 .socialLink {
