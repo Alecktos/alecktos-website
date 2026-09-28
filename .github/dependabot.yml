@@ -1,0 +1,22 @@
+version: 2
+updates:
+    -   package-ecosystem: "npm"
+        directory: "/"
+        schedule:
+            interval: "weekly"
+        open-pull-requests-limit: 3
+        groups:
+            next:
+                patterns:
+                    - "next"
+                    - "eslint-config-next"
+                    - "@next/*"
+            react:
+                patterns:
+                    - "react"
+                    - "react-dom"
+                    - "@types/react"
+                    - "@types/react-dom"
+            other:
+                patterns:
+                    - "*"
