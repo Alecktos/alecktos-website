@@ -74,26 +74,13 @@ export default function RegistrationForm() {
 
 	if (submitted) {
 		return (
-			<div className="w-full max-w-2xl mx-auto p-8 bg-blush-medium rounded-lg shadow-lg">
-				{canAttend ? (
-					<>
-						<h2 className="text-3xl font-serif text-sage-darker mb-4">
-							Tack för din anmälan! 💕
-						</h2>
-						<p className="text-lg text-sage-darker">
-							Vi har mottagit er anmälan och ser fram emot att fira med er!
-						</p>
-					</>
-				) : (
-					<>
-						<h2 className="text-3xl font-serif text-sage-darker mb-4">
-							Tack för ditt svar! 💕
-						</h2>
-						<p className="text-lg text-sage-darker">
-							Vad synd att ni inte kan komma.
-						</p>
-					</>
-				)}
+			<div className="w-full max-w-2xl mx-auto p-8 bg-blush-light rounded-lg shadow-lg text-center">
+				<h2 className="text-3xl font-serif text-sage-darker mb-4">
+					Anmälan är stängd
+				</h2>
+				<p className="text-lg text-sage-darker">
+					Bröllopet har redan ägt rum och det går inte längre att anmäla sig. Tack till alla som firade med oss! 💕
+				</p>
 			</div>
 		);
 	}
