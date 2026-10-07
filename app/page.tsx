@@ -1,10 +1,13 @@
+import {StoryblokStory} from "@storyblok/react/rsc";
 import Image from "next/image";
-import Link from "next/link";
-import ExternalLinkIcon from "@/app/components/ExternalLinkIcon";
-import {projects} from "@/app/data/projects";
+import {fetchHomeStory} from "@/app/storyblok/storyblok";
 import styles from "./page.module.css";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+	const homeStory = await fetchHomeStory();
+
 	return (
 		<div className={styles.page}>
 			<main className={styles.main}>
@@ -52,55 +55,7 @@ export default function Home() {
 					<h2 className={styles.projectsHeading}>
 						Projects
 					</h2>
-					<div className={styles.projectGrid}>
-						{[...projects].reverse().map((project, index) => (
-							<div key={index} className={styles.projectCard}>
-								<div className={styles.projectHeader}>
-									<h3 className={styles.projectTitle}>
-										{project.title}
-										{project.active && <span className={styles.activeChip}>Active</span>}
-									</h3>
-									<span className={styles.projectYear}>
-										{project.year}
-									</span>
-								</div>
-								<p className={styles.projectDescription}>{project.description}</p>
-								<div className={styles.projectLinks}>
-									{project.href &&
-										<Link href={project.href} className={styles.projectLink}>View Project</Link>}
-									{project.externalLinks?.map((externalLink, index) => {
-										if (typeof externalLink === "object") {
-											return (
-												<a
-													key={index}
-													href={externalLink.href}
-													target="_blank"
-													rel="noopener noreferrer"
-													className={styles.projectLink}
-												>
-													{externalLink.displayName}
-													<ExternalLinkIcon/>
-												</a>
-											);
-										}
-
-										return (
-											<a
-												key={index}
-												href={externalLink}
-												target="_blank"
-												rel="noopener noreferrer"
-												className={styles.projectLink}
-											>
-												Go To Project
-												<ExternalLinkIcon/>
-											</a>
-										);
-									})}
-								</div>
-							</div>
-						))}
-					</div>
+					<StoryblokStory story={homeStory}/>
 				</section>
 			</main>
 		</div>

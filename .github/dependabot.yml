@@ -20,3 +20,14 @@ updates:
             other:
                 patterns:
                     - "*"
+        ignore:
+            # typescript-eslint (via eslint-config-next) supports only typescript <6.1
+            -   dependency-name: "typescript"
+                versions: [ ">=6.1.0" ]
+            # eslint-plugin-react, -import and -jsx-a11y (via eslint-config-next) support only eslint 9
+            -   dependency-name: "eslint"
+                versions: [ ">=10.0.0" ]
+    -   package-ecosystem: "github-actions"
+        directory: "/"
+        schedule:
+            interval: "weekly"
