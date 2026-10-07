@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env.local)",
+      "Edit(./.env.local)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command' | grep -q '\\.env' && { echo 'Blocked: .env files are off-limits' >&2; exit 2; } || exit 0"
+          }
+        ]
+      }
+    ]
+  }
+}
