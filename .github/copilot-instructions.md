@@ -15,6 +15,7 @@ This is a Next.js 16 website built with React 19 and TypeScript in strict mode. 
 - **Database**: Neon (PostgreSQL via @neondatabase/serverless)
 - **Email**: Resend
 - **Validation**: Zod
+- **CMS**: Storyblok (`@storyblok/react/rsc`) for the projects list on `/`, blok components in `app/storyblok/`
 
 ## Code Style and Formatting
 
@@ -97,6 +98,7 @@ root page uses the sage and off-white variables.
 
 ## Scripts and Commands
 - **Development**: `npm run dev`
+- **Development with Storyblok Visual Editor**: `npm run dev:https`
 - **Build**: `npm run build`
 - **Production**: `npm start`
 - **Lint**: `npm run lint`

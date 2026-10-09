@@ -27,6 +27,24 @@ components.
 everything wedding-specific — nav, hero image, blush background, metadata and
 `lang="sv"` — lives in `app/wedding/layout.tsx`.
 
+## Storyblok
+
+The projects list on `/` comes from the Storyblok story `home` (EU region). The
+blok components live in `app/storyblok/`, registered in `app/storyblok/storyblok.ts`.
+
+| Block           | Type         | Fields                                                                                       |
+|-----------------|--------------|----------------------------------------------------------------------------------------------|
+| `home`          | Content type | `projects` (Blocks: `project`), newest first                                                 |
+| `project`       | Nestable     | `title`, `year`, `description`, `href`, `active`, `external_links` (Blocks: `external_link`) |
+| `external_link` | Nestable     | `url`, `display_name` (empty shows "Go To Project")                                          |
+
+`STORYBLOK_ACCESS_TOKEN` must be set: the preview token locally and on Vercel
+Preview (draft content), the public token on Vercel Production (published
+content). Published changes show up within 60 seconds.
+
+The Visual Editor needs https: run `npm run dev:https` and set the preview URL in
+Storyblok to `https://localhost:3000/`, with real path `/` on the `home` story.
+
 ## Domain knowledge
 - Declined guests will not be added as contacts in Resend.
 - `submitRegistration` currently returns a stubbed success and never reaches the
