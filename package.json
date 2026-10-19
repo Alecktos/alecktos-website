@@ -12,9 +12,15 @@
   "dependencies": {
 	  "@storyblok/react": "^7.3.1",
     "escape-html": "^1.0.3",
+<<<<<<< HEAD
 	  "next": "^16.4.2",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+=======
+	  "next": "^16.3.8",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+>>>>>>> origin/main
     "zod": "^4.6.7"
   },
   "devDependencies": {
